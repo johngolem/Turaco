@@ -5,7 +5,6 @@ class SmallText extends StatelessWidget {
   final String text;
   double size;
   double height;
-  TextOverflow overFlow;
   SmallText({
     Key? key,
     this.color = const Color(0xFF89dad0),
