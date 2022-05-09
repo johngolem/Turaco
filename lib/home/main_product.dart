@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:turac/home/product_page_body.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
@@ -27,8 +28,13 @@ class _MainProductPageState extends State<MainProductPage> {
                 children: [
                   Column(
                     children: [
-                      BigText(text: "Turaco", color: AppColors.mainColor), 
-                      SmallText(text: "Browse stores")
+                      BigText(text: "Turaco ", color: AppColors.mainColor), 
+                     Row(
+                       children: [
+                          SmallText(text: "Browse stores", color: Colors.black54,),
+                          Icon(Icons.arrow_drop_down_rounded)
+                       ],
+                     )
                       ],
                   ),
                   Container
@@ -45,6 +51,8 @@ class _MainProductPageState extends State<MainProductPage> {
               ),
             ),
           ),
+        // ignore: prefer_const_constructors
+        ProductPageBody(),
         ],
       ),
     );
