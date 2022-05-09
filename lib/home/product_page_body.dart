@@ -28,8 +28,9 @@ class _ProductPageBodyState extends State<ProductPageBody> {
       borderRadius:BorderRadius.circular(35),
       color: index.isEven? Color(0xFF69C5df):Color(0xff9294cc),
       image: DecorationImage(
+      fit: BoxFit.cover,
         image:AssetImage(
-          "assets/image/comp.jpg")
+          "assets/image/nike.jpeg")
         )
        ),
     );
