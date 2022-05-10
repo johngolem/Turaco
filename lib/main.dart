@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turac/home/main_product.dart';
 import 'package:get/get.dart';
+import 'package:turac/pages/product/popular_product.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // ignore: prefer_const_constructors
-      home: MainProductPage(),
+      // home: MainProductPage(),
+      home:PopularProductDetail()
     );
   }
 }

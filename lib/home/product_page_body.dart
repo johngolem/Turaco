@@ -98,7 +98,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
         
         //List of popular shops by category
        Container(
-         height: 700,
+         height: 900,
          child:  ListView.builder(
            physics: NeverScrollableScrollPhysics(),
           //  shrinkWrap: true,
@@ -144,7 +144,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                            BigText(text: "Shop 11111111111111111111"),
+                            BigText(text: "Naipenda Tanzania -SLIPWAY"),
                             SizedBox(height: Dimensions.height10,),
                             SmallText(text: "Category: IT/electronics"),
                             SizedBox(height: Dimensions.height10,),
