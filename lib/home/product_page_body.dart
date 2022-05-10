@@ -102,7 +102,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             height:Dimensions.pageViewContainer,
             margin: EdgeInsets.only(left: 10, right: 10),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(35),
+                borderRadius: BorderRadius.circular(Dimensions.radius30),
                 color: index.isEven ? Color(0xFF69C5df) : Color(0xff9294cc),
                 image: DecorationImage(
                     fit: BoxFit.cover,
@@ -114,7 +114,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
               height: Dimensions.pageViewTextContainer,
               margin: EdgeInsets.only(left: Dimensions.height25, right: Dimensions.height25, bottom: Dimensions.height25),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: Colors.white,
                 // ignore: prefer_const_literals_to_create_immutables
                 boxShadow: [
