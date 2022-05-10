@@ -312,7 +312,8 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                         ],
                       ),
                     ],
-                  )),
+                  )
+                  ),
             ),
           ),
         ],

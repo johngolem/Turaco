@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turac/home/main_product.dart';
 import 'package:get/get.dart';
-import 'package:turac/pages/product/popular_product.dart';
+import 'package:turac/pages/product/popular_product_detail.dart';
 
 void main() {
   runApp(const MyApp());
