@@ -154,15 +154,15 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                                         size: 15,
                                       ))),
                           SizedBox(
-                            width:  Dimensions.height10,
+                            width:  Dimensions.width10,
                           ),
                           SmallText(text: "4.5"),
                           SizedBox(
-                            width:  Dimensions.height10,
+                            width:  Dimensions.width10,
                           ),
                           SmallText(text: "1287"),
                           SizedBox(
-                            width: Dimensions.height10,
+                            width: Dimensions.width10,
                           ),
                           SmallText(text: "comments"),
                         ],
