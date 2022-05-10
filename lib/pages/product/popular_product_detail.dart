@@ -49,17 +49,17 @@ class PopularProductDetail extends StatelessWidget {
           Positioned(
             left: 0,
             right: 0,
-            top: Dimensions.popProductImgSize,
+            top: Dimensions.popProductImgSize-20,
             child: Container(
               padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, top: Dimensions.height20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimensions.radius20),
-                  color: Colors.white10,
+                  color: Color.fromARGB(95, 211, 193, 193),
                 ),
                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BigText(text: "Milimani City Shopping Mall"),
+                      BigText(text: "Naipenda Tanzania -SLIPWAY"),
                       SizedBox(
                         height: Dimensions.height10,
                       ),
