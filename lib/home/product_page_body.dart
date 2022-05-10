@@ -100,8 +100,8 @@ class _ProductPageBodyState extends State<ProductPageBody> {
        Container(
          height: 700,
          child:  ListView.builder(
-           physics: AlwaysScrollableScrollPhysics(),
-           shrinkWrap: true,
+           physics: NeverScrollableScrollPhysics(),
+          //  shrinkWrap: true,
             itemCount: 10,
             itemBuilder: (context, index) {
               return Container(
