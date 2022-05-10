@@ -104,7 +104,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                 color: index.isEven ? Color(0xFF69C5df) : Color(0xff9294cc),
                 image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage("assets/image/nike.jpeg"))),
+                    image: AssetImage("assets/image/milimani.jpeg"))),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -137,7 +137,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BigText(text: "Kicks Tanzania"),
+                      BigText(text: "Milimani City Shopping Mall"),
                       SizedBox(
                         height: 10,
                       ),
