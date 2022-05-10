@@ -45,7 +45,7 @@ class _MainProductPageState extends State<MainProductPage> {
                     child: Icon(Icons.search, color: Colors.white),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.blue,
+                      color: AppColors.mainColor,
                     ),
                   )
                 ], 
@@ -54,7 +54,6 @@ class _MainProductPageState extends State<MainProductPage> {
           ),
         // ignore: prefer_const_constructors
         //showing the body
-        // ignore: prefer_const_constructors
         ProductPageBody(),
         ],
       ),
