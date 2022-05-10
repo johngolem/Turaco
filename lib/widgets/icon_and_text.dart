@@ -18,7 +18,7 @@ class IconAndTextWidget extends StatelessWidget {
         Icon(icon, color: iconColor,),
         SmallText(text: text,),
         // ignore: prefer_const_constructors
-        SizedBox(width: 20,),
+        // SizedBox(width: 20,),
       
       ],
     );

@@ -16,6 +16,7 @@ class MainProductPage extends StatefulWidget {
 class _MainProductPageState extends State<MainProductPage> {
   @override
   Widget build(BuildContext context) {
+    // print("current height is"+MediaQuery.of(context).size.height.toString());
     return Scaffold(
       body: Column(
         children: [

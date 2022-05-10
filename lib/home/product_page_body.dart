@@ -3,6 +3,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:turac/utils/colors.dart';
+import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/icon_and_text.dart';
 import 'package:turac/widgets/small_text.dart';
@@ -20,7 +21,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
   // ignore: prefer_final_fields
   double _scaleFactor = 0.8;
   // ignore: prefer_final_fields
-  double _height = 220;
+  double _height =Dimensions.pageViewContainer ;
 
   @override
   void initState() {
@@ -98,7 +99,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
       child: Stack(
         children: [
           Container(
-            height: 220,
+            height:Dimensions.pageViewContainer,
             margin: EdgeInsets.only(left: 10, right: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(35),
@@ -110,7 +111,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 120,
+              height: Dimensions.pageViewTextContainer,
               margin: EdgeInsets.only(left: 25, right: 25, bottom: 25),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -170,6 +171,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                         height: 20,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconAndTextWidget(
                               icon: Icons.circle_sharp,
