@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unnecessary_new
 
 import 'package:flutter/material.dart';
 import 'package:turac/utils/colors.dart';
@@ -18,6 +18,8 @@ class _ProductPageBodyState extends State<ProductPageBody> {
   var _currentPageValue = 0.0;
   // ignore: prefer_final_fields
   double _scaleFactor = 0.8;
+  // ignore: prefer_final_fields
+  double _height = 220;
 
   @override
   void initState() {
@@ -53,10 +55,27 @@ class _ProductPageBodyState extends State<ProductPageBody> {
     if (index == _currentPageValue.floor()) {
       // ignore: unused_local_variable
       var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor);
-      matrix = Matrix4.diagonal3Values(1, currScale, 1);
+      var currTrans = _height * (1 - currScale) / 2;
+
+      matrix = Matrix4.diagonal3Values(1, currScale, 1)
+        ..setTranslationRaw(0, currTrans, 0);
     } else if (index == _currentPageValue.floor() + 1) {
       var currScale =
           _scaleFactor + (_currentPageValue - index + 1) * (1 - _scaleFactor);
+      var currTrans = _height * (1 - currScale) / 2;
+
+      matrix = Matrix4.diagonal3Values(1, currScale, 1);
+      matrix = Matrix4.diagonal3Values(1, currScale, 1)
+        ..setTranslationRaw(0, currTrans, 0);
+    } else if (index == _currentPageValue.floor() - 1) {
+      var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor);
+      matrix = Matrix4.diagonal3Values(1, currScale, 1);
+      matrix = Matrix4.diagonal3Values(1, currScale, 1)
+        ..setTranslationRaw(0, currTrans, 0);
+    } else {
+      var currScale = 0.8;
+      matrix = Matrix4.diagonal3Values(1, currScale, 1)
+        ..setTranslationRaw(0, _height * (1 - _scaleFactor) / 2, 1);
     }
 
     return Transform(
@@ -79,8 +98,16 @@ class _ProductPageBodyState extends State<ProductPageBody> {
               height: 120,
               margin: EdgeInsets.only(left: 25, right: 25, bottom: 25),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(35),
+                borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xffe8e8e8),
+                    // blurRadius: 5.0,
+                    offset: Offset(0, 5)
+                  )
+                ]
+
               ),
               child: Container(
                   padding: EdgeInsets.only(top: 15, left: 15, right: 15),
@@ -137,6 +164,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                     ],
                   )),
             ),
+            
           ),
         ],
       ),
