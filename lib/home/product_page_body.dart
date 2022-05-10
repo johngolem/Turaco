@@ -111,8 +111,8 @@ class _ProductPageBodyState extends State<ProductPageBody> {
 
                     //image section 
                     Container(
-                      width: 120,
-                      height: 120,
+                      width: Dimensions.listViewImgSize,
+                      height: Dimensions.listViewImgSize,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(Dimensions.radius20),
                         color: Colors.white38,
@@ -146,7 +146,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                             children: [
                             BigText(text: "Shop 11111111111111111111"),
                             SizedBox(height: Dimensions.height10,),
-                            SmallText(text: "Category IT"),
+                            SmallText(text: "Category: IT/electronics"),
                             SizedBox(height: Dimensions.height10,),
                              Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

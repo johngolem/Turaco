@@ -23,10 +23,19 @@ static double width15 = screenHeight / 56.27;
 static double width25 = screenHeight / 33.76;
 static double width30 = screenHeight / 28.13;
 
-  static double radius20 = screenHeight / 42.2;
-  static double radius30 = screenHeight / 28.13;
+
+//radius
+static double radius20 = screenHeight / 42.2;
+static double radius30 = screenHeight / 28.13;
 
 
+//font size
+static double font20 = screenHeight / 42.2;
 
-  static double font20 = screenHeight / 42.2;
+//iconsize
+static double iconsize24 = screenHeight / 35.17;
+
+//listview
+static double listViewImgSize = screenWidth / 3.25;
+static double listViewTxtContsize = screenWidth / 3.9;
 }
