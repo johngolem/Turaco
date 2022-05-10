@@ -19,6 +19,7 @@ class _MainProductPageState extends State<MainProductPage> {
     return Scaffold(
       body: Column(
         children: [
+          //showing the header
           Container(
             child: Container(
               margin: EdgeInsets.only(top:45, bottom: 15),
@@ -51,6 +52,8 @@ class _MainProductPageState extends State<MainProductPage> {
               ),
             ),
           ),
+        // ignore: prefer_const_constructors
+        //showing the body
         // ignore: prefer_const_constructors
         ProductPageBody(),
         ],
