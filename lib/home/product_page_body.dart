@@ -43,6 +43,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //slider section of the build
         Container(
       height: Dimensions.pageView,
       child: PageView.builder(
@@ -52,6 +53,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             return _buildPageItem(position);
           }),
     ),
+    // dot section of the build
     new DotsIndicator(
   dotsCount: 5,
   position: _currentPageValue,
@@ -61,7 +63,16 @@ class _ProductPageBodyState extends State<ProductPageBody> {
     activeSize: const Size(18.0, 9.0),
     activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
   ),
-),
+), 
+
+   //Popular section/text
+   SizedBox(height: Dimensions.height30,),
+   Container(
+     margin: EdgeInsets.only(left: Dimensions.width30),
+     child: Row(children: [
+       BigText(text: "Popular Shops")
+     ],)
+     ),
       ],
     );
   }
@@ -112,7 +123,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: Dimensions.pageViewTextContainer,
-              margin: EdgeInsets.only(left: Dimensions.height25, right: Dimensions.height25, bottom: Dimensions.height25),
+              margin: EdgeInsets.only(left: Dimensions.width25, right: Dimensions.width25, bottom: Dimensions.width25),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: Colors.white,
