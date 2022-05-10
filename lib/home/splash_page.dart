@@ -1,11 +1,8 @@
-class  extends StatefulWidget {
-  const ({ Key? key }) : super(key: key);
+import 'package:flutter/material.dart';
 
-  @override
-  State<> createState() => _State();
-}
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({ Key? key }) : super(key: key);
 
-class _State extends State<> {
   @override
   Widget build(BuildContext context) {
     return Container(

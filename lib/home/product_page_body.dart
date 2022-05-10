@@ -15,6 +15,26 @@ class ProductPageBody extends StatefulWidget {
 
 class _ProductPageBodyState extends State<ProductPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
+  var _currentPageValue = 0.0;
+  // ignore: prefer_final_fields
+  double _scaleFactor = 0.8;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController.addListener(() {
+      setState(() {
+        _currentPageValue = pageController.page!;
+        // print("Current value is " + _currentPageValue.toString());
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,21 +49,33 @@ class _ProductPageBodyState extends State<ProductPageBody> {
   }
 
   Widget _buildPageItem(int index) {
-    return Stack(
-      children: [
-        Container(
-          height: 220,
-          margin: EdgeInsets.only(left: 10, right: 10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(35),
-              color: index.isEven ? Color(0xFF69C5df) : Color(0xff9294cc),
-              image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage("assets/image/nike.jpeg"))),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
+    Matrix4 matrix = new Matrix4.identity();
+    if (index == _currentPageValue.floor()) {
+      // ignore: unused_local_variable
+      var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor);
+      matrix = Matrix4.diagonal3Values(1, currScale, 1);
+    } else if (index == _currentPageValue.floor() + 1) {
+      var currScale =
+          _scaleFactor + (_currentPageValue - index + 1) * (1 - _scaleFactor);
+    }
+
+    return Transform(
+      transform: matrix,
+      child: Stack(
+        children: [
+          Container(
+            height: 220,
+            margin: EdgeInsets.only(left: 10, right: 10),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(35),
+                color: index.isEven ? Color(0xFF69C5df) : Color(0xff9294cc),
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/image/nike.jpeg"))),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
               height: 120,
               margin: EdgeInsets.only(left: 25, right: 25, bottom: 25),
               decoration: BoxDecoration(
@@ -51,43 +83,63 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                 color: Colors.white,
               ),
               child: Container(
-                padding: EdgeInsets.only(top: 15,left: 15,right: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                  BigText(text: "Kicks Tanzania"),
-                  SizedBox(height:10,),
-                  Row(
+                  padding: EdgeInsets.only(top: 15, left: 15, right: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                    Wrap(
-                      children: List.generate(5, (index) => Icon(Icons.star, color: AppColors.mainColor, size:15,))
-                    ),
-                  SizedBox(width: 10,),
-                  SmallText(text: "4.5"),
-                  SizedBox(width: 10,),
-                  SmallText(text: "1287"),
-                  SizedBox(width: 10,),
-                  SmallText(text: "comments"),
-                  
-                  
+                      BigText(text: "Kicks Tanzania"),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Wrap(
+                              children: List.generate(
+                                  5,
+                                  (index) => Icon(
+                                        Icons.star,
+                                        color: AppColors.mainColor,
+                                        size: 15,
+                                      ))),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          SmallText(text: "4.5"),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          SmallText(text: "1287"),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          SmallText(text: "comments"),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          IconAndTextWidget(
+                              icon: Icons.circle_sharp,
+                              text: "Normal",
+                              iconColor: AppColors.iconColor1),
+                          IconAndTextWidget(
+                              icon: Icons.location_on,
+                              text: "1.7km",
+                              iconColor: AppColors.mainColor),
+                          IconAndTextWidget(
+                              icon: Icons.access_time_filled_rounded,
+                              text: "32min",
+                              iconColor: AppColors.iconColor2),
+                        ],
+                      ),
                     ],
-                  ),
-                  SizedBox(height:20,),
-                  Row(
-                    children: [
-                      IconAndTextWidget(icon: Icons.circle_sharp, 
-                      text: "Normal", 
-                      iconColor: AppColors.iconColor1),
-                      IconAndTextWidget(icon: Icons.location_on, text: "1.7km", iconColor: AppColors.mainColor),
-                      IconAndTextWidget(icon: Icons.access_time_filled_rounded, text: "32min", iconColor: AppColors.iconColor2),
-                    ],
-                  ),
-                  ],
-                  )
-                ),
-              ),
-              ),
-      ],
+                  )),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
