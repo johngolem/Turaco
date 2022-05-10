@@ -55,7 +55,9 @@ class _MainProductPageState extends State<MainProductPage> {
           ),
         // ignore: prefer_const_constructors
         //showing the body
-        ProductPageBody(),
+          Expanded(child: SingleChildScrollView(
+            child: ProductPageBody(),
+        )),
         ],
       ),
     );
