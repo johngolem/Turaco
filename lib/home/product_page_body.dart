@@ -105,9 +105,11 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             itemCount: 10,
             itemBuilder: (context, index) {
               return Container(
-                margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
+                margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.height15),
                 child: Row(
                   children: [
+
+                    //image section 
                     Container(
                       width: 120,
                       height: 120,
@@ -115,12 +117,66 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                         borderRadius: BorderRadius.circular(Dimensions.radius20),
                         color: Colors.white38,
                         image: DecorationImage(
+                          fit: BoxFit.cover,
                           image: AssetImage(
                             "assets/image/comp.jpg"
                           )
                         )
                       ),
-                    )
+                    ),
+                  
+                  //text container
+                  Expanded(
+                    child: Container(
+                      height: 100,
+                      // width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius:BorderRadius.only(
+                          topRight:Radius.circular(Dimensions.radius20),
+                          bottomRight: Radius.circular(Dimensions.radius20),
+                        ),
+                        color: Colors.white10,
+                  
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
+                          child:Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                            BigText(text: "Shop 11111111111111111111"),
+                            SizedBox(height: Dimensions.height10,),
+                            SmallText(text: "Category IT"),
+                            SizedBox(height: Dimensions.height10,),
+                             Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconAndTextWidget(
+                              icon: Icons.circle_sharp,
+                              text: "Normal",
+                              iconColor: AppColors.iconColor1),
+                          IconAndTextWidget(
+                              icon: Icons.location_on,
+                              text: "1.7km",
+                              iconColor: AppColors.mainColor),
+                          IconAndTextWidget(
+                              icon: Icons.access_time_filled_rounded,
+                              text: "32min",
+                              iconColor: AppColors.iconColor2),
+                        ],
+                      ),
+
+                          
+                  ],)
+                        
+                        ),
+                       
+                    ),
+                     
+
+                      
+
+                  )
                   ],
                 ),
               );
