@@ -44,7 +44,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
     return Column(
       children: [
         Container(
-      height: 320,
+      height: Dimensions.pageView,
       child: PageView.builder(
           controller: pageController,
           itemCount: 5,
@@ -112,7 +112,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: Dimensions.pageViewTextContainer,
-              margin: EdgeInsets.only(left: 25, right: 25, bottom: 25),
+              margin: EdgeInsets.only(left: Dimensions.height25, right: Dimensions.height25, bottom: Dimensions.height25),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
@@ -135,13 +135,13 @@ class _ProductPageBodyState extends State<ProductPageBody> {
 
               ),
               child: Container(
-                  padding: EdgeInsets.only(top: 15, left: 15, right: 15),
+                  padding: EdgeInsets.only(top: Dimensions.height15, left: Dimensions.height15, right: Dimensions.height15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BigText(text: "Milimani City Shopping Mall"),
                       SizedBox(
-                        height: 10,
+                        height: Dimensions.height10,
                       ),
                       Row(
                         children: [
@@ -154,21 +154,21 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                                         size: 15,
                                       ))),
                           SizedBox(
-                            width: 10,
+                            width:  Dimensions.height10,
                           ),
                           SmallText(text: "4.5"),
                           SizedBox(
-                            width: 10,
+                            width:  Dimensions.height10,
                           ),
                           SmallText(text: "1287"),
                           SizedBox(
-                            width: 10,
+                            width: Dimensions.height10,
                           ),
                           SmallText(text: "comments"),
                         ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: Dimensions.height20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

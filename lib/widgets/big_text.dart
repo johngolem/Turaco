@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:turac/utils/dimensions.dart';
 
 // ignore: must_be_immutable
 class BigText extends StatelessWidget {
@@ -16,7 +17,7 @@ class BigText extends StatelessWidget {
       style: TextStyle(
         fontFamily: 'Roboto',
         color: color,
-        fontSize: size,
+        fontSize: Dimensions.font20,
         fontWeight: FontWeight.w400
       ),
     );
