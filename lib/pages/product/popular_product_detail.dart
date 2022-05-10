@@ -49,12 +49,17 @@ class PopularProductDetail extends StatelessWidget {
           Positioned(
             left: 0,
             right: 0,
+            bottom: 0,
             top: Dimensions.popProductImgSize-20,
             child: Container(
               padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, top: Dimensions.height20),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius20),
-                  color: Color.fromARGB(95, 211, 193, 193),
+                  borderRadius: BorderRadius.only(
+                    topRight:Radius.circular(Dimensions.radius20),
+                    topLeft: Radius.circular(Dimensions.radius20),
+
+                    ),
+                  color: Color.fromARGB(255, 206, 225, 206),
                 ),
                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
