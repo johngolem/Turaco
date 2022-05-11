@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/big_text.dart';
+import 'package:turac/widgets/small_text.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -35,14 +36,15 @@ class LoginPage extends StatelessWidget {
                 BigText(text: "Turaco",color: AppColors.mainColor, size: Dimensions.font45,),
                 SizedBox(height: Dimensions.height25,),
                 Container(
-            height: Dimensions.pageViewLogo,
-            margin: EdgeInsets.only(left: 10, right: 10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius30),
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage("assets/image/logo.png"))),
+                  height: Dimensions.pageViewLogo,
+                  margin: EdgeInsets.only(left: 10, right: 10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimensions.radius30),
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/image/logo.png"))),
           ),
+          SmallText(text: "Start Selling And Buying Online with Turaco", size: Dimensions.font16, color: Colors.black,)
 
 
               ]
