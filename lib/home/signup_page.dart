@@ -1,7 +1,8 @@
 
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:turac/widgets/big_text.dart';
 
 class SignupPage extends StatelessWidget {
   @override
@@ -9,6 +10,8 @@ class SignupPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       // resizeToAvoidBottomPadding: false,
+
+      //page background color
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -18,6 +21,8 @@ class SignupPage extends StatelessWidget {
         IconButton( onPressed: (){
           Navigator.pop(context);
         },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
+        
+
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -32,16 +37,27 @@ class SignupPage extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text ("Sign up", style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                              BigText(text: "Turaco"),
+                        // // Text ("Sign up", style: TextStyle(
+                        // //   fontSize: 30,
+                        // //   fontWeight: FontWeight.bold,
+                        // ),),
                         SizedBox(height: 20,),
                         Text("Create an Account,Its free",style: TextStyle(
                           fontSize: 15,
                           color: Colors.grey[700],
                         ),),
                         SizedBox(height: 30,)
+                          ],
+                        ),
+                        Text ("Sign up", style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          ),),
+                      
                       ],
                     ),
                     Padding(
