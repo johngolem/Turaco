@@ -33,8 +33,10 @@ static double radius20 = screenHeight / 42.2;
 static double radius30 = screenHeight / 28.13;
 
 
-//font size
+//font size 844
 static double font20 = screenHeight / 42.2;
+static double font12 = screenHeight / 70.33;
+static double font16 = screenHeight / 52.75;
 
 //iconsize
 static double iconsize24 = screenHeight / 35.17;

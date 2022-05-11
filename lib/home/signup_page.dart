@@ -2,7 +2,9 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/big_text.dart';
+import 'package:turac/widgets/small_text.dart';
 
 class SignupPage extends StatelessWidget {
   @override
@@ -45,14 +47,12 @@ class SignupPage extends StatelessWidget {
                         // //   fontSize: 30,
                         // //   fontWeight: FontWeight.bold,
                         // ),),
-                        SizedBox(height: 20,),
-                        Text("Create an Account,Its free",style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.grey[700],
-                        ),),
-                        SizedBox(height: 30,)
+                        SizedBox(height: Dimensions.height20,),
+                        SmallText(text: "Create an Account,Its free", size: Dimensions.font16,),
+                        SizedBox(height: Dimensions.height30,)
                           ],
                         ),
+                        SizedBox(height: Dimensions.height15,),
                         Text ("Sign up", style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -67,8 +67,15 @@ class SignupPage extends StatelessWidget {
                       child: Column(
                         children: [
                           makeInput(label: "Email"),
+                          makeInput(label: "Phone Number"),
                           makeInput(label: "Password",obsureText: true),
-                          makeInput(label: "Confirm Pasword",obsureText: true)
+                          makeInput(label: "Confirm Pasword",obsureText: true),
+                          SizedBox(height: Dimensions.height10,),
+                          SmallText(text: "By registering to TURACO, you agree to the terms and policies"),
+                          SizedBox(height: Dimensions.height10,),
+
+
+
                         ],
                       ),
                     ),

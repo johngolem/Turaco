@@ -11,14 +11,14 @@ class SmallText extends StatelessWidget {
     this.color = const Color(0xFF332d2b),
     required this.text,
     this.size = 12,
-    this.height=1.2,
+    this.height=1.6,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      maxLines: 1,
+      maxLines: 2,
       style: TextStyle(
         fontFamily: 'Roboto',
         color: color,
