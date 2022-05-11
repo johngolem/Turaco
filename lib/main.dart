@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:turac/home/login.dart';
 import 'package:turac/home/main_product.dart';
 import 'package:get/get.dart';
+import 'package:turac/home/signup_page.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
 
 void main() {
@@ -21,7 +23,9 @@ class MyApp extends StatelessWidget {
       ),
       // ignore: prefer_const_constructors
       // home: MainProductPage(),
-      home:PopularProductDetail(),
+      // home:PopularProductDetail(),
+      // home:LoginPage(),
+      home:SignupPage(),
     );
   }
 }
