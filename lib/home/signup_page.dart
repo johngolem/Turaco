@@ -2,6 +2,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
@@ -42,7 +43,7 @@ class SignupPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                              BigText(text: "Turaco"),
+                                BigText(text: "Turaco",color: AppColors.mainColor),
                         // // Text ("Sign up", style: TextStyle(
                         // //   fontSize: 30,
                         // //   fontWeight: FontWeight.bold,
@@ -96,7 +97,7 @@ class SignupPage extends StatelessWidget {
                           minWidth: double.infinity,
                           height:60,
                           onPressed: (){},
-                          color: Colors.redAccent,
+                          color: AppColors.mainColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(40)
                           ),

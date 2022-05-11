@@ -2,6 +2,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:turac/utils/colors.dart';
+import 'package:turac/utils/dimensions.dart';
+import 'package:turac/widgets/big_text.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -24,6 +27,13 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            Container(
+              margin: EdgeInsets.only(top:45, bottom: 15),
+              padding: EdgeInsets.only(left:20, right:20),
+            child:
+              BigText(text: "Turaco",color: AppColors.mainColor, size: Dimensions.font45,),
+            ),
+            
             Column(
               children: [
                 Column(
