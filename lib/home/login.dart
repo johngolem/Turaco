@@ -30,9 +30,28 @@ class LoginPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(top:45, bottom: 15),
               padding: EdgeInsets.only(left:20, right:20),
-            child:
-              BigText(text: "Turaco",color: AppColors.mainColor, size: Dimensions.font45,),
+            child:Column(
+              children:[
+                BigText(text: "Turaco",color: AppColors.mainColor, size: Dimensions.font45,),
+                SizedBox(height: Dimensions.height25,),
+                Container(
+            height: Dimensions.pageViewLogo,
+            margin: EdgeInsets.only(left: 10, right: 10),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Dimensions.radius30),
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/image/logo.png"))),
+          ),
+
+
+              ]
+            )
+            
+             
+              
             ),
+
             
             Column(
               children: [
@@ -78,7 +97,7 @@ class LoginPage extends StatelessWidget {
                       minWidth: double.infinity,
                       height:60,
                       onPressed: (){},
-                      color: Colors.indigoAccent[400],
+                      color:AppColors.mainColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)
                       ),

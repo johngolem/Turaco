@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
       // ignore: prefer_const_constructors
       // home: MainProductPage(),
       // home:PopularProductDetail(),
-      // home:LoginPage(),
-      home:SignupPage(),
+      home:LoginPage(),
+      // home:SignupPage(),
     );
   }
 }
