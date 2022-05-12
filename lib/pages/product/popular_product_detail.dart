@@ -11,6 +11,8 @@ import '../../widgets/small_text.dart';
 class PopularProductDetail extends StatelessWidget {
   const PopularProductDetail({ Key? key }) : super(key: key);
 
+ 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,9 +65,28 @@ class PopularProductDetail extends StatelessWidget {
                   color: Color.fromARGB(255, 198, 198, 198),
                 ),
                  // ignore: prefer_const_constructors
-                 child:AppColumn(text:"Milimani City", rating: "4.3",),
-                 ))
+                 child:Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                   AppColumn(text:"Milimani City", rating: "4.3",),
+                   SizedBox(height: Dimensions.height20,),
+                   BigText(text: "Introduction")
+
+                 ],)
+                 )
+                 ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 120,
+        padding: EdgeInsets.only(top: Dimensions.height30, bottom: Dimensions.height30,left: Dimensions.width20,right: Dimensions.width20),
+        decoration: BoxDecoration(
+          color: AppColors.buttonBackgroundColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(Dimensions.radius20*2),
+            topRight: Radius.circular(Dimensions.radius20*2)
+          )
+        ),
       ),
       
     );
