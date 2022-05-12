@@ -43,6 +43,7 @@ class SignupPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            SizedBox(width: Dimensions.width10,),
                                 BigText(text: "Turaco",color: AppColors.mainColor),
                         // // Text ("Sign up", style: TextStyle(
                         // //   fontSize: 30,
