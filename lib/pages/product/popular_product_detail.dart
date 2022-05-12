@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/appIcon.dart';
 import 'package:turac/widgets/app_column.dart';
+import 'package:turac/widgets/paragraph_text.dart';
 
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
@@ -71,7 +72,11 @@ class PopularProductDetail extends StatelessWidget {
                    children: [
                    AppColumn(text:"Milimani City", rating: "4.3",),
                    SizedBox(height: Dimensions.height20,),
-                   BigText(text: "Introduction")
+                   BigText(text: "Introduction"),
+                   SizedBox(height: Dimensions.height20,),
+                   ParagraphText(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tellus at odio sodales iaculis et ac tortor. Donec nec lorem eros. Nullam vehicula ac felis pharetra porttitor. Vivamus eu mauris blandit, varius tortor at, venenatis libero. Nullam volutpat eleifend dapibus. Ut fermentum purus vitae ultricies faucibus. Nam id elit et augue congue gravida ac a enim. Proin imperdiet, nulla dignissim accumsan fringilla, nibh purus mattis massa, eu ullamcorper ligula leo ut justo. Donec consectetur felis in sem pellentesque, quis vulputate massa mollis. Mauris in nisl eu magna luctus gravida quis non erat. Quisque eget luctus urna, vitae blandit eros. Ut gravida quam nulla, non eleifend dui ullamcorper quis. Phasellus tempus volutpat venenatis. Aliquam varius elit vitae augue condimentum rhoncus. Sed posuere elit leo, ut vestibulum tortor ullamcorper sed. Quisque porta ex eros, at auctor ligula volutpat eu.")
+
+
 
                  ],)
                  )
