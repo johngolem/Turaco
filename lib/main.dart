@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // ignore: prefer_const_constructors
-      home: MainProductPage(),
+      // home: MainProductPage(),
       // home:PopularProductDetail(),
-      // home:LoginPage(),
+      home:LoginPage(),
       // home:SignupPage(),
     );
   }
