@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/appIcon.dart';
+import 'package:turac/widgets/app_column.dart';
 
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
@@ -50,7 +51,7 @@ class PopularProductDetail extends StatelessWidget {
             left: 0,
             right: 0,
             bottom: 0,
-            top: Dimensions.popProductImgSize-20,
+            top: Dimensions.popProductImgSize-25,
             child: Container(
               padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, top: Dimensions.height20),
                 decoration: BoxDecoration(
@@ -59,62 +60,11 @@ class PopularProductDetail extends StatelessWidget {
                     topLeft: Radius.circular(Dimensions.radius20),
 
                     ),
-                  color: Color.fromARGB(255, 206, 225, 206),
+                  color: Color.fromARGB(255, 198, 198, 198),
                 ),
-                 child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      BigText(text: "Naipenda Tanzania -SLIPWAY"),
-                      SizedBox(
-                        height: Dimensions.height10,
-                      ),
-                      Row(
-                        children: [
-                          Wrap(
-                              children: List.generate(
-                                  5,
-                                  (index) => Icon(
-                                        Icons.star,
-                                        color: AppColors.mainColor,
-                                        size: 15,
-                                      ))),
-                          SizedBox(
-                            width: Dimensions.width10,
-                          ),
-                          SmallText(text: "4.5"),
-                          SizedBox(
-                            width: Dimensions.width10,
-                          ),
-                          SmallText(text: "1287"),
-                          SizedBox(
-                            width: Dimensions.width10,
-                          ),
-                          SmallText(text: "comments"),
-                        ],
-                      ),
-                      SizedBox(
-                        height: Dimensions.height20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconAndTextWidget(
-                              icon: Icons.circle_sharp,
-                              text: "Normal",
-                              iconColor: AppColors.iconColor1),
-                          IconAndTextWidget(
-                              icon: Icons.location_on,
-                              text: "1.7km",
-                              iconColor: AppColors.mainColor),
-                          IconAndTextWidget(
-                              icon: Icons.access_time_filled_rounded,
-                              text: "32min",
-                              iconColor: AppColors.iconColor2),
-                        ],
-                      ),
-                    ],
-                  )
-          ))
+                 // ignore: prefer_const_constructors
+                 child:AppColumn(text:"Milimani City", rating: "4.3",),
+                 ))
         ],
       ),
       
