@@ -13,15 +13,15 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          elevation: 0,
-          brightness: Brightness.light,
-          backgroundColor: Colors.white,
-          leading:
-          IconButton( onPressed: (){
-            Navigator.pop(context);
-          },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
-        ),
+        // appBar: AppBar(
+        //   elevation: 0,
+        //   brightness: Brightness.light,
+        //   backgroundColor: Colors.white,
+        //   leading:
+        //   IconButton( onPressed: (){
+        //     Navigator.pop(context);
+        //   },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
+        // ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                   height: Dimensions.pageViewLogo,
                   margin: EdgeInsets.only(left: 10, right: 10),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.radius30),
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
                       image: DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage("assets/image/logo.png"))),
@@ -103,21 +103,21 @@ class LoginPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)
                       ),
-                      child: Text("Login",style: TextStyle(
-                        fontWeight: FontWeight.w600,fontSize: 16,color: Colors.white70
+                      child: Text("Login"),
                       ),),
                     ),
-                  ),
-                ),
+                  
+                
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Dont have an account?"),
-                    Text("Sign Up",style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18
-                    ),),
+                    // ElevatedButton(onPressed: (){},
+                    //  child: Text("Sign Up",style: TextStyle(
+                    //   fontWeight: FontWeight.w600,
+                    //   fontSize: 18)
+                    // ),) 
                   ],
                 )
               ],
