@@ -16,6 +16,7 @@ class PopularProductDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Positioned(
@@ -79,7 +80,7 @@ class PopularProductDetail extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         height: 120,
-        padding: EdgeInsets.only(top: Dimensions.height30, bottom: Dimensions.height30,left: Dimensions.width20,right: Dimensions.width20),
+        padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height25,left: Dimensions.width20,right: Dimensions.width20),
         decoration: BoxDecoration(
           color: AppColors.buttonBackgroundColor,
           borderRadius: BorderRadius.only(
@@ -87,6 +88,24 @@ class PopularProductDetail extends StatelessWidget {
             topRight: Radius.circular(Dimensions.radius20*2)
           )
         ),
+      child: Row(children: [
+        Container(
+          padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height15, left: Dimensions.width20, right: Dimensions.width20),
+          decoration: BoxDecoration(
+            borderRadius:BorderRadius.circular(Dimensions.radius20),
+            color: Colors.yellow,
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.remove,color: AppColors.signColor,),
+              SizedBox(width: Dimensions.width10,),
+              BigText(text: "0"),
+              SizedBox(width: Dimensions.width10,),
+              Icon(Icons.add, color: AppColors.signColor,),
+            ],
+          ),
+        ),
+      ]),
       ),
       
     );
