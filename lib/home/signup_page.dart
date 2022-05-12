@@ -23,7 +23,8 @@ class SignupPage extends StatelessWidget {
         leading:
         IconButton( onPressed: (){
           Navigator.pop(context);
-        },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
+        },icon:Icon(Icons.arrow_back_ios_new_sharp
+        ,size: 20,color: Colors.black,)),
         
 
       ),
