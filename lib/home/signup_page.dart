@@ -75,7 +75,7 @@ class SignupPage extends StatelessWidget {
                           makeInput(label: "Confirm Pasword",obsureText: true),
                           SizedBox(height: Dimensions.height10,),
                           SmallText(text: "By registering to TURACO, you agree to the terms and policies"),
-                          SizedBox(height: Dimensions.height10,),
+                          SizedBox(height: Dimensions.height15,),
 
 
 

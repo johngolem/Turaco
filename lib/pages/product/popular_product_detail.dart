@@ -93,7 +93,11 @@ class PopularProductDetail extends StatelessWidget {
             topRight: Radius.circular(Dimensions.radius20*2)
           )
         ),
-      child: Row(children: [
+      child: Row(
+        // this pushes the two containers to the edges of the page
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          //container with the add to cart button
         Container(
           padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height15, left: Dimensions.width20, right: Dimensions.width20),
           decoration: BoxDecoration(
@@ -110,6 +114,17 @@ class PopularProductDetail extends StatelessWidget {
             ],
           ),
         ),
+        // container with add to cart text
+        Container(
+           padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height15, left: Dimensions.width20, right: Dimensions.width20),
+          child: BigText(text: "\$10 | Add to cart",color: Colors.white,),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(Dimensions.radius20),
+            color: AppColors.mainColor
+
+          ),
+
+        )
       ]),
       ),
       
