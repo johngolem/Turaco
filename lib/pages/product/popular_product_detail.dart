@@ -1,8 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/appIcon.dart';
 import 'package:turac/widgets/app_column.dart';
 import 'package:turac/widgets/paragraph_text.dart';
+import 'package:turac/widgets/product_text_detail.dart';
 
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
@@ -20,6 +23,7 @@ class PopularProductDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
+          // first is the background image
           Positioned(
             left:0,
             right: 0,
@@ -38,6 +42,7 @@ class PopularProductDetail extends StatelessWidget {
 
 
           )),
+          // icon widget
           Positioned(
             top:Dimensions.height45,
             left:Dimensions.width20,
@@ -51,6 +56,8 @@ class PopularProductDetail extends StatelessWidget {
             ],
             
           )),
+         //intro to product detail;
+         // expandable text
           Positioned(
             left: 0,
             right: 0,
@@ -73,18 +80,20 @@ class PopularProductDetail extends StatelessWidget {
                    AppColumn(text:"Milimani City", rating: "4.3",),
                    SizedBox(height: Dimensions.height20,),
                    BigText(text: "Introduction"),
-                   SizedBox(height: Dimensions.height20,),
-                   ParagraphText(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tellus at odio sodales iaculis et ac tortor. Donec nec lorem eros. Nullam vehicula ac felis pharetra porttitor. Vivamus eu mauris blandit, varius tortor at, venenatis libero. Nullam volutpat eleifend dapibus. Ut fermentum purus vitae ultricies faucibus. Nam id elit et augue congue gravida ac a enim. Proin imperdiet, nulla dignissim accumsan fringilla, nibh purus mattis massa, eu ullamcorper ligula leo ut justo. Donec consectetur felis in sem pellentesque, quis vulputate massa mollis. Mauris in nisl eu magna luctus gravida quis non erat. Quisque eget luctus urna, vitae blandit eros. Ut gravida quam nulla, non eleifend dui ullamcorper quis. Phasellus tempus volutpat venenatis. Aliquam varius elit vitae augue condimentum rhoncus. Sed posuere elit leo, ut vestibulum tortor ullamcorper sed. Quisque porta ex eros, at auctor ligula volutpat eu.")
-
+                  //  SizedBox(height: Dimensions.height20,),
+                   Expanded(child: SingleChildScrollView(child: ExpandableTextWidget(text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet., comes from a line in section 1.10.32."))),
+                   
 
 
                  ],)
                  )
                  ),
+        
+        
         ],
       ),
       bottomNavigationBar: Container(
-        height: 120,
+        height: Dimensions.bottomHeightBar,
         padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height25,left: Dimensions.width20,right: Dimensions.width20),
         decoration: BoxDecoration(
           color: AppColors.buttonBackgroundColor,
@@ -102,7 +111,7 @@ class PopularProductDetail extends StatelessWidget {
           padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height15, left: Dimensions.width20, right: Dimensions.width20),
           decoration: BoxDecoration(
             borderRadius:BorderRadius.circular(Dimensions.radius20),
-            color: Colors.yellow,
+            color: Colors.white,
           ),
           child: Row(
             children: [

@@ -54,9 +54,9 @@ static double listViewTxtContsize = screenWidth / 3.9;
 
 static double popProductImgSize = screenHeight / 2.41;
 
+//bottom height 
 
-
-
+static double bottomHeightBar = screenHeight / 7.03;
 
 
 
