@@ -36,10 +36,13 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
   Widget build(BuildContext context) {
     return Container(
       child: secondHalf.isEmpty
-          ? SmallText(text: firstHalf)
+          ? SmallText(
+            size:Dimensions.font16,
+            text: firstHalf)
           : Column(
               children: [
                 SmallText(
+                  size: Dimensions.font16,
                     text: hiddenText
                         ? (firstHalf + "...")
                         : (firstHalf + secondHalf)),
