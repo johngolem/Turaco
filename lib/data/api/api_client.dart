@@ -25,9 +25,12 @@ class ApiClient extends GetConnect implements GetxService {
   Future<Response> getData(
     String uri,
   ) async {
+    //try to get data using a get method
     try {
+      // reponse is object where we save the data that will be received = (await get) this gets the data from the attached uri
       Response response = await get(uri);
       return response;
+      //if it fails, the catch is the else to the first try
     } catch (e) {
       return Response(
         statusCode: 1, statusText: e.toString()
