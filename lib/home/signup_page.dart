@@ -148,7 +148,6 @@ Widget makeInput({label,obsureText = false}){
         obscureText: obsureText,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(vertical: 0,horizontal: 10),
-          // ignore: prefer_const_constructors
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.grey,
