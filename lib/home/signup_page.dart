@@ -123,7 +123,7 @@ class SignupPage extends StatelessWidget {
                           onTap: () {
                         Get.to(() => LoginPage());
                           },
-                          child: AppIcon(icon: Icons.login_outlined, ))
+                          child: AppIcon(icon: Icons.login_outlined, iconColor: AppColors.mainColor,))
                         // ("Login",style: TextStyle(
                         //     fontWeight: FontWeight.w600,
                         //     fontSize: 18
