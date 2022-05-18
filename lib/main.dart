@@ -1,11 +1,18 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:turac/home/login.dart';
 import 'package:turac/home/main_product.dart';
 import 'package:get/get.dart';
 import 'package:turac/home/signup_page.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
+import 'helper/dependencies.dart' as dep;
 
-void main() {
+Future<void> main() async {
+  //makes ure dependancies are loaded correctly and waits until they are loaded
+  WidgetsFlutterBinding.ensureInitialized();
+  //load dependancies here
+  await dep.init();
   runApp(const MyApp());
 }
 
@@ -23,7 +30,7 @@ class MyApp extends StatelessWidget {
       ),
       // ignore: prefer_const_constructors
       // home: MainProductPage(),
-      home:PopularProductDetail(),
+      home: PopularProductDetail(),
       // home:LoginPage(),
       // home:SignupPage(),
     );
