@@ -2,9 +2,12 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:turac/home/login.dart';
 import 'package:turac/utils/app_constants.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
+import 'package:turac/widgets/appIcon.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
 
@@ -115,11 +118,16 @@ class SignupPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Already have an account? "),
-                        Text("Login",style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18
-                        ),),
+                        Text("Already have an account?  | LOGIN "),
+                        GestureDetector(
+                          onTap: () {
+                        Get.to(() => LoginPage());
+                          },
+                          child: AppIcon(icon: Icons.login_outlined, ))
+                        // ("Login",style: TextStyle(
+                        //     fontWeight: FontWeight.w600,
+                        //     fontSize: 18
+                        // ),),
                       ],
                     )
                   ],
