@@ -2,6 +2,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:turac/utils/app_constants.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/big_text.dart';
@@ -45,7 +46,7 @@ class SignupPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SizedBox(width: Dimensions.width10,),
-                                BigText(text: "Turaco",color: AppColors.mainColor),
+                                BigText(text: AppConstants.APP_NAME,color: AppColors.mainColor),
                         // // Text ("Sign up", style: TextStyle(
                         // //   fontSize: 30,
                         // //   fontWeight: FontWeight.bold,
