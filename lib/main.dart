@@ -8,7 +8,10 @@ import 'package:turac/home/signup_page.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
 import 'helper/dependencies.dart' as dep;
 
+// this is the init method for the api's
 Future<void> main() async {
+
+  
   //makes ure dependancies are loaded correctly and waits until they are loaded
   WidgetsFlutterBinding.ensureInitialized();
   //load dependancies here

@@ -22,7 +22,7 @@ class PopularProductController extends GetxController {
       //popular product list, after that, we can use it anywhere in the app. 
 
       
-     // _popularProductList.addAll();
+     // _popularProductList.addAll(add the model here);
 
 
 
