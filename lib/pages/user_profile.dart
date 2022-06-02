@@ -31,7 +31,34 @@ class AccountProfile extends StatelessWidget {
           SizedBox(height: Dimensions.height30,),
           AccountWidget(
             appIcon: AppIcon(icon: Icons.person,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
-            bigText: BigText(text: "name of user",))
+            bigText: BigText(text: "name of user",)
+            ),
+          SizedBox(height: Dimensions.height10,),
+          AccountWidget(
+            appIcon: AppIcon(icon: Icons.person,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            bigText: BigText(text: "name of user",)
+            ),
+          SizedBox(height: Dimensions.height20,),
+          AccountWidget(
+            appIcon: AppIcon(icon: Icons.person,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            bigText: BigText(text: "name of user",)
+            ),
+          SizedBox(height: Dimensions.height20,),
+          AccountWidget(
+            appIcon: AppIcon(icon: Icons.person,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            bigText: BigText(text: "name of user",)
+            ),
+          SizedBox(height: Dimensions.height20,),
+          AccountWidget(
+            appIcon: AppIcon(icon: Icons.person,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            bigText: BigText(text: "name of user",)
+            ),
+          SizedBox(height: Dimensions.height20,),
+          AccountWidget(
+            appIcon: AppIcon(icon: Icons.person,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            bigText: BigText(text: "name of user",)
+            ),
+          SizedBox(height: Dimensions.height20,),
         ]),
       ),
     );

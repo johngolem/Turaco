@@ -30,7 +30,7 @@ class AccountWidget extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            blurRadius: 1,,
+            blurRadius: 1,
             offset: Offset(0,5),
             color: Colors.grey.withOpacity(0.2)
           ),
