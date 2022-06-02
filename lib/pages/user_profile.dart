@@ -40,8 +40,8 @@ class AccountProfile extends StatelessWidget {
             ),
           SizedBox(height: Dimensions.height20,),
           AccountWidget(
-            appIcon: AppIcon(icon: Icons.location_city_outlined,backgroundColor: Colors.purple,size: Dimensions.height10*5,), 
-            bigText: BigText(text: "location of user",)
+            appIcon: AppIcon(icon: Icons.location_on,backgroundColor: Colors.pink,size: Dimensions.height10*5,), 
+            bigText: BigText(text: "Address of user",)
             ),
           SizedBox(height: Dimensions.height20,),
           AccountWidget(
