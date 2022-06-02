@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -14,7 +14,7 @@ class AccountWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      
       padding: EdgeInsets.only(left: Dimensions.width20,
       top: Dimensions.width10,
       bottom: Dimensions.width10
@@ -24,7 +24,18 @@ class AccountWidget extends StatelessWidget {
         appIcon,
         SizedBox(width: Dimensions.width20,),
         bigText
-      ]),
+      ],
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 1,,
+            offset: Offset(0,5),
+            color: Colors.grey.withOpacity(0.2)
+          ),
+        ],
+           ),
     );
   }
 }

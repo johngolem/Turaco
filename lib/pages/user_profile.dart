@@ -28,9 +28,10 @@ class AccountProfile extends StatelessWidget {
             iconColor: Colors.white,
             size: Dimensions.height15*10,
             ),
+          SizedBox(height: Dimensions.height30,),
           AccountWidget(
             appIcon: AppIcon(icon: Icons.person,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
-            bigText: BigText(text: "name",))
+            bigText: BigText(text: "name of user",))
         ]),
       ),
     );
