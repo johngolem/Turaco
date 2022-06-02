@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:turac/home/login.dart';
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // ignore: prefer_const_constructors
+     
       // home: MainProductPage(),
       // home: PopularProductDetail(),
       // home:LoginPage(),

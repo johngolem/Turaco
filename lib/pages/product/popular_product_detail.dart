@@ -51,9 +51,9 @@ class PopularProductDetail extends StatelessWidget {
                       },
                       child: AppIcon(icon: Icons.arrow_back_ios)),
                   GestureDetector(
-                      onTap: () {
-                        Get.to(() => SignupPage());
-                      },
+                      // onTap: () {
+                      //   Get.to(() => SignupPage());
+                      // },
                       child: AppIcon(icon: Icons.shopping_cart_outlined))
                 ],
               )),
@@ -76,7 +76,6 @@ class PopularProductDetail extends StatelessWidget {
                     ),
                     color: Colors.white,
                   ),
-                  // ignore: prefer_const_constructors
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
