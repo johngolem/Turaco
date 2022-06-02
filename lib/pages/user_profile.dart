@@ -35,27 +35,27 @@ class AccountProfile extends StatelessWidget {
             ),
           SizedBox(height: Dimensions.height10,),
           AccountWidget(
-            appIcon: AppIcon(icon: Icons.email,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            appIcon: AppIcon(icon: Icons.email,backgroundColor: Colors.green,size: Dimensions.height10*5,), 
             bigText: BigText(text: "email",)
             ),
           SizedBox(height: Dimensions.height20,),
           AccountWidget(
-            appIcon: AppIcon(icon: Icons.location_city_outlined,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            appIcon: AppIcon(icon: Icons.location_city_outlined,backgroundColor: Colors.purple,size: Dimensions.height10*5,), 
             bigText: BigText(text: "location of user",)
             ),
           SizedBox(height: Dimensions.height20,),
           AccountWidget(
-            appIcon: AppIcon(icon: Icons.person,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            appIcon: AppIcon(icon: Icons.person,backgroundColor: Colors.red,size: Dimensions.height10*5,), 
             bigText: BigText(text: "Type of user",)
             ),
           SizedBox(height: Dimensions.height20,),
           AccountWidget(
-            appIcon: AppIcon(icon: Icons.phone,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            appIcon: AppIcon(icon: Icons.phone,backgroundColor: Colors.yellow,size: Dimensions.height10*5,), 
             bigText: BigText(text: "phone number",)
             ),
           SizedBox(height: Dimensions.height20,),
           AccountWidget(
-            appIcon: AppIcon(icon: Icons.add_a_photo,backgroundColor: AppColors.mainColor,size: Dimensions.height10*5,), 
+            appIcon: AppIcon(icon: Icons.add_a_photo,backgroundColor: Colors.blue,size: Dimensions.height10*5,), 
             bigText: BigText(text: "profile photo",)
             ),
           SizedBox(height: Dimensions.height20,),
