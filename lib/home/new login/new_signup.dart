@@ -72,9 +72,13 @@ class SignUpPage extends StatelessWidget {
 
           ),
         ),
+        SizedBox(height: Dimensions.height15,),
         AppTextField(textController: phoneController, hintText: "phone", icon: Icons.phone),
+        SizedBox(height: Dimensions.height15,),
         AppTextField(textController: nameController, hintText: "Enter your name", icon: Icons.person),
+        SizedBox(height: Dimensions.height15,),
         AppTextField(textController: passwordController, hintText: "input password", icon: Icons.password),
+        SizedBox(height: Dimensions.height15,),
         AppTextField(textController: passwordController, hintText: "confirm password", icon: Icons.password),
       ]),
     );
