@@ -55,9 +55,9 @@ class AppTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(Dimensions.radius30),
             ),
             ),
-          ),
+          )
   
-    ),
+    );
 
   }
 
