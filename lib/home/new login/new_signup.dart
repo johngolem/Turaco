@@ -1,20 +1,25 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:turac/utils/dimensions.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
+
+
   @override
   Widget build(BuildContext context) {
-
 
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     var nameController = TextEditingController();
     var phoneController = TextEditingController();
 
+
+    
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -35,6 +40,10 @@ class SignUpPage extends StatelessWidget {
         Container(
           child: TextField(
             controller: emailController,
+            decoration: InputDecoration(
+              ç
+            ),
+            
 
           ),
         ),

@@ -28,9 +28,14 @@ class AppTextField extends StatelessWidget {
               blurRadius: 10,
               spreadRadius: 7,
               offset: Offset(1, 10),
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.white.withOpacity(0.2),
             ),
           ]),
+          child: 
+          TextField(
+            controller: textController,
+            decoration: InputDecoration(),
+          ),
     );
   }
 }
