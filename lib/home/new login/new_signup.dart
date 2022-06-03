@@ -37,6 +37,7 @@ class SignUpPage extends StatelessWidget {
           ),
         ),
         Container(
+          margin: EdgeInsets.only(left: Dimensions.height20,right: Dimensions.height20),
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow:[
