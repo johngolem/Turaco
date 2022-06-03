@@ -41,7 +41,16 @@ class SignUpPage extends StatelessWidget {
           child: TextField(
             controller: emailController,
             decoration: InputDecoration(
-              ç
+              hintText: "email",
+              prefixIcon: Icon(Icons.email, color: Colors.blue,),
+              focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(Dimensions.radius30),
+              borderSide: BorderSide(color: Colors.white, width: 1.0,
+              ),
+              ),
+            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(Dimensions.radius30),
+              borderSide: BorderSide(color: Colors.white, width: 1.0,
+              ),
+              
             ),
             
 
