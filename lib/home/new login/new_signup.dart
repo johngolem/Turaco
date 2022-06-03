@@ -71,7 +71,9 @@ class SignUpPage extends StatelessWidget {
 
           ),
         ),
+
       ]),
     );
   }
 }
+

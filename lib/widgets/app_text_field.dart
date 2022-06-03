@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, dead_code
 
 import 'package:flutter/material.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -17,6 +17,7 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  
     return Container(
       margin: EdgeInsets.only(
           left: Dimensions.height20, right: Dimensions.height20),
@@ -30,12 +31,35 @@ class AppTextField extends StatelessWidget {
               offset: Offset(1, 10),
               color: Colors.white.withOpacity(0.2),
             ),
-          ]),
-          child: 
-          TextField(
-            controller: textController,
-            decoration: InputDecoration(),
+          ]),  
+          child: TextField(
+             controller: textController,
+            decoration: InputDecoration(
+              hintText: hintText,
+              prefixIcon: Icon(Icons.email, color: Colors.blue,),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(Dimensions.radius30),
+                borderSide: BorderSide(
+                  color: Colors.white,
+                  width: 1.0,
+              )
+              ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
+              borderSide: BorderSide(
+                color: Colors.white, 
+                width: 1.0,
+              )
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
+            ),
+            ),
           ),
-    );
+  
+    ),
+
   }
+
+  
 }
