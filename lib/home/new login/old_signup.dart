@@ -92,7 +92,16 @@ class SignupPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40),
                       
-                    
+
+
+                      //try inserting here
+                    child: Column(children: [
+                      TextField(
+                        controller: emailController,
+                      ),
+                    ]),
+
+
                     //   child: Column(
                         
                     //     children: [
