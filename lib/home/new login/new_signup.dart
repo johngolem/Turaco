@@ -40,6 +40,7 @@ class SignUpPage extends StatelessWidget {
           margin: EdgeInsets.only(left: Dimensions.height20,right: Dimensions.height20),
           decoration: BoxDecoration(
             color: Colors.white,
+            borderRadius: BorderRadius.circular(Dimensions.radius30),
             boxShadow:[
               BoxShadow(blurRadius: 10,spreadRadius: 7, offset:Offset(1,10), color: Colors.grey.withOpacity(0.2))
             ]
