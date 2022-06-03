@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -14,9 +13,9 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var emailController = TextEditingController();
-    var passwordController = TextEditingController();
-    var nameController = TextEditingController();
-    var phoneController = TextEditingController();
+    // var passwordController = TextEditingController();
+    // var nameController = TextEditingController();
+    // var phoneController = TextEditingController();
 
 
     
@@ -43,16 +42,24 @@ class SignUpPage extends StatelessWidget {
             decoration: InputDecoration(
               hintText: "email",
               prefixIcon: Icon(Icons.email, color: Colors.blue,),
-              focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(Dimensions.radius30),
-              borderSide: BorderSide(color: Colors.white, width: 1.0,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(Dimensions.radius30),
+                borderSide: BorderSide(
+                  color: Colors.white,
+                  width: 1.0,
+              )
               ),
-              ),
-            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(Dimensions.radius30),
-              borderSide: BorderSide(color: Colors.white, width: 1.0,
-              ),
-              
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
+              borderSide: BorderSide(
+                color: Colors.white, 
+                width: 1.0,
+              )
             ),
-            
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
+            ),
+            ),
 
           ),
         ),
