@@ -14,7 +14,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var emailController = TextEditingController();
-    // var passwordController = TextEditingController();
+    var passwordController = TextEditingController();
     var nameController = TextEditingController();
     var phoneController = TextEditingController();
 
@@ -73,6 +73,9 @@ class SignUpPage extends StatelessWidget {
           ),
         ),
         AppTextField(textController: phoneController, hintText: "phone", icon: Icons.phone),
+        AppTextField(textController: nameController, hintText: "Enter your name", icon: Icons.person),
+        AppTextField(textController: passwordController, hintText: "input password", icon: Icons.password),
+        AppTextField(textController: passwordController, hintText: "confirm password", icon: Icons.password),
       ]),
     );
   }
