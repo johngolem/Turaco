@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:turac/utils/dimensions.dart';
+import 'package:turac/widgets/app_text_field.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -14,8 +15,8 @@ class SignUpPage extends StatelessWidget {
 
     var emailController = TextEditingController();
     // var passwordController = TextEditingController();
-    // var nameController = TextEditingController();
-    // var phoneController = TextEditingController();
+    var nameController = TextEditingController();
+    var phoneController = TextEditingController();
 
 
     
@@ -71,7 +72,7 @@ class SignUpPage extends StatelessWidget {
 
           ),
         ),
-
+        AppTextField(textController: phoneController, hintText: "phone", icon: Icons.phone),
       ]),
     );
   }
