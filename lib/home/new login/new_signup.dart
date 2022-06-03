@@ -37,6 +37,12 @@ class SignUpPage extends StatelessWidget {
           ),
         ),
         Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow:[
+              BoxShadow(blurRadius: 10,spreadRadius: 7, offset:Offset(1,10), color: Colors.grey.withOpacity(0.2))
+            ]
+          ),
           child: TextField(
             controller: emailController,
             decoration: InputDecoration(
