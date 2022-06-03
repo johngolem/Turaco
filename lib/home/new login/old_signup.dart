@@ -41,7 +41,8 @@ class SignupPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
+          child: 
+          Container(
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: Column(
@@ -95,33 +96,45 @@ class SignupPage extends StatelessWidget {
 
 
                       //try inserting here
-                    child: Column(children: [
-                      TextField(
-                        controller: emailController,
+                    child: Container(
+                      margin: EdgeInsets.only(left: Dimensions.height20, right: Dimensions.height20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(Dimensions.radius30),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 10,
+                            spreadRadius: 7,
+                            offset: Offset(1,10),
+                            color: Colors.grey.withOpacity(0.2),
+                          )
+                        ]
                       ),
-                    ]),
-
-
-                    //   child: Column(
-                        
-                    //     children: [
-                    //       makeInput(label: "Email"),
-                    //       makeInput(label: "Phone Number"),
-                    //       makeInput(label: "Password", obsureText: true),
-                    //       makeInput(label: "Confirm Pasword", obsureText: true),
-                    //       SizedBox(
-                    //         height: Dimensions.height10,
-                    //       ),
-                    //       SmallText(
-                    //           text:
-                    //               "By registering to TURACO, you agree to the terms and policies"),
-                    //       SizedBox(
-                    //         height: Dimensions.height15,
-                    //       ),
-                    //     ],
-                    //   ),
+                      child: Column(children: [
+                        TextField(
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            //hinttext
+                            hintText: "email",                   
+                            //prefixicon//
+                             prefixIcon: Icon(Icons.email,color: Colors.blue,),
+                            //focus border
+                            focusedBorder: OutlineInputBorder(borderRadius:BorderRadius.circular(Dimensions.radius30),
+                            borderSide: BorderSide(width: 1.0, color: Colors.white)),
+                            // enabled border
+                            enabledBorder: OutlineInputBorder(borderRadius:BorderRadius.circular(Dimensions.radius30),
+                            borderSide: BorderSide(width: 1.0, color: Colors.white)),
+                            //border
+                            border: OutlineInputBorder(borderRadius:BorderRadius.circular(Dimensions.radius30),
+                            ),
+                          ),
+                        ),
+                      ]),
                     ),
-                    AppTextField(textController: emailController, hintText: "email", icon: Icons.email),
+
+
+                    ),
+                    
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40),
                       child: Container(
