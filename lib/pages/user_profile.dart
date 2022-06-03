@@ -21,7 +21,6 @@ class AccountProfile extends StatelessWidget {
       body: Container(
         width: double.maxFinite,
         margin: EdgeInsets.only(top: Dimensions.height20),
-        child: Expanded(
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -55,7 +54,7 @@ class AccountProfile extends StatelessWidget {
               SizedBox(height: Dimensions.height20,),
               AccountWidget(
                 appIcon: AppIcon(icon: Icons.phone,backgroundColor: Colors.yellow,size: Dimensions.height10*5,), 
-                bigText: BigText(text: "phone number",)
+                bigText: BigText(text: "Phone number",)
                 ),
               SizedBox(height: Dimensions.height20,),
               AccountWidget(
@@ -67,8 +66,8 @@ class AccountProfile extends StatelessWidget {
               )
             ]),
           ),
-        ),
-      ),
+        
+      )
     );
   }
 }
