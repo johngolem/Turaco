@@ -53,12 +53,20 @@ class SignUpPage extends StatelessWidget {
       } else {
         successCustomSnackBar("All went well", title: "Success");
         SignUpBody signUpBody = SignUpBody(
-            userType: userType, phone: phone, email: email, password: password);
-        authController.registration(signUpBody).then((status)){
-          if(status.isSucess){
-
-            }
-          }
+            userType: userType,
+            phone: phone,
+            email: email,
+            password: password);
+        
+        authController.registration(signUpBody).then((status){
+          if(status.isSuccess){
+            print("succesful registration");
+          
+        }else {
+          showCustomSnackBar(status.message);
+        }
+        
+          });
 
         // print(signUpBody.toString());
         // name: name,
