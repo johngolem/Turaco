@@ -13,7 +13,7 @@ class Authcontroller extends GetxController implements GetxService {
 
   registration(SignUpBody signUpBody) {
     _isLoading = true;
-    
+    authRepo.registration(signUpBody);
 
   }
 }
