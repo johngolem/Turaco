@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:turac/base/show_custom_snackbar.dart';
 import 'package:turac/base/success_customsnackbar.dart';
+import 'package:turac/models/signupbody.dart';
 import 'package:turac/utils/app_constants.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -29,17 +30,24 @@ class SignUpPage extends StatelessWidget {
       if (name.isEmpty) {
         showCustomSnackBar("Type in your Name", title: "Invalid input");
       } else if (phone.isEmpty) {
-        showCustomSnackBar("Type in your phone number", title: "Phone number cannot be empty");
+        showCustomSnackBar("Type in your phone number",
+            title: "Phone number cannot be empty");
       } else if (email.isEmpty) {
-        showCustomSnackBar("Type in your email address", title: "Invalid input");
+        showCustomSnackBar("Type in your email address",
+            title: "Invalid input");
       } else if (!GetUtils.isEmail(email)) {
-        showCustomSnackBar("Type a valid email address", title: "Invalid email");
+        showCustomSnackBar("Type a valid email address",
+            title: "Invalid email");
       } else if (password.isEmpty) {
         showCustomSnackBar("Type in your password", title: "Invalid input");
       } else if (password.length < 6) {
-        showCustomSnackBar("Password has to be atleast 6* long", title: "password too short");
+        showCustomSnackBar("Password has to be atleast 6* long",
+            title: "password too short");
       } else {
         successCustomSnackBar("All went well", title: "Success");
+        SignUpBody signUpBody = SignUpBody(
+            name: name, phone: phone, email: email, password: password);
+        print(signUpBody.toString());
       }
     }
 
@@ -141,10 +149,10 @@ class SignUpPage extends StatelessWidget {
         SizedBox(
           height: Dimensions.height15,
         ),
-        AppTextField(
-            textController: passwordController,
-            hintText: "confirm password",
-            icon: Icons.password),
+        // AppTextField(
+        //     textController: passwordController,
+        //     hintText: "confirm password",
+        //     icon: Icons.password),
         SizedBox(
           height: Dimensions.height20,
         ),
