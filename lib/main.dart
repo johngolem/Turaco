@@ -8,7 +8,7 @@ import 'package:turac/home/signup_page.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
 import 'package:turac/pages/user_profile.dart';
 import 'helper/dependencies.dart' as dep;
-import 'home/new login/new_signup.dart';
+import 'pages/new_signup.dart';
 import 'home/new login/old_signup.dart';
 
 // this is the init method for the api's
