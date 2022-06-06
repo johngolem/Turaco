@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:turac/base/show_custom_snackbar.dart';
+import 'package:turac/base/success_customsnackbar.dart';
 import 'package:turac/utils/app_constants.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -38,7 +39,7 @@ class SignUpPage extends StatelessWidget {
       } else if (password.length < 6) {
         showCustomSnackBar("Password has to be atleast 6* long", title: "password too short");
       } else {
-        showCustomSnackBar("All went well", title: "Success");
+        successCustomSnackBar("All went well", title: "Success");
       }
     }
 
