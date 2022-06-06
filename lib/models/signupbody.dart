@@ -10,10 +10,11 @@ class SignUpBody {
   SignUpBody(
       // {required this.name,
 
-      {required this.userType,
+    { required this.userType,
       required this.phone,
       required this.email,
-      required this.password});
+      required this.password 
+      });
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
