@@ -2,19 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 import 'package:turac/home/main_product.dart';
-import 'package:turac/home/signup_page.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/appIcon.dart';
 import 'package:turac/widgets/app_column.dart';
-import 'package:turac/widgets/paragraph_text.dart';
 import 'package:turac/widgets/product_text_detail.dart';
-
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
-import '../../widgets/icon_and_text.dart';
-import '../../widgets/small_text.dart';
+
 
 class PopularProductDetail extends StatelessWidget {
   const PopularProductDetail({Key? key}) : super(key: key);

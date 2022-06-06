@@ -1,3 +1,5 @@
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:get/get_connect.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:turac/data/api/api_client.dart';

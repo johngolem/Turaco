@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field
+// ignore_for_file: unused_field, prefer_const_constructors, avoid_print
 
 import 'dart:async';
 
@@ -28,9 +28,7 @@ class ApiClient extends GetConnect implements GetxService {
     };
 
   }
-  Future<Response> getData(
-    String uri,
-  ) async {
+  Future<Response> getData(String uri,) async {
     //try to get data using a get method
     try {
       // reponse is object where we save the data that will be received = (await get) this gets the data from the attached uri

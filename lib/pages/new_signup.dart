@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:turac/base/show_custom_snackbar.dart';
@@ -60,7 +61,9 @@ class SignUpPage extends StatelessWidget {
         
         authController.registration(signUpBody).then((status){
           if(status.isSuccess){
-            print("succesful registration");
+            if (kDebugMode) {
+              print("succesful registration");
+            }
           
         }else {
           showCustomSnackBar(status.message);
@@ -78,8 +81,7 @@ class SignUpPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
+        // brightness: Brightness.light,
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -109,6 +111,7 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(height: Dimensions.height10,),
         Container(
           margin: EdgeInsets.only(
               left: Dimensions.height20, right: Dimensions.height20),

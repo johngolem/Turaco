@@ -37,9 +37,9 @@ class MyApp extends StatelessWidget {
      
       // home: MainProductPage(),
       // home: PopularProductDetail(),
-      // home:LoginPage(),
+      home:LoginPage(),
       // home:SignupPage(),
-      home:SignUpPage(),
+      // home:SignUpPage(),
       // home:AccountProfile(),
     );
   }
