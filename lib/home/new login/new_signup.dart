@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:turac/utils/app_constants.dart';
+import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
@@ -97,6 +98,18 @@ class SignUpPage extends StatelessWidget {
         AppTextField(textController: passwordController, hintText: "input password", icon: Icons.password),
         SizedBox(height: Dimensions.height15,),
         AppTextField(textController: passwordController, hintText: "confirm password", icon: Icons.password),
+        Container(
+          width: Dimensions.screenWidth/2,
+          height: Dimensions.screenHeight/13,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(Dimensions.radius30),
+            color: AppColors.mainColor
+            ),
+            child: Center(child: BigText(text: "Sign Up", size: Dimensions.font26, color: Colors.white,),
+              
+            ),
+          ),
+        
       ]),
     );
   }
