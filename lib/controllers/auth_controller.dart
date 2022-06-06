@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:turac/models/response_model.dart';
 import 'package:turac/models/signupbody.dart';
 import 'package:turac/repository/auth_repo.dart';
 import 'package:get/get.dart';
@@ -11,9 +12,18 @@ class Authcontroller extends GetxController implements GetxService {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  registration(SignUpBody signUpBody) {
+  Future <ResponseModel>registration(SignUpBody signUpBody) async {
     _isLoading = true;
-    authRepo.registration(signUpBody);
-
+    Response response = await authRepo.registration(signUpBody);
+    late ResponseModel responseModel;
+    if (response.statusCode == 200) {
+      authRepo.saveUserToken(response.body["token"]);
+      responseModel = ResponseModel(true, response.body["token"]);
+    } else {
+      responseModel = ResponseModel(false, response.statusText!);
+    }
+    _isLoading = true;
+    update();
+    return responseModel;
   }
 }

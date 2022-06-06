@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:get/utils.dart';
+import 'package:get/get.dart';
 import 'package:turac/base/show_custom_snackbar.dart';
 import 'package:turac/base/success_customsnackbar.dart';
+import 'package:turac/controllers/auth_controller.dart';
 import 'package:turac/models/signupbody.dart';
 import 'package:turac/utils/app_constants.dart';
 import 'package:turac/utils/colors.dart';
@@ -23,6 +24,8 @@ class SignUpPage extends StatelessWidget {
     var usertypeController = TextEditingController();
 
     void _registration() {
+      
+      var authController = Get.find<Authcontroller>();
       // String name = nameController.text.trim();
       String phone = phoneController.text.trim();
       String email = emailController.text.trim();
@@ -50,11 +53,16 @@ class SignUpPage extends StatelessWidget {
       } else {
         successCustomSnackBar("All went well", title: "Success");
         SignUpBody signUpBody = SignUpBody(
-          userType:userType,
-         phone: phone, email: email, password: password);
-        print(signUpBody.toString());
-            // name: name,
-            
+            userType: userType, phone: phone, email: email, password: password);
+        authController.registration(signUpBody).then((status)){
+          if(status.isSucess){
+
+            }
+          }
+
+        // print(signUpBody.toString());
+        // name: name,
+
       }
     }
 
