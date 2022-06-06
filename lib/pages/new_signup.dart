@@ -47,8 +47,8 @@ class SignUpPage extends StatelessWidget {
             title: "Invalid email");
       } else if (password.isEmpty) {
         showCustomSnackBar("Type in your password", title: "Invalid input");
-      } else if (password.length < 6) {
-        showCustomSnackBar("Password has to be atleast 6* long",
+      } else if (password.length < 4) {
+        showCustomSnackBar("Password has to be 4* long",
             title: "password too short");
       } else {
         successCustomSnackBar("All went well", title: "Success");
