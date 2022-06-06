@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, dead_code
 
 import 'package:flutter/material.dart';
+import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
 
 class AppTextField extends StatelessWidget {
@@ -26,10 +27,10 @@ class AppTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(Dimensions.radius30),
           boxShadow: [
             BoxShadow(
-              blurRadius: 10,
+              blurRadius: 20,
               spreadRadius: 7,
-              offset: Offset(1, 10),
-              color: Colors.white.withOpacity(0.2),
+              offset: Offset(1, 20),
+              color: Colors.white.withOpacity(0.7),
             ),
           ]),  
           child: TextField(
@@ -47,7 +48,8 @@ class AppTextField extends StatelessWidget {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(Dimensions.radius30),
               borderSide: BorderSide(
-                color: Colors.white, 
+                // to be changed to white
+                color: AppColors.mainColor, 
                 width: 1.0,
               )
             ),
