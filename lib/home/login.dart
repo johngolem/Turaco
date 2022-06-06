@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
+import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
 
@@ -16,6 +17,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   
   Widget build(BuildContext context) {
+
+     var emailController = TextEditingController();
+    var passwordController = TextEditingController();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
@@ -83,8 +88,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: Column(
                     children: [
-                      makeInput(label: "Email"),
-                      makeInput(label: "Password",obsureText: true),
+                      AppTextField(textController: emailController, hintText: "Email", icon: Icons.email),
+                      AppTextField(textController: passwordController, hintText: "password", icon: Icons.password),
+                      // makeInput(label: "Email "),
+                      // makeInput(label: "Password",obsureText: true),
                     ],
                   ),
                 ),
@@ -110,7 +117,8 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(40)
                       ),
                       child: Text("Login"),
-                      ),),
+                      ),
+                      ),
                     ),
                   
                 
