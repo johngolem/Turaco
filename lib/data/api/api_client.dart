@@ -33,9 +33,17 @@ class ApiClient extends GetConnect implements GetxService {
       //if it fails to get a response,
       // the catch is the else to the first try,
     } catch (e) {
-      return Response(
-        statusCode: 1, statusText: e.toString()
-      );
+      return Response(statusCode: 1, statusText: e.toString());
+    }
+  }
+
+  Future<Response> postData(String uri, dynamic body) async {
+    try {
+      Response response = await post(uri, body, headers: _mainHeaders);
+      return response;
+    } catch (e) {
+      print(e.toString());
+      return Response(statusCode: 1, statusText: e.toString());
     }
   }
 }

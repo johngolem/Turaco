@@ -37,7 +37,7 @@ class AppTextField extends StatelessWidget {
              controller: textController,
             decoration: InputDecoration(
               hintText: hintText,
-              prefixIcon: Icon(icon, color: Colors.blue,),
+              prefixIcon: Icon(icon, color:Colors.red,),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(Dimensions.radius30),
                 borderSide: BorderSide(

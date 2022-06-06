@@ -131,7 +131,7 @@ class SignUpPage extends StatelessWidget {
         AppTextField(
             textController: phoneController,
             hintText: "phone",
-            icon: Icons.phone),
+            icon: Icons.phone,),
         SizedBox(
           height: Dimensions.height15,
         ),
@@ -171,7 +171,7 @@ class SignUpPage extends StatelessWidget {
             child: Center(
               child: BigText(
                 text: "Sign Up",
-                size: Dimensions.font26,
+                // size: Dimensions.font26,
                 color: Colors.white,
               ),
             ),
