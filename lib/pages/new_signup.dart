@@ -30,14 +30,16 @@ class SignUpPage extends StatelessWidget {
       } else if (phone.isEmpty) {
         showCustomSnackBar("Type in your phone number", title: "Phone number cannot be empty");
       } else if (email.isEmpty) {
-        showCustomSnackBar("Type in your email", title: "Invalid input");
+        showCustomSnackBar("Type in your email address", title: "Invalid input");
       } else if (!GetUtils.isEmail(email)) {
-        showCustomSnackBar("Type in your email", title: "Invalid email");
+        showCustomSnackBar("Type a valid email address", title: "Invalid email");
       } else if (password.isEmpty) {
         showCustomSnackBar("Type in your password", title: "Invalid input");
       } else if (password.length < 6) {
         showCustomSnackBar("Password has to be atleast 6* long", title: "password too short");
-      } else {}
+      } else {
+        showCustomSnackBar("All went well", title: "Success");
+      }
     }
 
     return Scaffold(
