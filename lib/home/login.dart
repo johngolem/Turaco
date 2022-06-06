@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white54,
         // appBar: AppBar(
         //   elevation: 0,
         //   brightness: Brightness.light,
@@ -89,7 +89,9 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: [
                       AppTextField(textController: emailController, hintText: "Email", icon: Icons.email),
+                      SizedBox(height: Dimensions.height15,),
                       AppTextField(textController: passwordController, hintText: "password", icon: Icons.password),
+                      SizedBox(height: Dimensions.height15,),
                       // makeInput(label: "Email "),
                       // makeInput(label: "Password",obsureText: true),
                     ],
@@ -132,6 +134,17 @@ class _LoginPageState extends State<LoginPage> {
                     //   fontWeight: FontWeight.w600,
                     //   fontSize: 18)
                     // ),) 
+                    
+                    //trial 
+                    //  TextSpan(
+                    //   recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpPage()),
+                    // text: "Create",
+                    // style: TextStyle(
+                    //   fontWeight: FontWeight.bold,
+                    //   color: Colors.grey,
+                    //   fontSize: Dimensions.font16,
+                    // ),
+                    // ),
                   ],
                 )
               ],

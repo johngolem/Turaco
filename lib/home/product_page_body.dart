@@ -51,7 +51,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
           height: Dimensions.pageView,
           child: GestureDetector(
             onTap: () {
-              Get.to(() => PopularProductDetail());
+              Get.to(() => PopularProductDetail(), transition: Transition.fade);
             },
             child: PageView.builder(
                 controller: pageController,

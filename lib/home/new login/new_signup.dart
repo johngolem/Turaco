@@ -2,8 +2,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:turac/utils/app_constants.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/app_text_field.dart';
+import 'package:turac/widgets/big_text.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -22,18 +24,33 @@ class SignUpPage extends StatelessWidget {
     
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        brightness: Brightness.light,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_new_sharp,
+              size: 20,
+              color: Colors.black,
+            )),
+      ),
 
       body: Column(
         children: [
+          BigText(text: AppConstants.APP_NAME, color: Colors.green,size: Dimensions.font26,),
         SizedBox(height: Dimensions.screenHeight*0.05,),
         Container(
           height: Dimensions.screenHeight*0.25,
           child: Center(
             child: CircleAvatar(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.white,
               radius: 80,
-              backgroundImage: AssetImage("image/url"
-              )
+              backgroundImage: AssetImage("assets/image/logo.png"
+              ),
               ),
           ),
         ),
