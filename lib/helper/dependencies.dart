@@ -10,8 +10,8 @@ import 'package:turac/utils/app_constants.dart';
 Future<void> init() async {
   //load the api client
   Get.lazyPut(() => ApiClient(appBaseUrl: AppConstants.BASE_URL));
-  // Get.lazyPut(
-  //     () => AuthRepo(apiClient: Get.find(), sharedPreferences: Get.find()));
+  Get.lazyPut(
+      () => AuthRepo(apiClient: Get.find(), sharedPreferences: Get.find()));
 
   //load all the repositories here
   Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()));
@@ -19,5 +19,5 @@ Future<void> init() async {
 
   //load the controllers here
   Get.lazyPut(() => PopularProductController(popularProductRepo: Get.find()));
-  // Get.lazyPut(() => Authcontroller(authRepo: Get.find()));
+  Get.lazyPut(() => Authcontroller(authRepo: Get.find()));
 }
