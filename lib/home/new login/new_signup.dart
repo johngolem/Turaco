@@ -88,7 +88,7 @@ class SignUpPage extends StatelessWidget {
         ),
         body: GetBuilder<Authcontroller>(
           builder: (_authController) {
-            return SingleChildScrollView(
+            return !_authController.isLoading? SingleChildScrollView(
               child: Column(children: [
                 SizedBox(
                   height: Dimensions.height10,
@@ -232,7 +232,8 @@ class SignUpPage extends StatelessWidget {
                   ],
                 )
               ]),
-            );
+            )
+         : CircularProgressIndicator();
           },
         )
         );
