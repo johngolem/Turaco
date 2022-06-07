@@ -69,153 +69,172 @@ class SignUpPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: PreferredSize(preferredSize: Size.fromHeight(Dimensions.screenHeight*0.05),
-      child: AppBar(
-        backgroundColor: AppColors.mainColor,
-        elevation: 0,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back_ios_new_sharp,
-              size: 20,
-              color: Colors.black,
-            )),
-      ),
-      
-      ),
-      
-      body: Column(children: [
-        SizedBox(height: Dimensions.height10,),
-        BigText(
-          text: AppConstants.APP_NAME,
-          color: Colors.green,
-          size: Dimensions.font26,
-        ),
-        SizedBox(
-          height: Dimensions.height10
-        ),
-        Container(
-          height: Dimensions.screenHeight * 0.20,
-          child: Center(
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 100,
-              backgroundImage: AssetImage("assets/image/logo.png"),
-            ),
+        backgroundColor: Colors.white,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(Dimensions.screenHeight * 0.05),
+          child: AppBar(
+            backgroundColor: AppColors.mainColor,
+            elevation: 0,
+            leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(
+                  Icons.arrow_back_ios_new_sharp,
+                  size: 20,
+                  color: Colors.black,
+                )),
           ),
         ),
-        SizedBox(
-          height: Dimensions.height10,
-        ),
-        Container(
-          margin: EdgeInsets.only(
-              left: Dimensions.height20, right: Dimensions.height20),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(Dimensions.radius30),
-              boxShadow: [
-                BoxShadow(
-                    blurRadius: 10,
-                    spreadRadius: 7,
-                    offset: Offset(1, 10),
-                    color: Colors.grey.withOpacity(0.2))
-              ]),
-          child: TextField(
-            controller: emailController,
-            decoration: InputDecoration(
-              hintText: "email",
-              prefixIcon: Icon(
-                Icons.email,
-                color: Colors.blue,
-              ),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(Dimensions.radius30),
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                    width: 1.0,
-                  )),
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(Dimensions.radius30),
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                    width: 1.0,
-                  )),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(Dimensions.radius30),
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: Dimensions.height15,
-        ),
-        AppTextField(
-          textController: phoneController,
-          hintText: "phone",
-          icon: Icons.phone,
-        ),
-        SizedBox(
-          height: Dimensions.height15,
-        ),
-        AppTextField(
-          textController: usertypeController,
-          hintText: "user type{1,2,3,4}",
-          icon: Icons.type_specimen,
-        ),
-        // AppTextField(
-        //     textController: nameController,
-        //     hintText: "Enter your name",
-        //     icon: Icons.person),
-        SizedBox(
-          height: Dimensions.height15,
-        ),
-        AppTextField(
-            textController: passwordController,
-            hintText: "input password",
-            icon: Icons.password),
-        // SizedBox(
-        //   height: Dimensions.height15,
-        // ),
-        // AppTextField(
-        //     textController: passwordController,
-        //     hintText: "confirm password",
-        //     icon: Icons.password),
-        SizedBox(
-          height: Dimensions.height20,
-        ),
+        body: GetBuilder<Authcontroller>(
+          builder: (_authController) {
+            return SingleChildScrollView(
+              child: Column(children: [
+                SizedBox(
+                  height: Dimensions.height10,
+                ),
+                BigText(
+                  text: AppConstants.APP_NAME,
+                  color: Colors.green,
+                  size: Dimensions.font26,
+                ),
+                SizedBox(height: Dimensions.height10),
+                Container(
+                  height: Dimensions.screenHeight * 0.20,
+                  child: Center(
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 100,
+                      backgroundImage: AssetImage("assets/image/logo.png"),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: Dimensions.height10,
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                      left: Dimensions.height20, right: Dimensions.height20),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(Dimensions.radius30),
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 10,
+                            spreadRadius: 7,
+                            offset: Offset(1, 10),
+                            color: Colors.grey.withOpacity(0.2))
+                      ]),
+                  child: TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      hintText: "email",
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Colors.blue,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius30),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                            width: 1.0,
+                          )),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius30),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                            width: 1.0,
+                          )),
+                      border: OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius30),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: Dimensions.height15,
+                ),
+                AppTextField(
+                  textController: phoneController,
+                  hintText: "phone",
+                  icon: Icons.phone,
+                ),
+                SizedBox(
+                  height: Dimensions.height15,
+                ),
+                AppTextField(
+                  textController: usertypeController,
+                  hintText: "user type{1,2,3,4}",
+                  icon: Icons.type_specimen,
+                ),
+                // AppTextField(
+                //     textController: nameController,
+                //     hintText: "Enter your name",
+                //     icon: Icons.person),
+                SizedBox(
+                  height: Dimensions.height15,
+                ),
+                AppTextField(
+                    textController: passwordController,
+                    hintText: "input password",
+                    icon: Icons.password),
+                // SizedBox(
+                //   height: Dimensions.height15,
+                // ),
+                // AppTextField(
+                //     textController: passwordController,
+                //     hintText: "confirm password",
+                //     icon: Icons.password),
+                SizedBox(
+                  height: Dimensions.height20,
+                ),
 
-        // sign up button
-        GestureDetector(
-          onTap: () {
-            _registration();
+                // sign up button
+                GestureDetector(
+                  onTap: () {
+                    _registration();
+                  },
+                  child: Container(
+                    width: Dimensions.screenWidth / 2,
+                    height: Dimensions.screenHeight / 13,
+                    decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius30),
+                        color: AppColors.mainColor),
+                    child: Center(
+                      child: BigText(
+                        text: "Sign Up",
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: Dimensions.height15,
+                ),
+                // login link
+                Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: Dimensions.height20),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius20)),
+                      child: BigText(
+                        text: "Already have an account? | Login",
+                        color: AppColors.mainBlackColor,
+                        size: Dimensions.font20,
+                      ),
+                    )
+                  ],
+                )
+              ]),
+            );
           },
-          child: Container(
-            width: Dimensions.screenWidth / 2,
-            height: Dimensions.screenHeight / 13,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius30),
-                color: AppColors.mainColor),
-            child: Center(
-              child: BigText(
-                text: "Sign Up",
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-        SizedBox(height: Dimensions.height15,),
-        // login link
-        Row(children: [
-          Container(
-            margin: EdgeInsets.only(left: Dimensions.height20),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.radius20)),
-              child:BigText(text: "Already have an account? | Login", color: AppColors.mainBlackColor,size: Dimensions.font20, ),
-          )
-        ],)
-      ]),
-    );
+        )
+        );
   }
 }
