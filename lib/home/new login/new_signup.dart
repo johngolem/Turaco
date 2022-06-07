@@ -20,18 +20,19 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
-    // var nameController = TextEditingController();
     var phoneController = TextEditingController();
     var usertypeController = TextEditingController();
+     // var nameController = TextEditingController();
 
     void _registration() {
       
-      var authController = Get.find<Authcontroller>();
-      // String name = nameController.text.trim();
+      // var authController = Get.find<Authcontroller>();
+
       String phone = phoneController.text.trim();
       String email = emailController.text.trim();
       String password = passwordController.text.trim();
       String userType = usertypeController.text.trim();
+      // String name = nameController.text.trim();
 
       // if (name.isEmpty) {
       //   showCustomSnackBar("Type in your Name", title: "Invalid input");}
@@ -53,23 +54,23 @@ class SignUpPage extends StatelessWidget {
             title: "password too short");
       } else {
         successCustomSnackBar("All went well", title: "Success");
-        SignUpBody signUpBody = SignUpBody(
-            userType: userType,
-            phone: phone,
-            email: email,
-            password: password);
+        // SignUpBody signUpBody = SignUpBody(
+        //     userType: userType,
+        //     phone: phone,
+        //     email: email,
+        //     password: password);
         
-        authController.registration(signUpBody).then((status){
-          if(status.isSuccess){
-            if (kDebugMode) {
-              print("succesful registration");
-            }
-          
-        }else {
-          showCustomSnackBar(status.message);
-        }
+        // authController.registration(signUpBody).then((status){
+        //   if(status.isSuccess){
+            
+              // print("succesful registration");
+
+        // }else {
+        //   showCustomSnackBar(status.message);
+        // }
         
-          });
+        //   }
+        //   );
 
         // print(signUpBody.toString());
         // name: name,
