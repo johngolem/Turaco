@@ -18,5 +18,5 @@ class AppConstants {
   static const String register_URI = "api/auth/register";
   static const String forgot_password_URI = "to be added ";
 
-  static const String TOKEN = "DBtoken to be replaced";
+  static const String TOKEN = "DBtoken";
 }
