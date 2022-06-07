@@ -67,6 +67,7 @@ class SignUpPage extends StatelessWidget {
         print(signUpBody.toString());
       }
     }
+    
 
     return Scaffold(
         backgroundColor: Colors.white,

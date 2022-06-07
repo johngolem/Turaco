@@ -19,4 +19,6 @@ class AppConstants {
   static const String forgot_password_URI = "to be added ";
 
   static const String TOKEN = "DBtoken";
+  static const String EMAIL = "";
+  static const String PASSWORD = "";
 }
