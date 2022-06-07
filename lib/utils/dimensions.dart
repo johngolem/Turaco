@@ -45,6 +45,8 @@ static double font45 = screenHeight / 18.75;
 //iconsize
 static double iconsize24 = screenHeight / 35.17;
 static double iconsize16 = screenHeight / 52.75;
+static double iconsize75 = screenHeight / 11.25;
+static double iconsize95 = screenHeight / 8.8;
 
 //listview
 static double listViewImgSize = screenWidth / 3.25;

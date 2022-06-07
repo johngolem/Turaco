@@ -1,18 +1,29 @@
 
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
+import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  
   Widget build(BuildContext context) {
+
+     var emailController = TextEditingController();
+    var passwordController = TextEditingController();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white54,
         // appBar: AppBar(
         //   elevation: 0,
         //   brightness: Brightness.light,
@@ -77,8 +88,12 @@ class LoginPage extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      makeInput(label: "Email"),
-                      makeInput(label: "Password",obsureText: true),
+                      AppTextField(textController: emailController, hintText: "Email", icon: Icons.email),
+                      SizedBox(height: Dimensions.height15,),
+                      AppTextField(textController: passwordController, hintText: "password", icon: Icons.password),
+                      SizedBox(height: Dimensions.height15,),
+                      // makeInput(label: "Email "),
+                      // makeInput(label: "Password",obsureText: true),
                     ],
                   ),
                 ),
@@ -104,7 +119,8 @@ class LoginPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)
                       ),
                       child: Text("Login"),
-                      ),),
+                      ),
+                      ),
                     ),
                   
                 
@@ -118,6 +134,17 @@ class LoginPage extends StatelessWidget {
                     //   fontWeight: FontWeight.w600,
                     //   fontSize: 18)
                     // ),) 
+                    
+                    //trial 
+                    //  TextSpan(
+                    //   recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpPage()),
+                    // text: "Create",
+                    // style: TextStyle(
+                    //   fontWeight: FontWeight.bold,
+                    //   color: Colors.grey,
+                    //   fontSize: Dimensions.font16,
+                    // ),
+                    // ),
                   ],
                 )
               ],

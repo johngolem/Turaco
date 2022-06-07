@@ -1,11 +1,24 @@
+// ignore_for_file: unused_import, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:turac/home/login.dart';
 import 'package:turac/home/main_product.dart';
 import 'package:get/get.dart';
 import 'package:turac/home/signup_page.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
+import 'package:turac/pages/user_profile.dart';
+import 'helper/dependencies.dart' as dep;
+import 'home/new login/new_signup.dart';
+import 'home/new login/old_signup.dart';
 
-void main() {
+// this is the init method for the api's
+Future<void> main() async {
+
+  
+  //makes ure dependancies are loaded correctly and waits until they are loaded
+  WidgetsFlutterBinding.ensureInitialized();
+  //load dependancies here
+  await dep.init();
   runApp(const MyApp());
 }
 
@@ -21,11 +34,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // ignore: prefer_const_constructors
+     
       // home: MainProductPage(),
-      home:PopularProductDetail(),
+      // home: PopularProductDetail(),
       // home:LoginPage(),
       // home:SignupPage(),
+      home:SignUpPage(),
+      // home:AccountProfile(),
     );
   }
 }

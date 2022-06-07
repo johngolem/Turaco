@@ -1,0 +1,1 @@
+//have the products model gotten from the endpoint
