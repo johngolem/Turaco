@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:turac/base/show_custom_snackbar.dart';
@@ -71,9 +70,10 @@ class SignUpPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
+      appBar: PreferredSize(preferredSize: Size.fromHeight(Dimensions.screenHeight*0.05),
+      child: AppBar(
+        backgroundColor: AppColors.mainColor,
         elevation: 0,
-        // brightness: Brightness.light,
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -84,14 +84,18 @@ class SignUpPage extends StatelessWidget {
               color: Colors.black,
             )),
       ),
+      
+      ),
+      
       body: Column(children: [
+        SizedBox(height: Dimensions.height10,),
         BigText(
           text: AppConstants.APP_NAME,
           color: Colors.green,
           size: Dimensions.font26,
         ),
         SizedBox(
-          height: Dimensions.screenHeight * 0.05,
+          height: Dimensions.height10
         ),
         Container(
           height: Dimensions.screenHeight * 0.20,
@@ -197,12 +201,20 @@ class SignUpPage extends StatelessWidget {
             child: Center(
               child: BigText(
                 text: "Sign Up",
-                // size: Dimensions.font26,
                 color: Colors.white,
               ),
             ),
           ),
         ),
+        SizedBox(height: Dimensions.height15,),
+        // login link
+        Row(children: [
+          Container(
+            margin: EdgeInsets.only(left: Dimensions.height20),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.radius20)),
+              child:BigText(text: "Already have an account? | Login", color: AppColors.mainBlackColor,size: Dimensions.font20, ),
+          )
+        ],)
       ]),
     );
   }
