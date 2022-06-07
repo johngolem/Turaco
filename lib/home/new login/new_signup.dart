@@ -23,7 +23,7 @@ class SignUpPage extends StatelessWidget {
     var usertypeController = TextEditingController();
     // var nameController = TextEditingController();
 
-    void _registration() {
+    void _registration(Authcontroller authcontroller) {
       var authController = Get.find<Authcontroller>();
 
       String phone = phoneController.text.trim();
@@ -95,7 +95,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 BigText(
                   text: AppConstants.APP_NAME,
-                  color: Colors.green,
+                  color: AppColors.mainColor,
                   size: Dimensions.font26,
                 ),
                 SizedBox(height: Dimensions.height10),
@@ -117,7 +117,7 @@ class SignUpPage extends StatelessWidget {
                       left: Dimensions.height20, right: Dimensions.height20),
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(Dimensions.radius30),
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
                       boxShadow: [
                         BoxShadow(
                             blurRadius: 10,
@@ -135,14 +135,14 @@ class SignUpPage extends StatelessWidget {
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius:
-                              BorderRadius.circular(Dimensions.radius30),
+                              BorderRadius.circular(Dimensions.radius20),
                           borderSide: BorderSide(
                             color: Colors.white,
                             width: 1.0,
                           )),
                       enabledBorder: OutlineInputBorder(
                           borderRadius:
-                              BorderRadius.circular(Dimensions.radius30),
+                              BorderRadius.circular(Dimensions.radius20),
                           borderSide: BorderSide(
                             color: Colors.white,
                             width: 1.0,
@@ -160,7 +160,7 @@ class SignUpPage extends StatelessWidget {
                 AppTextField(
                   textController: phoneController,
                   hintText: "phone",
-                  icon: Icons.phone,
+                  icon: Icons.phone
                 ),
                 SizedBox(
                   height: Dimensions.height15,
@@ -168,7 +168,7 @@ class SignUpPage extends StatelessWidget {
                 AppTextField(
                   textController: usertypeController,
                   hintText: "user type{1,2,3,4}",
-                  icon: Icons.type_specimen,
+                  icon: Icons.people
                 ),
                 // AppTextField(
                 //     textController: nameController,
@@ -179,8 +179,8 @@ class SignUpPage extends StatelessWidget {
                 ),
                 AppTextField(
                     textController: passwordController,
-                    hintText: "input password",
-                    icon: Icons.password),
+                    hintText: "Enter password",
+                    icon: Icons.password_sharp, isObscure: true,),
                 // SizedBox(
                 //   height: Dimensions.height15,
                 // ),
@@ -195,7 +195,7 @@ class SignUpPage extends StatelessWidget {
                 // sign up button
                 GestureDetector(
                   onTap: () {
-                    _registration();
+                    _registration(_authController);
                   },
                   child: Container(
                     width: Dimensions.screenWidth / 2,
