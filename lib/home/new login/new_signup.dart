@@ -22,11 +22,10 @@ class SignUpPage extends StatelessWidget {
     var passwordController = TextEditingController();
     var phoneController = TextEditingController();
     var usertypeController = TextEditingController();
-     // var nameController = TextEditingController();
+    // var nameController = TextEditingController();
 
     void _registration() {
-      
-      // var authController = Get.find<Authcontroller>();
+      var authController = Get.find<Authcontroller>();
 
       String phone = phoneController.text.trim();
       String email = emailController.text.trim();
@@ -54,27 +53,19 @@ class SignUpPage extends StatelessWidget {
             title: "password too short");
       } else {
         successCustomSnackBar("All went well", title: "Success");
-        // SignUpBody signUpBody = SignUpBody(
-        //     userType: userType,
-        //     phone: phone,
-        //     email: email,
-        //     password: password);
-        
-        // authController.registration(signUpBody).then((status){
-        //   if(status.isSuccess){
-            
-              // print("succesful registration");
-
-        // }else {
-        //   showCustomSnackBar(status.message);
-        // }
-        
-        //   }
-        //   );
-
-        // print(signUpBody.toString());
+        SignUpBody signUpBody = SignUpBody(
+            userType: userType, phone: phone, email: email, password: password);
         // name: name,
 
+        authController.registration(signUpBody).then((status) {
+          if (status.isSuccess) {
+            print("succesful registration");
+          } else {
+            showCustomSnackBar(status.message);
+          }
+        });
+
+        print(signUpBody.toString());
       }
     }
 
@@ -112,7 +103,9 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: Dimensions.height10,),
+        SizedBox(
+          height: Dimensions.height10,
+        ),
         Container(
           margin: EdgeInsets.only(
               left: Dimensions.height20, right: Dimensions.height20),
@@ -165,7 +158,7 @@ class SignUpPage extends StatelessWidget {
         ),
         AppTextField(
           textController: usertypeController,
-          hintText: "user type",
+          hintText: "user type{1,2,3,4}",
           icon: Icons.type_specimen,
         ),
         // AppTextField(
