@@ -35,11 +35,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
      
-      // home: MainProductPage(),
+      // home: MainProductPage(),1
       // home: PopularProductDetail(),
-      home:LoginPage(),
+      // home:LoginPage(),
       // home:SignupPage(),
-      // home:SignUpPage(),
+      home:SignUpPage(),
       // home:AccountProfile(),
     );
   }

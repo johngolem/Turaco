@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:turac/base/show_custom_snackbar.dart';
 import 'package:turac/base/success_customsnackbar.dart';
 import 'package:turac/controllers/auth_controller.dart';
+import 'package:turac/home/main_product.dart';
 import 'package:turac/models/signupbody.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -41,11 +42,12 @@ class _LoginPageState extends State<LoginPage> {
         showCustomSnackBar("Password has to be 4* long",
             title: "password too short");
       } else {
-        successCustomSnackBar("All went well", title: "Success");
+        successCustomSnackBar("Login succesful", title: "Success");
 
         authController.login(email, password).then((status) {
           if (status.isSuccess) {
-            print("succesful login");
+            print("success");
+            Get.to(() => MainProductPage(), transition: Transition.fade);
           } else {
             showCustomSnackBar(status.message);
           }
