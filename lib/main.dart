@@ -2,9 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:turac/home/login.dart';
-import 'package:turac/home/main_product.dart';
+import 'package:turac/pages/category_main.dart';
+import 'package:turac/pages/main_product.dart';
 import 'package:get/get.dart';
 import 'package:turac/home/signup_page.dart';
+import 'package:turac/models/category_model.dart';
+import 'package:turac/pages/product/category_detail.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
 import 'package:turac/pages/user_profile.dart';
 import 'helper/dependencies.dart' as dep;
@@ -35,11 +38,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
      
-      // home: MainProductPage(),1
+    
+      home:MainCategoryPage(),
       // home: PopularProductDetail(),
       // home:LoginPage(),
       // home:SignupPage(),
-      home:SignUpPage(),
+      // home:SignUpPage(),
+      // home:CategoryDetail(),
       // home:AccountProfile(),
     );
   }

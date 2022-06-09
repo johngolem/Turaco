@@ -11,8 +11,8 @@ import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
 
 
-class PopularProductDetail extends StatelessWidget {
-  const PopularProductDetail({Key? key}) : super(key: key);
+class CategoryDetail extends StatelessWidget {
+  const CategoryDetail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

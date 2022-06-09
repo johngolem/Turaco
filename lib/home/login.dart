@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:turac/base/show_custom_snackbar.dart';
 import 'package:turac/base/success_customsnackbar.dart';
 import 'package:turac/controllers/auth_controller.dart';
-import 'package:turac/home/main_product.dart';
+import 'package:turac/pages/main_product.dart';
 import 'package:turac/models/signupbody.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
