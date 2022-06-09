@@ -17,18 +17,18 @@ List <CategoryModel> get categories=>_categories;
   }
 
    Category.fromJson(Map<String, dynamic> json) {
-    category = json['name'];
-    image = json['image_path'];
-    description = json['description'];
+    _category = json['name'];
+    _image = json['image_path'];
+    _description = json['description'];
 
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
 
-    data['name'] = this.category;
-    data['image_path'] = this.image;
-    data['description'] = this.description;
+    data['name'] = this._category;
+    data['image_path'] = this._image;
+    data['description'] = this._description;
     return data;
   }
 
