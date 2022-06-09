@@ -44,7 +44,7 @@ class CategoryDetail extends StatelessWidget {
                       onTap: () {
                         Get.to(() => MainProductPage());
                       },
-                      child: AppIcon(icon: Icons.arrow_back_ios)),
+                      child: AppIcon(icon: Icons.arrow_back_ios, iconColor: Colors.black,)),
                   GestureDetector(
                       // onTap: () {
                       //   Get.to(() => SignupPage());
@@ -75,13 +75,13 @@ class CategoryDetail extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AppColumn(
-                        text: "Milimani City",
+                        text: "Name of category",
                         rating: "4.3",
                       ),
                       SizedBox(
                         height: Dimensions.height20,
                       ),
-                      BigText(text: "Introduction"),
+                      Icon(Icons.toggle_on),
                       SizedBox(
                         height: Dimensions.height20,
                       ),

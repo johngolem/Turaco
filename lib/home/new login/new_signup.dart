@@ -20,8 +20,8 @@ class SignUpPage extends StatelessWidget {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     var phoneController = TextEditingController();
-    var usertypeController = TextEditingController();
-    // var nameController = TextEditingController();
+    
+   
 
     void _registration(Authcontroller authcontroller) {
       var authController = Get.find<Authcontroller>();
@@ -29,13 +29,8 @@ class SignUpPage extends StatelessWidget {
       String phone = phoneController.text.trim();
       String email = emailController.text.trim();
       String password = passwordController.text.trim();
-      String userType = usertypeController.text.trim();
-      // String name = nameController.text.trim();
+      
 
-      // if (name.isEmpty) {
-      //   showCustomSnackBar("Type in your Name", title: "Invalid input");}
-      //  if (userType.isEmpty) {
-      //    showCustomSnackBar("Type in your user type", title: "Invalid input");}
       if (phone.isEmpty) {
         showCustomSnackBar("Type in your phone number",
             title: "Phone number cannot be empty");
@@ -52,8 +47,7 @@ class SignUpPage extends StatelessWidget {
             title: "password too short");
       } else {
         successCustomSnackBar("All went well", title: "Success");
-        SignUpBody signUpBody = SignUpBody(
-            userType: userType, phone: phone, email: email, password: password);
+        SignUpBody signUpBody = SignUpBody(phone: phone, email: email, password: password);
         // name: name,
 
         authController.registration(signUpBody).then((status) {
@@ -167,28 +161,9 @@ class SignUpPage extends StatelessWidget {
                   height: Dimensions.height15,
                 ),
                 AppTextField(
-                  textController: usertypeController,
-                  hintText: "user type{1,2,3,4}",
-                  icon: Icons.people
-                ),
-                // AppTextField(
-                //     textController: nameController,
-                //     hintText: "Enter your name",
-                //     icon: Icons.person),
-                SizedBox(
-                  height: Dimensions.height15,
-                ),
-                AppTextField(
                     textController: passwordController,
                     hintText: "Enter password",
-                    icon: Icons.password_sharp, isObscure: true,),
-                // SizedBox(
-                //   height: Dimensions.height15,
-                // ),
-                // AppTextField(
-                //     textController: passwordController,
-                //     hintText: "confirm password",
-                //     icon: Icons.password),
+                    icon: Icons.password_sharp, isObscure: true,),               
                 SizedBox(
                   height: Dimensions.height20,
                 ),
