@@ -39,6 +39,8 @@ class _MainCategoryPageState extends State<MainCategoryPage> {
                      )
                       ],
                   ),
+
+                  
                   Container(
                     width: 45,
                     height: 45,

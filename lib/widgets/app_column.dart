@@ -9,17 +9,24 @@ import '../utils/dimensions.dart';
 class AppColumn extends StatelessWidget {
   final String text;
   final String rating;
- 
+  final String shopId;
 
-  const AppColumn({Key? key, required this.text, required this.rating,})
-      : super(key: key);
+  const AppColumn({
+    Key? key,
+    required this.text,
+    required this.rating,
+    required this.shopId
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BigText(text: text, size:Dimensions.font26 ,),
+        BigText(
+          text: text,
+          size: Dimensions.font26,
+        ),
         SizedBox(
           height: Dimensions.height10,
         ),
@@ -45,6 +52,10 @@ class AppColumn extends StatelessWidget {
               width: Dimensions.width10,
             ),
             SmallText(text: "comments"),
+            SizedBox(
+              width: Dimensions.width10,
+            ),
+            SmallText(text: shopId)
           ],
         ),
         SizedBox(

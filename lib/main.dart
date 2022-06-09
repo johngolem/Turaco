@@ -39,10 +39,10 @@ class MyApp extends StatelessWidget {
       ),
      
     
-      // home:MainCategoryPage(),
+      home:MainCategoryPage(),
       // home: PopularProductDetail(),
       // home:LoginPage(),
-      home:SignUpPage(),
+      // home:SignUpPage(),
       // home:CategoryDetail(),
       // home:AccountProfile(),
     );

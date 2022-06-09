@@ -76,7 +76,7 @@ class CategoryDetail extends StatelessWidget {
                     children: [
                       AppColumn(
                         text: "Name of category",
-                        rating: "4.3",
+                        rating: "4.3", shopId: '',
                       ),
                       SizedBox(
                         height: Dimensions.height20,

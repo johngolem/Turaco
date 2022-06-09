@@ -76,7 +76,7 @@ class PopularProductDetail extends StatelessWidget {
                     children: [
                       AppColumn(
                         text: "Milimani City",
-                        rating: "4.3",
+                        rating: "4.3", shopId: "2",
                       ),
                       SizedBox(
                         height: Dimensions.height20,
