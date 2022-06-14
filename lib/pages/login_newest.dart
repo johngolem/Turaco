@@ -1,14 +1,11 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, unnecessary_new
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:turac/base/show_custom_snackbar.dart';
-import 'package:turac/base/success_customsnackbar.dart';
 import 'package:turac/controllers/auth_controller.dart';
-import 'package:turac/pages/main_product.dart';
+import 'package:turac/models/login_model.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
-import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
 
@@ -18,41 +15,18 @@ class LoginPageNew extends StatefulWidget {
 }
 
 class _LoginPageNewState extends State<LoginPageNew> {
+  bool hidepassword =true;
+  late LoginRequestModel requestModel;
+  
   @override
+  void initstate(){
+    super.initState()
+    requestModel = new LoginRequestModel(email, password)
+  }
+
+   @override
   Widget build(BuildContext context) {
-    var emailController = TextEditingController();
-    var passwordController = TextEditingController();
-
-    void _login(Authcontroller authcontroller) {
-      var authController = Get.find<Authcontroller>();
-
-      String email = emailController.text.trim();
-      String password = passwordController.text.trim();
-
-      if (email.isEmpty) {
-        showCustomSnackBar("Type in your email address",
-            title: "Invalid input");
-      } else if (!GetUtils.isEmail(email)) {
-        showCustomSnackBar("Type a valid email address",
-            title: "Invalid email");
-      } else if (password.isEmpty) {
-        showCustomSnackBar("Type in your password", title: "Invalid input");
-      } else if (password.length < 4) {
-        showCustomSnackBar("Password has to be 4* long",
-            title: "password too short");
-      } else {
-        successCustomSnackBar("Login succesful", title: "Success");
-
-        authController.login(email, password).then((status) {
-          if (status.isSuccess) {
-            print("success");
-            Get.to(() => MainProductPage(), transition: Transition.fade);
-          } else {
-            showCustomSnackBar(status.message);
-          }
-        });
-      }
-    }
+   
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -125,18 +99,61 @@ class _LoginPageNewState extends State<LoginPageNew> {
                           padding: EdgeInsets.symmetric(horizontal: 40),
                           child: Column(
                             children: [
-                              AppTextField(
-                                  textController: emailController,
-                                  hintText: "Email",
-                                  icon: Icons.email),
+                              new TextFormField(
+                                keyboardType: TextInputType.emailAddress,
+                                onSaved: (input) => requestModel.email = input,
+                                validator: (input) => !input.contains("@")
+                                    ? "Email should be valid"
+                                    :null,
+                                decoration: new InputDecoration(
+                                  hintText: "email address",
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide:BorderSide(
+                                      color: Theme.of(context)
+                                      .backgroundColor
+                                      .withOpacity(0.2)) 
+                                      ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide:BorderSide(
+                                      color: Theme.of(context)
+                                      .accentColor
+                                    )
+                                    ),
+                                  prefixIcon: Icon(
+                                    Icons.email,
+                                    color: Colors.blue,
+                                  )
+                                ),
+                              ),
                               SizedBox(
                                 height: Dimensions.height15,
                               ),
-                              AppTextField(
-                                textController: passwordController,
-                                hintText: "password",
-                                icon: Icons.password,
-                                isObscure: true,
+                              new TextFormField(
+                                keyboardType: TextInputType.text,
+                                // onSaved: (input) => requestModel.email = input,
+                                validator: (input) => input.length<4
+                                    ? "password should have 4 characters to be valid"
+                                    :null,
+                                obscureText: hidepassword,
+                                decoration: new InputDecoration(
+                                  hintText: "password",
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide:BorderSide(
+                                      color: Theme.of(context)
+                                      .backgroundColor
+                                      .withOpacity(0.2)) 
+                                      ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide:BorderSide(
+                                      color: Theme.of(context)
+                                      .accentColor
+                                    )
+                                    ),
+                                  prefixIcon: Icon(
+                                    Icons.email,
+                                    color: Colors.blue,
+                                  )
+                                ),
                               ),
                               SizedBox(
                                 height: Dimensions.height15,
