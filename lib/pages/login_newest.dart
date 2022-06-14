@@ -15,12 +15,16 @@ class LoginPageNew extends StatefulWidget {
 }
 
 class _LoginPageNewState extends State<LoginPageNew> {
+  final scaffoldkey = GlobalKey<ScaffoldState>();
+  GlobalKey<FormState>globalFormKey = new GlobalKey<FormState>();
   bool hidepassword =true;
   late LoginRequestModel requestModel;
   
+
+
   @override
   void initstate(){
-    super.initState()
+    super.initState();
     requestModel = new LoginRequestModel(email, password)
   }
 
@@ -29,11 +33,10 @@ class _LoginPageNewState extends State<LoginPageNew> {
    
 
     return Scaffold(
+        key: scaffoldkey,
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
-        body: GetBuilder<Authcontroller>(
-          builder: (authcontroller) {
-            return SingleChildScrollView(
+        body: SingleChildScrollView(
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
@@ -97,68 +100,69 @@ class _LoginPageNewState extends State<LoginPageNew> {
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 40),
-                          child: Column(
-                            children: [
-                              new TextFormField(
-                                keyboardType: TextInputType.emailAddress,
-                                onSaved: (input) => requestModel.email = input,
-                                validator: (input) => !input.contains("@")
-                                    ? "Email should be valid"
-                                    :null,
-                                decoration: new InputDecoration(
-                                  hintText: "email address",
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide:BorderSide(
-                                      color: Theme.of(context)
-                                      .backgroundColor
-                                      .withOpacity(0.2)) 
+                          child: Form(
+                            key: globalFormKey,
+                            child: Column(
+                              children: [
+                                new TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
+                                  // onSaved: (input) => requestModel.email = input,
+                                  validator: (input)=>input.contains("@")?,"Email should be valid" : null,
+                                  decoration: new InputDecoration(
+                                    hintText: "email address",
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide:BorderSide(
+                                        color: Theme.of(context)
+                                        .backgroundColor
+                                        .withOpacity(0.2)) 
+                                        ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide:BorderSide(
+                                        color: Theme.of(context)
+                                        .accentColor
+                                      )
                                       ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide:BorderSide(
-                                      color: Theme.of(context)
-                                      .accentColor
+                                    prefixIcon: Icon(
+                                      Icons.email,
+                                      color: Colors.blue,
                                     )
-                                    ),
-                                  prefixIcon: Icon(
-                                    Icons.email,
-                                    color: Colors.blue,
-                                  )
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: Dimensions.height15,
-                              ),
-                              new TextFormField(
-                                keyboardType: TextInputType.text,
-                                // onSaved: (input) => requestModel.email = input,
-                                validator: (input) => input.length<4
-                                    ? "password should have 4 characters to be valid"
-                                    :null,
-                                obscureText: hidepassword,
-                                decoration: new InputDecoration(
-                                  hintText: "password",
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide:BorderSide(
-                                      color: Theme.of(context)
-                                      .backgroundColor
-                                      .withOpacity(0.2)) 
+                                SizedBox(
+                                  height: Dimensions.height15,
+                                ),
+                                new TextFormField(
+                                  keyboardType: TextInputType.text,
+                                  onSaved: (input) => requestModel.password = input,
+                                  // validator: (input) => input.length < 4
+                                  //     ? "password should have 4 characters to be valid"
+                                  //     :null,
+                                  obscureText: hidepassword,
+                                  decoration: new InputDecoration(
+                                    hintText: "password",
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide:BorderSide(
+                                        color: Theme.of(context)
+                                        .backgroundColor
+                                        .withOpacity(0.2)) 
+                                        ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide:BorderSide(
+                                        color: Theme.of(context)
+                                        .accentColor
+                                      )
                                       ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide:BorderSide(
-                                      color: Theme.of(context)
-                                      .accentColor
+                                    prefixIcon: Icon(
+                                      Icons.email,
+                                      color: Colors.blue,
                                     )
-                                    ),
-                                  prefixIcon: Icon(
-                                    Icons.email,
-                                    color: Colors.blue,
-                                  )
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: Dimensions.height15,
-                              ),
-                            ],
+                                SizedBox(
+                                  height: Dimensions.height15,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Padding(
@@ -201,9 +205,9 @@ class _LoginPageNewState extends State<LoginPageNew> {
                   ],
                 ),
               ),
-            );
-          },
-        ));
+      );
+        
+        );
   }
 }
 
