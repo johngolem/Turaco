@@ -15,8 +15,11 @@ class AppConstants {
   static const String POPULAR_PRODUCT_URI = "api/v1/vendors/<vendor-id>/products";
   static const String RECOMMENDED_PRODUCT_URI = "to be added ";
   static const String login_URI = "api/auth/login";
+  static const String categories_URI = "api/v1/item-categories";
   static const String register_URI = "api/auth/register";
   static const String forgot_password_URI = "to be added ";
 
   static const String TOKEN = "DBtoken";
+  static const String EMAIL = "";
+  static const String PASSWORD = "";
 }

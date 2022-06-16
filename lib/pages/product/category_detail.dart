@@ -11,8 +11,8 @@ import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
 
 
-class PopularProductDetail extends StatelessWidget {
-  const PopularProductDetail({Key? key}) : super(key: key);
+class CategoryDetail extends StatelessWidget {
+  const CategoryDetail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class PopularProductDetail extends StatelessWidget {
                       onTap: () {
                         Get.to(() => MainProductPage());
                       },
-                      child: AppIcon(icon: Icons.arrow_back_ios)),
+                      child: AppIcon(icon: Icons.arrow_back_ios, iconColor: Colors.black,)),
                   GestureDetector(
                       // onTap: () {
                       //   Get.to(() => SignupPage());
@@ -75,13 +75,13 @@ class PopularProductDetail extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AppColumn(
-                        text: "Milimani City",
-                        rating: "4.3", shopId: "2",
+                        text: "Name of category",
+                        rating: "4.3", shopId: '',
                       ),
                       SizedBox(
                         height: Dimensions.height20,
                       ),
-                      BigText(text: "Introduction"),
+                      Icon(Icons.toggle_on),
                       SizedBox(
                         height: Dimensions.height20,
                       ),

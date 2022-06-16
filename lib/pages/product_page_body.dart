@@ -267,7 +267,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                       right: Dimensions.height15),
                   child: AppColumn(
                     text: "Milimani City",
-                    rating: "3.7",
+                    rating: "3.800", shopId: '1',
                   )),
             ),
           ),

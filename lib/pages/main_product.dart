@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:turac/home/product_page_body.dart';
+import 'package:turac/pages/product_page_body.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
