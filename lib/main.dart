@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:turac/home/login.dart';
+import 'package:turac/home/new%20login/new_login.dart';
 import 'package:turac/pages/category_main.dart';
-import 'package:turac/pages/login_newest.dart';
 import 'package:turac/pages/main_product.dart';
 import 'package:get/get.dart';
 import 'package:turac/home/signup_page.dart';
@@ -46,7 +46,9 @@ class MyApp extends StatelessWidget {
       // home:SignUpPage(),
       // home:CategoryDetail(),
       // home:AccountProfile(),
-      home: LoginPageNew(),
+      // home: SignIn(),
+      home: SignIn(),
+
     );
   }
 }

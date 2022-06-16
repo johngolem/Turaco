@@ -1,217 +1,330 @@
-// // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
+import 'dart:convert';
+import 'dart:io';
 
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:turac/home/login.dart';
-// import 'package:turac/utils/app_constants.dart';
-// import 'package:turac/utils/colors.dart';
-// import 'package:turac/utils/dimensions.dart';
-// import 'package:turac/widgets/appIcon.dart';
-// import 'package:turac/widgets/app_text_field.dart';
-// import 'package:turac/widgets/big_text.dart';
-// import 'package:turac/widgets/small_text.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:turac/home/new%20login/new_login.dart';
 
-// class SignupPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     var emailController = TextEditingController();
-//     var passwordController = TextEditingController();
-//     var nameController = TextEditingController();
-//     var phoneController = TextEditingController();
-    
-//     return Scaffold(
-//       resizeToAvoidBottomInset: false,
-//       // resizeToAvoidBottomPadding: false,
+import 'package:turac/utils/api.dart';
 
-//       //page background color
-//       backgroundColor: Colors.white,
-//       appBar: AppBar(
-//         elevation: 0,
-//         brightness: Brightness.light,
-//         backgroundColor: Colors.white,
-//         leading: IconButton(
-//             onPressed: () {
-//               Navigator.pop(context);
-//             },
-//             icon: Icon(
-//               Icons.arrow_back_ios_new_sharp,
-//               size: 20,
-//               color: Colors.black,
-//             )),
-//       ),
-//       body: SafeArea(
-//         child: SingleChildScrollView(
-//           child: Container(
-//             height: MediaQuery.of(context).size.height,
-//             width: double.infinity,
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-//                 Column(
-//                   children: [
-//                     Column(
-//                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                       children: [
-//                         Row(
-//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                           children: [
-//                             SizedBox(
-//                               width: Dimensions.width10,
-//                             ),
-//                             BigText(
-//                                 text: AppConstants.APP_NAME,
-//                                 color: AppColors.mainColor),
-//                             // // Text ("Sign up", style: TextStyle(
-//                             // //   fontSize: 30,
-//                             // //   fontWeight: FontWeight.bold,
-//                             // ),),
-//                             SizedBox(
-//                               height: Dimensions.height20,
-//                             ),
-//                             SmallText(
-//                               text: "Create an Account,Its free",
-//                               size: Dimensions.font16,
-//                             ),
-//                             SizedBox(
-//                               height: Dimensions.height30,
-//                             )
-//                           ],
-//                         ),
-//                         SizedBox(
-//                           height: Dimensions.height15,
-//                         ),
-//                         Text(
-//                           "Sign up",
-//                           style: TextStyle(
-//                             fontSize: 30,
-//                             fontWeight: FontWeight.bold,
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                     Padding(
-//                       padding: EdgeInsets.symmetric(horizontal: 40),
-                      
+import 'package:http/http.dart' as http;
+
+import 'package:shared_preferences/shared_preferences.dart';
+// import 'home.dart';
+class SignUp extends StatefulWidget {
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  final _formKey = GlobalKey<FormState>();
+ late String name,email, password;
+  bool isLoading=false;
+  GlobalKey<ScaffoldState>_scaffoldKey=GlobalKey();
+ late ScaffoldMessengerState scaffoldMessenger ;
+  var reg=RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+
+  TextEditingController _nameController=new TextEditingController();
+  TextEditingController _emailController=new TextEditingController();
+  TextEditingController _passwordController=new TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    scaffoldMessenger = ScaffoldMessenger.of(context);
+    return Scaffold(
+      key: _scaffoldKey,
+        body: SingleChildScrollView(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Stack(
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              child: Image.asset(
+                "assets/background.jpg",
+                fit: BoxFit.fill,
+              ),
+            ),
+            Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Center(
+                      child: Image.asset(
+                    "assets/logo.png",
+                    height: 30,
+                    width: 30,
+                    alignment: Alignment.center,
+                  )),
+                  SizedBox(
+                    height: 13,
+                  ),
+                  Text(
+                    "Learn With Us",
+                    style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                            fontSize: 27,
+                            color: Colors.white,
+                            letterSpacing: 1)),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    width: 180,
+                    child: Text(
+                      "RRTutors, Hyderabad",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                            color: Colors.white54,
+                            letterSpacing: 0.6,
+                            fontSize: 11),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Sign Up",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.roboto(
+                      textStyle: TextStyle(
+                        color: Colors.white,
+                        letterSpacing: 1,
+                        fontSize: 23,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Learn new Technologies ????",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.white70,
+                            letterSpacing: 1,
+                            fontSize: 17,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Form(
+                    key: _formKey,
+                    child: Container(
+                      margin:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 45),
+                      child: Column(
+                        children: <Widget>[
+                          TextFormField(
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                            controller: _nameController,
+
+                            decoration: InputDecoration(
+
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white)),
+                              hintText: "Name",
+                              hintStyle: TextStyle(
+                                  color: Colors.white70, fontSize: 15),
+                            ),
+                            onSaved: (val) {
+                              name = val!;
+                            },
+                          ),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          TextFormField(
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                            controller: _emailController,
+
+                            decoration: InputDecoration(
+
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white)),
+                              hintText: "Email",
+                              hintStyle: TextStyle(
+                                  color: Colors.white70, fontSize: 15),
+                            ),
+                            onSaved: (val) {
+                              email = val!;
+                            },
+                          ),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          TextFormField(
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                            controller: _passwordController,
+                            decoration: InputDecoration(
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white)),
+                              hintText: "Password",
+                              hintStyle: TextStyle(
+                                  color: Colors.white70, fontSize: 15),
+                            ),
+                            onSaved: (val) {
+                              password = val!;
+                            },
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Stack(
+                            children: [
+                              Container(
+                                alignment: Alignment.center,
+                                width: double.infinity,
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 0),
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white),
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: InkWell(
+                                  onTap: (){
+                                    if(isLoading)
+                                    {
+                                      return;
+                                    }
+                                    if(_nameController.text.isEmpty)
+                                    {
+                                      scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please Enter Name")));
+                                      return;
+                                    }
+                                    if(!reg.hasMatch(_emailController.text))
+                                    {
+                                      scaffoldMessenger.showSnackBar(SnackBar(content:Text("Enter Valid Email")));
+                                      return;
+                                    }
+                                    if(_passwordController.text.isEmpty||_passwordController.text.length<6)
+                                    {
+                                      scaffoldMessenger.showSnackBar(SnackBar(content:Text("Password should be min 6 characters")));
+                                      return;
+                                    }
+                                    signup(_nameController.text,_emailController.text,_passwordController.text);
+                                  },
+                                  child: Text(
+                                    "CREATE ACCOUNT",
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.roboto(
+                                        textStyle: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            letterSpacing: 1)),
+                                  ),
+                                ),
+                              ),
+                              Positioned(child: (isLoading)?Center(child: Container(height:26,width: 26,child: CircularProgressIndicator(backgroundColor: Colors.green,))):Container(),right: 30,bottom: 0,top: 0,)
+
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, "/signin");
+                    },
+                    child: Text(
+                      "Already have an account?",
+                      style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 13,
+                              decoration: TextDecoration.underline,
+                              letterSpacing: 0.5)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ));
+  }
+
+  signup(name,email,password) async
+  {
+    setState(() {
+      isLoading=true;
+    });
+    print("Calling");
+
+    Map data = {
+      'email': email,
+      'password': password,
+      'name': name
+    };
+    print(data.toString());
+    final  response= await http.post(
+      Uri.parse(REGISTRATION),
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
 
 
-//                       //try inserting here
-//                     child: Column(children: [
-//                       TextField(
-//                         controller: emailController,
-//                       ),
-//                     ]),
+      body: data,
+        encoding: Encoding.getByName("utf-8")
+    )  ;
 
+    if (response.statusCode == 200) {
 
-//                     //   child: Column(
-                        
-//                     //     children: [
-//                     //       makeInput(label: "Email"),
-//                     //       makeInput(label: "Phone Number"),
-//                     //       makeInput(label: "Password", obsureText: true),
-//                     //       makeInput(label: "Confirm Pasword", obsureText: true),
-//                     //       SizedBox(
-//                     //         height: Dimensions.height10,
-//                     //       ),
-//                     //       SmallText(
-//                     //           text:
-//                     //               "By registering to TURACO, you agree to the terms and policies"),
-//                     //       SizedBox(
-//                     //         height: Dimensions.height15,
-//                     //       ),
-//                     //     ],
-//                     //   ),
-//                     ),
-//                     AppTextField(textController: emailController, hintText: "email", icon: Icons.email),
-//                     Padding(
-//                       padding: EdgeInsets.symmetric(horizontal: 40),
-//                       child: Container(
-//                         padding: EdgeInsets.only(top: 3, left: 3),
-//                         decoration: BoxDecoration(
-//                             borderRadius: BorderRadius.circular(40),
-//                             border: Border(
-//                                 bottom: BorderSide(color: Colors.black),
-//                                 top: BorderSide(color: Colors.black),
-//                                 right: BorderSide(color: Colors.black),
-//                                 left: BorderSide(color: Colors.black))),
-//                         child: MaterialButton(
-//                           minWidth: double.infinity,
-//                           height: 60,
-//                           onPressed: () {},
-//                           color: AppColors.mainColor,
-//                           shape: RoundedRectangleBorder(
-//                               borderRadius: BorderRadius.circular(40)),
-//                           child: Text(
-//                             "Sign Up",
-//                             style: TextStyle(
-//                               fontWeight: FontWeight.w600,
-//                               fontSize: 16,
-//                             ),
-//                           ),
-//                         ),
-//                       ),
-//                     ),
-//                     SizedBox(
-//                       height: 20,
-//                     ),
-//                     Row(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         Text("Already have an account?  | LOGIN "),
-//                         GestureDetector(
-//                             onTap: () {
-//                               Get.to(() => LoginPage());
-//                             },
-//                             child: AppIcon(
-//                               icon: Icons.login_outlined,
-//                               iconColor: AppColors.mainColor,
-//                             ))
-//                         // ("Login",style: TextStyle(
-//                         //     fontWeight: FontWeight.w600,
-//                         //     fontSize: 18
-//                         // ),),
-//                       ],
-//                     )
-//                   ],
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+      setState(() {
+        isLoading=false;
+      });
+      Map<String,dynamic>resposne=jsonDecode(response.body);
+      if(!resposne['error'])
+        {
+          Map<String,dynamic>user=resposne['data'];
+          print(" User name ${user['data']}");
+          savePref(1,user['name'],user['email'],user['id']);
+          Navigator.pushReplacementNamed(context, "/home");
+        }else{
+        print(" ${resposne['message']}");
+      }
+      scaffoldMessenger.showSnackBar(SnackBar(content:Text("${resposne['message']}")));
 
-// Widget makeInput({label, obsureText = false}) {
-//   return Column(
-//     crossAxisAlignment: CrossAxisAlignment.start,
-//     children: [
-//       Text(
-//         label,
-//         style: TextStyle(
-//             fontSize: 15, fontWeight: FontWeight.w400, color: Colors.black87),
-//       ),
-//       SizedBox(
-//         height: 5,
-//       ),
-//       TextField(
-//         obscureText: obsureText,
-//         decoration: InputDecoration(
-//           contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-//           enabledBorder: OutlineInputBorder(
-//             borderSide: BorderSide(
-//               color: Colors.grey,
-//             ),
-//           ),
-//           border: OutlineInputBorder(
-//               borderSide: BorderSide(
-//             color: Colors.grey,
-//           )),
-//         ),
-//       ),
-//       SizedBox(
-//         height: 30,
-//       )
-//     ],
-//   );
-// }
+    } else {
+      scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please Try again")));
+    }
+
+  }
+
+  savePref(int value, String name, String email, int id) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+
+      preferences.setInt("value", value);
+      preferences.setString("name", name);
+      preferences.setString("email", email);
+      preferences.setString("id", id.toString());
+      preferences.commit();
+
+  }
+}
