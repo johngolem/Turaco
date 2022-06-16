@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:turac/home/login.dart';
-import 'package:turac/home/new%20login/new_login.dart';
+import 'package:turac/useless_files/old_model_files/new_login.dart';
 import 'package:turac/pages/category_main.dart';
 import 'package:turac/pages/main_product.dart';
 import 'package:get/get.dart';
-import 'package:turac/home/signup_page.dart';
+import 'package:turac/useless_files/signup_page.dart';
 import 'package:turac/models/category_model.dart';
 import 'package:turac/pages/product/category_detail.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';

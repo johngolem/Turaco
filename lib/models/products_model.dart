@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this
+
 class Product {
   int? _totalSize;
   int? _typeId;
@@ -7,14 +9,11 @@ class Product {
   List<ProductModel> get products => _products;
 
   Product(
-      {required totalSize,
-      required typeId,
-      required offset,
-      required products}) {
-    this._totalSize = totalSize;
-    this._typeId = typeId;
-    this._offset = offset;
-    this._products = products;
+      {required totalSize, required typeId, required offset, required products}) {
+        this._totalSize = totalSize;
+        this._typeId = typeId;
+        this._offset = offset;
+        this._products = products;
   }
 
   Product.fromJson(Map<String, dynamic> json) {
@@ -24,7 +23,8 @@ class Product {
     if (json['products'] != null) {
       _products = <ProductModel>[];
       json['products'].forEach((v) {
-        _products!.add(ProductModel.fromJson(v));
+            // _products!.add(ProductModel.fromJson(v));
+        _products.add(ProductModel.fromJson(v));
       });
     }
   }
