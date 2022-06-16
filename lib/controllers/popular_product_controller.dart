@@ -19,6 +19,7 @@ class PopularProductController extends GetxController {
       print("got products");
       _popularProductList = [];
       _popularProductList.addAll(Product.fromJson(response.body).products);
+      // print(_popularProductList);
 
       // here i have to create a model to convert the json data to obj and save the obj to
       //popular product list, after that, we can use it anywhere in the app.

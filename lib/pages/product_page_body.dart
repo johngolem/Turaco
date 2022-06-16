@@ -3,6 +3,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:turac/controllers/popular_product_controller.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -47,31 +48,40 @@ class _ProductPageBodyState extends State<ProductPageBody> {
     return Column(
       children: [
         //slider section of the build
-        Container(
-          height: Dimensions.pageView,
-          child: GestureDetector(
-            onTap: () {
-              Get.to(() => PopularProductDetail(), transition: Transition.fade);
-            },
-            child: PageView.builder(
-                controller: pageController,
-                itemCount: 5,
-                itemBuilder: (context, position) {
-                  return _buildPageItem(position);
-                }),
-          ),
-        ),
+        GetBuilder<PopularProductController>(builder: (popularProducts) {
+          return Container(
+            height: Dimensions.pageView,
+            child: GestureDetector(
+              onTap: () {
+                Get.to(() => PopularProductDetail(),
+                    transition: Transition.fade);
+              },
+              child: PageView.builder(
+                  controller: pageController,
+                  itemCount:popularProducts.popularProductList.length ,
+                  itemBuilder: (context, position) {
+                    return _buildPageItem(position);
+                  }),
+            ),
+          );
+        }),
         // dot section of the build
-        new DotsIndicator(
-          dotsCount: 5,
-          position: _currentPageValue,
-          decorator: DotsDecorator(
-            activeColor: AppColors.mainColor,
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
-            activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)),
-          ),
+        GetBuilder<PopularProductController>(
+          builder: (popularProducts) {
+            return DotsIndicator(
+
+              
+              dotsCount:popularProducts.popularProductList.isEmpty? 1:popularProducts.popularProductList.length,
+              position: _currentPageValue,
+              decorator: DotsDecorator(
+                activeColor: AppColors.mainColor,
+                size: const Size.square(9.0),
+                activeSize: const Size(18.0, 9.0),
+                activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+              ),
+            );
+          }
         ),
 
         //Popular section/text
@@ -267,7 +277,8 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                       right: Dimensions.height15),
                   child: AppColumn(
                     text: "Milimani City",
-                    rating: "3.800", shopId: '1',
+                    rating: "3.800",
+                    shopId: '1',
                   )),
             ),
           ),

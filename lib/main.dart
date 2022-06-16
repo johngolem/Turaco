@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 
-      // home:MainCategoryPage(),
-      home: PopularProductDetail(),
+      home:MainCategoryPage(),
+      // home: PopularProductDetail(),
       // home:LoginPage(),
       // home:SignUpPage(),
       // home:CategoryDetail(),
