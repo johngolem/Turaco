@@ -4,7 +4,9 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:turac/controllers/popular_product_controller.dart';
+import 'package:turac/models/products_model.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
+import 'package:turac/utils/app_constants.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/app_column.dart';
@@ -60,7 +62,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                   controller: pageController,
                   itemCount:popularProducts.popularProductList.length ,
                   itemBuilder: (context, position) {
-                    return _buildPageItem(position);
+                    return _buildPageItem(position,popularProducts.popularProductList[position]);
                   }),
             ),
           );
@@ -201,7 +203,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
     );
   }
 
-  Widget _buildPageItem(int index) {
+  Widget _buildPageItem(int index,ProductModel popularProduct) {
     Matrix4 matrix = new Matrix4.identity();
     if (index == _currentPageValue.floor()) {
       // ignore: unused_local_variable
@@ -241,7 +243,11 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                 color: index.isEven ? Color(0xFF69C5df) : Color(0xff9294cc),
                 image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage("assets/image/milimani.jpeg"))),
+                    image: NetworkImage(
+                            AppConstants.BASE_URL+"/uploads/"+
+                            popularProduct.img!
+                    )
+                    )),
           ),
           Align(
             alignment: Alignment.bottomCenter,
