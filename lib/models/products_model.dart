@@ -4,6 +4,7 @@ class Product {
   int? _offset;
 
   late List<ProductModel> _products;
+  List<ProductModel> get products => _products;
 
   Product(
       {required totalSize,

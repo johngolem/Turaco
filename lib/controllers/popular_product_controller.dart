@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:turac/models/products_model.dart';
 
 import '../repository/popular_product_repo.dart';
 
@@ -16,20 +17,15 @@ class PopularProductController extends GetxController {
     // getx returns status code 200 if request is succesful
     if (response.statusCode == 200) {
       _popularProductList = [];
+      _popularProductList.addAll(Product.fromJson(response.body).products);
 
+      // here i have to create a model to convert the json data to obj and save the obj to
+      //popular product list, after that, we can use it anywhere in the app.
 
-      // here i have to create a model to convert the json data to obj and save the obj to 
-      //popular product list, after that, we can use it anywhere in the app. 
-
-      
-     // _popularProductList.addAll(add the model here);
-
-
+      // _popularProductList.addAll(add the model here);
 
       // update is like the setState(), it tells the ui to update as per the received data.
-      update(); 
-    }else{
-      
-    }
+      update();
+    } else {}
   }
 }
