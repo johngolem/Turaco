@@ -150,7 +150,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                                 image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: NetworkImage(
-                            AppConstants.BASE_URL+"/uploads/"+
+                            AppConstants.BASE_URL+AppConstants.Upload_URL +
                             popularCategory.popularCategoryList[index].img!
                     )
                                     
@@ -262,7 +262,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                            AppConstants.BASE_URL+"/uploads/"+
+                            AppConstants.BASE_URL+AppConstants.Upload_URL+
                             popularProduct.img!
                     )
                     )),

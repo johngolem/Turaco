@@ -21,6 +21,8 @@ class AppConstants {
   static const String categories_URI = "api/v1/item-categories";
   static const String register_URI = "api/auth/register";
   static const String forgot_password_URI = "to be added ";
+   static const String Upload_URL = "/uploads/";
+
 
   static const String TOKEN = "DBtoken";
   static const String EMAIL = "";
