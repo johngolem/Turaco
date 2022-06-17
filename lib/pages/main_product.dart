@@ -33,7 +33,7 @@ class _MainProductPageState extends State<MainProductPage> {
                       BigText(text: "Turaco ", color: AppColors.mainColor), 
                      Row(
                        children: [
-                          SmallText(text: "Browse stores", color: Colors.black54,),
+                          SmallText(text: "Browse stores", color: Colors.red,),
                           Icon(Icons.arrow_drop_down_rounded)
                        ],
                      )
@@ -43,7 +43,7 @@ class _MainProductPageState extends State<MainProductPage> {
                   (
                     width: 45,
                     height: 45,
-                    child: Icon(Icons.search, color: Colors.white),
+                    child: Icon(Icons.search, color: Colors.grey),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: AppColors.mainColor,

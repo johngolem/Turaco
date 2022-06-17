@@ -68,151 +68,153 @@ class _LoginPageState extends State<LoginPage> {
         //     Navigator.pop(context);
         //   },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
         // ),
-        body: GetBuilder<Authcontroller>(
-          builder: (authcontroller) {
-            return SingleChildScrollView(
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                        margin: EdgeInsets.only(top: 45, bottom: 15),
-                        padding: EdgeInsets.only(left: 20, right: 20),
-                        child: Column(children: [
-                          BigText(
-                            text: "Turaco",
-                            color: AppColors.mainColor,
-                            size: Dimensions.font45,
+        body: SingleChildScrollView(
+          child: GetBuilder<Authcontroller>(
+            builder: (authcontroller) {
+              return SingleChildScrollView(
+                child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: double.infinity,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                          margin: EdgeInsets.only(top: 45, bottom: 15),
+                          padding: EdgeInsets.only(left: 20, right: 20),
+                          child: Column(children: [
+                            BigText(
+                              text: "Turaco",
+                              color: AppColors.mainColor,
+                              size: Dimensions.font45,
+                            ),
+                            SizedBox(
+                              height: Dimensions.height25,
+                            ),
+                            Container(
+                              height: Dimensions.pageViewLogo,
+                              margin: EdgeInsets.only(left: 10, right: 10),
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.circular(Dimensions.radius20),
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image:
+                                          AssetImage("assets/image/logo.png"))),
+                            ),
+                            SmallText(
+                              text: "Start Selling And Buying Online with Turaco",
+                              size: Dimensions.font16,
+                              color: Colors.black,
+                            )
+                          ])),
+                      Column(
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                "Login",
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "Welcome back ! Login with your credentials",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 40),
+                            child: Column(
+                              children: [
+                                AppTextField(
+                                    textController: emailController,
+                                    hintText: "Email",
+                                    icon: Icons.email),
+                                SizedBox(
+                                  height: Dimensions.height15,
+                                ),
+                                AppTextField(
+                                  textController: passwordController,
+                                  hintText: "password",
+                                  icon: Icons.password,
+                                  isObscure: true,
+                                ),
+                                SizedBox(
+                                  height: Dimensions.height15,
+                                ),
+                                // makeInput(label: "Email "),
+                                // makeInput(label: "Password",obsureText: true),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 40),
+                            child: Container(
+                              padding: EdgeInsets.only(top: 3, left: 3),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(40),
+                                  border: Border(
+                                      bottom: BorderSide(color: Colors.black),
+                                      top: BorderSide(color: Colors.black),
+                                      right: BorderSide(color: Colors.black),
+                                      left: BorderSide(color: Colors.black))),
+                              child: MaterialButton(
+                                minWidth: double.infinity,
+                                height: 60,
+                                onPressed: () {},
+                                color: AppColors.mainColor,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                    onTap: () {
+                                      _login(authcontroller);
+                                    },
+                                    child: Text("Login")),
+                              ),
+                            ),
                           ),
                           SizedBox(
-                            height: Dimensions.height25,
+                            height: 20,
                           ),
-                          Container(
-                            height: Dimensions.pageViewLogo,
-                            margin: EdgeInsets.only(left: 10, right: 10),
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.radius20),
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image:
-                                        AssetImage("assets/image/logo.png"))),
-                          ),
-                          SmallText(
-                            text: "Start Selling And Buying Online with Turaco",
-                            size: Dimensions.font16,
-                            color: Colors.black,
+                          GestureDetector(
+                            onTap:(){
+                          Get.to(()=>SignUpPage());
+                        },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              // ignore: prefer_const_literals_to_create_immutables
+                              children: [
+                                Text("Dont have an account?"),
+                                SizedBox(height: Dimensions.height15,),
+                                GestureDetector(
+                                  onTap:(){
+                                     Get.to(()=>MainProductPage());
+                        },
+                                  child: Icon(Icons.home_outlined, color: Colors.green,)),
+                                
+        
+                              ],
+                            ),
                           )
-                        ])),
-                    Column(
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              "Login",
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              "Welcome back ! Login with your credentials",
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.grey[700],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 30,
-                            )
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40),
-                          child: Column(
-                            children: [
-                              AppTextField(
-                                  textController: emailController,
-                                  hintText: "Email",
-                                  icon: Icons.email),
-                              SizedBox(
-                                height: Dimensions.height15,
-                              ),
-                              AppTextField(
-                                textController: passwordController,
-                                hintText: "password",
-                                icon: Icons.password,
-                                isObscure: true,
-                              ),
-                              SizedBox(
-                                height: Dimensions.height15,
-                              ),
-                              // makeInput(label: "Email "),
-                              // makeInput(label: "Password",obsureText: true),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40),
-                          child: Container(
-                            padding: EdgeInsets.only(top: 3, left: 3),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                                border: Border(
-                                    bottom: BorderSide(color: Colors.black),
-                                    top: BorderSide(color: Colors.black),
-                                    right: BorderSide(color: Colors.black),
-                                    left: BorderSide(color: Colors.black))),
-                            child: MaterialButton(
-                              minWidth: double.infinity,
-                              height: 60,
-                              onPressed: () {},
-                              color: AppColors.mainColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(40)),
-                              child: GestureDetector(
-                                  onTap: () {
-                                    _login(authcontroller);
-                                  },
-                                  child: Text("Login")),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        GestureDetector(
-                          onTap:(){
-                        Get.to(()=>SignUpPage());
-                      },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Text("Dont have an account?"),
-                              SizedBox(height: Dimensions.height15,),
-                              GestureDetector(
-                                onTap:(){
-                                   Get.to(()=>MainProductPage());
-                      },
-                                child: Icon(Icons.home_outlined, color: Colors.green,)),
-                              
-
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ));
   }
 }
