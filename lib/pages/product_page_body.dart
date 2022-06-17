@@ -3,6 +3,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:turac/controllers/popular_category.dart';
 import 'package:turac/controllers/popular_product_controller.dart';
 import 'package:turac/models/products_model.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
@@ -51,7 +52,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
       children: [
         //slider section of the build
         GetBuilder<PopularProductController>(builder: (popularProducts) {
-          return Container(
+          return popularProducts.isLoaded?Container(
             height: Dimensions.pageView,
             child: GestureDetector(
               onTap: () {
@@ -65,8 +66,13 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                     return _buildPageItem(position,popularProducts.popularProductList[position]);
                   }),
             ),
-          );
-        }),
+          )
+
+          // this is a progress indicator icon
+          :CircularProgressIndicator(color: AppColors.mainColor,);
+        },
+        
+        ),
         // dot section of the build
         GetBuilder<PopularProductController>(
           builder: (popularProducts) {
@@ -95,7 +101,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                BigText(text: "Popular Merchants"),
+                BigText(text: "Popular Categories"),
                 SizedBox(
                   width: Dimensions.width10,
                 ),
@@ -117,87 +123,94 @@ class _ProductPageBodyState extends State<ProductPageBody> {
 
         //List of popular shops by category
         Container(
-          height: 900,
-          child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              //  shrinkWrap: true,
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.only(
-                      left: Dimensions.width20,
-                      right: Dimensions.width20,
-                      bottom: Dimensions.height15),
-                  child: Row(
-                    children: [
-                      //image section
-                      Container(
-                        width: Dimensions.listViewImgSize,
-                        height: Dimensions.listViewImgSize,
-                        decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.circular(Dimensions.radius20),
-                            color: Colors.white38,
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage("assets/image/comp.jpg"))),
-                      ),
-
-                      //text container
-                      Expanded(
-                        child: Container(
-                          height: 100,
-                          // width: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(Dimensions.radius20),
-                              bottomRight: Radius.circular(Dimensions.radius20),
-                            ),
-                            color: Colors.white10,
+          // height: 900,
+          child: GetBuilder<PopularCategoryController>(
+            builder: (popularCategory) {
+              return popularCategory.isLoaded? 
+              ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  //  shrinkWrap: true,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(
+                          left: Dimensions.width20,
+                          right: Dimensions.width20,
+                          bottom: Dimensions.height15),
+                      child: Row(
+                        children: [
+                          //image section
+                          Container(
+                            width: Dimensions.listViewImgSize,
+                            height: Dimensions.listViewImgSize,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.circular(Dimensions.radius20),
+                                color: Colors.white38,
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage("assets/image/comp.jpg"))),
                           ),
-                          child: Padding(
-                              padding: EdgeInsets.only(
-                                  left: Dimensions.width10,
-                                  right: Dimensions.width10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  BigText(text: "Naipenda Tanzania -SLIPWAY"),
-                                  SizedBox(
-                                    height: Dimensions.height10,
-                                  ),
-                                  SmallText(text: "Category: IT/electronics"),
-                                  SizedBox(
-                                    height: Dimensions.height10,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+
+                          //text container
+                          Expanded(
+                            child: Container(
+                              height: 100,
+                              // width: 200,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(Dimensions.radius20),
+                                  bottomRight: Radius.circular(Dimensions.radius20),
+                                ),
+                                color: Colors.white10,
+                              ),
+                              child: Padding(
+                                  padding: EdgeInsets.only(
+                                      left: Dimensions.width10,
+                                      right: Dimensions.width10),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      IconAndTextWidget(
-                                          icon: Icons.circle_sharp,
-                                          text: "Normal",
-                                          iconColor: AppColors.iconColor1),
-                                      IconAndTextWidget(
-                                          icon: Icons.location_on,
-                                          text: "1.7km",
-                                          iconColor: AppColors.mainColor),
-                                      IconAndTextWidget(
-                                          icon:
-                                              Icons.access_time_filled_rounded,
-                                          text: "32min",
-                                          iconColor: AppColors.iconColor2),
+                                      BigText(text: "Naipenda Tanzania -SLIPWAY"),
+                                      SizedBox(
+                                        height: Dimensions.height10,
+                                      ),
+                                      SmallText(text: "Category: IT/electronics"),
+                                      SizedBox(
+                                        height: Dimensions.height10,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          IconAndTextWidget(
+                                              icon: Icons.circle_sharp,
+                                              text: "Normal",
+                                              iconColor: AppColors.iconColor1),
+                                          IconAndTextWidget(
+                                              icon: Icons.location_on,
+                                              text: "1.7km",
+                                              iconColor: AppColors.mainColor),
+                                          IconAndTextWidget(
+                                              icon:
+                                                  Icons.access_time_filled_rounded,
+                                              text: "32min",
+                                              iconColor: AppColors.iconColor2),
+                                        ],
+                                      ),
                                     ],
-                                  ),
-                                ],
-                              )),
-                        ),
-                      )
-                    ],
-                  ),
-                );
-              }),
+                                  )),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  })
+                :CircularProgressIndicator(color: AppColors.mainColor,); 
+              
+            }
+          ),
         )
       ],
     );
