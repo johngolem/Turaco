@@ -13,7 +13,7 @@ import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
 
-import 'new login/new_signup.dart';
+import 'new_signup.dart';
 
 class LoginPage extends StatefulWidget {
   @override

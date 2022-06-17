@@ -52,45 +52,47 @@ class _ProductPageBodyState extends State<ProductPageBody> {
     return Column(
       children: [
         //slider section of the build
-        GetBuilder<PopularProductController>(builder: (popularProducts) {
-          return popularProducts.isLoaded?Container(
-            height: Dimensions.pageView,
-            child: GestureDetector(
-              onTap: () {
-                Get.toNamed(RouteHelper.popularDetail);
-              },
-              child: PageView.builder(
-                  controller: pageController,
-                  itemCount:popularProducts.popularProductList.length ,
-                  itemBuilder: (context, position) {
-                    return _buildPageItem(position,popularProducts.popularProductList[position]);
-                  }),
-            ),
-          )
-
-          // this is a progress indicator icon
-          :CircularProgressIndicator(color: AppColors.mainColor,);
-        },
-        
-        ),
-        // dot section of the build
         GetBuilder<PopularProductController>(
           builder: (popularProducts) {
-            return DotsIndicator(
+            return popularProducts.isLoaded
+                ? Container(
+                    height: Dimensions.pageView,
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.toNamed(RouteHelper.getpopularDetail());
+                      },
+                      child: PageView.builder(
+                          controller: pageController,
+                          itemCount: popularProducts.popularProductList.length,
+                          itemBuilder: (context, position) {
+                            return _buildPageItem(position,
+                                popularProducts.popularProductList[position]);
+                          }),
+                    ),
+                  )
 
-              
-              dotsCount:popularProducts.popularProductList.isEmpty? 1:popularProducts.popularProductList.length,
-              position: _currentPageValue,
-              decorator: DotsDecorator(
-                activeColor: AppColors.mainColor,
-                size: const Size.square(9.0),
-                activeSize: const Size(18.0, 9.0),
-                activeShape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0)),
-              ),
-            );
-          }
+                // this is a progress indicator icon
+                : CircularProgressIndicator(
+                    color: AppColors.mainColor,
+                  );
+          },
         ),
+        // dot section of the build
+        GetBuilder<PopularProductController>(builder: (popularProducts) {
+          return DotsIndicator(
+            dotsCount: popularProducts.popularProductList.isEmpty
+                ? 1
+                : popularProducts.popularProductList.length,
+            position: _currentPageValue,
+            decorator: DotsDecorator(
+              activeColor: AppColors.mainColor,
+              size: const Size.square(9.0),
+              activeSize: const Size(18.0, 9.0),
+              activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0)),
+            ),
+          );
+        }),
 
         //Popular section/text
         SizedBox(
@@ -124,104 +126,120 @@ class _ProductPageBodyState extends State<ProductPageBody> {
         //List of popular shops by category
         Container(
           height: 900,
-          child: GetBuilder<PopularCategoryController>(
-            builder: (popularCategory) {
-              return popularCategory.isLoaded? 
-              ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  //  shrinkWrap: true,
-                  itemCount: popularCategory.popularCategoryList.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(
-                          left: Dimensions.width20,
-                          right: Dimensions.width20,
-                          bottom: Dimensions.height15),
-                      child: Row(
-                        children: [
-                          //image section
-                          Container(
-                            width: Dimensions.listViewImgSize,
-                            height: Dimensions.listViewImgSize,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.radius20),
-                                color: Colors.white38,
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
-                            AppConstants.BASE_URL+AppConstants.Upload_URL +
-                            popularCategory.popularCategoryList[index].img!
-                    )
-                                    
-                                    )),
-                          ),
-
-                          //text container
-                          Expanded(
-                            child: Container(
-                              height: 100,
-                              // width: 200,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(Dimensions.radius20),
-                                  bottomRight: Radius.circular(Dimensions.radius20),
-                                ),
-                                color: Colors.white10,
+          child:
+              GetBuilder<PopularCategoryController>(builder: (popularCategory) {
+            return popularCategory.isLoaded
+                ? ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    //  shrinkWrap: true,
+                    itemCount: popularCategory.popularCategoryList.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          Get.toNamed(RouteHelper.getpopularCategory());
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(
+                              left: Dimensions.width20,
+                              right: Dimensions.width20,
+                              bottom: Dimensions.height15),
+                          child: Row(
+                            children: [
+                              //image section
+                              Container(
+                                width: Dimensions.listViewImgSize,
+                                height: Dimensions.listViewImgSize,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(
+                                        Dimensions.radius20),
+                                    color: Colors.white38,
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: NetworkImage(
+                                            AppConstants.BASE_URL +
+                                                AppConstants.Upload_URL +
+                                                popularCategory
+                                                    .popularCategoryList[index]
+                                                    .img!))),
                               ),
-                              child: Padding(
-                                  padding: EdgeInsets.only(
-                                      left: Dimensions.width10,
-                                      right: Dimensions.width10),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      BigText(text: popularCategory.popularCategoryList[index].name!),
-                                      SizedBox(
-                                        height: Dimensions.height10,
-                                      ),
-                                      SmallText(text: "Category: IT/electronics"),
-                                      SizedBox(
-                                        height: Dimensions.height10,
-                                      ),
-                                      Row(
+
+                              //text container
+                              Expanded(
+                                child: Container(
+                                  height: 100,
+                                  // width: 200,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topRight:
+                                          Radius.circular(Dimensions.radius20),
+                                      bottomRight:
+                                          Radius.circular(Dimensions.radius20),
+                                    ),
+                                    color: Colors.white10,
+                                  ),
+                                  child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: Dimensions.width10,
+                                          right: Dimensions.width10),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.center,
                                         children: [
-                                          IconAndTextWidget(
-                                              icon: Icons.circle_sharp,
-                                              text: "Normal",
-                                              iconColor: AppColors.iconColor1),
-                                          IconAndTextWidget(
-                                              icon: Icons.location_on,
-                                              text: "1.7km",
-                                              iconColor: AppColors.mainColor),
-                                          IconAndTextWidget(
-                                              icon:
-                                                  Icons.access_time_filled_rounded,
-                                              text: "32min",
-                                              iconColor: AppColors.iconColor2),
+                                          BigText(
+                                              text: popularCategory
+                                                  .popularCategoryList[index]
+                                                  .name!),
+                                          SizedBox(
+                                            height: Dimensions.height10,
+                                          ),
+                                          SmallText(
+                                              text: "Category: IT/electronics"),
+                                          SizedBox(
+                                            height: Dimensions.height10,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              IconAndTextWidget(
+                                                  icon: Icons.circle_sharp,
+                                                  text: "Normal",
+                                                  iconColor:
+                                                      AppColors.iconColor1),
+                                              IconAndTextWidget(
+                                                  icon: Icons.location_on,
+                                                  text: "1.7km",
+                                                  iconColor:
+                                                      AppColors.mainColor),
+                                              IconAndTextWidget(
+                                                  icon: Icons
+                                                      .access_time_filled_rounded,
+                                                  text: "32min",
+                                                  iconColor:
+                                                      AppColors.iconColor2),
+                                            ],
+                                          ),
                                         ],
-                                      ),
-                                    ],
-                                  )),
-                            ),
-                          )
-                        ],
-                      ),
-                    );
-                  })
-                :CircularProgressIndicator(color: AppColors.mainColor,); 
-              
-            }
-          ),
+                                      )),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    })
+                : CircularProgressIndicator(
+                    color: AppColors.mainColor,
+                  );
+          }),
         )
       ],
     );
   }
 
-  Widget _buildPageItem(int index,ProductModel popularProduct) {
+  Widget _buildPageItem(int index, ProductModel popularProduct) {
     Matrix4 matrix = new Matrix4.identity();
     if (index == _currentPageValue.floor()) {
       // ignore: unused_local_variable
@@ -261,11 +279,9 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                 color: index.isEven ? Color(0xFF69C5df) : Color(0xff9294cc),
                 image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(
-                            AppConstants.BASE_URL+AppConstants.Upload_URL+
-                            popularProduct.img!
-                    )
-                    )),
+                    image: NetworkImage(AppConstants.BASE_URL +
+                        AppConstants.Upload_URL +
+                        popularProduct.img!))),
           ),
           Align(
             alignment: Alignment.bottomCenter,

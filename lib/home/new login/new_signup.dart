@@ -12,7 +12,7 @@ import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
 
-import '../login.dart';
+import 'login.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
