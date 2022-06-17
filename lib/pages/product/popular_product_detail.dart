@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:turac/home/new%20login/new_signup.dart';
 import 'package:turac/pages/main_product.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/appIcon.dart';
@@ -46,10 +47,10 @@ class PopularProductDetail extends StatelessWidget {
                       },
                       child: AppIcon(icon: Icons.arrow_back_ios)),
                   GestureDetector(
-                      // onTap: () {
-                      //   Get.to(() => SignupPage());
-                      // },
-                      child: AppIcon(icon: Icons.shopping_cart_outlined))
+                      onTap: () {
+                        Get.to(() => SignUpPage());
+                      },
+                      child: AppIcon(icon: Icons.shopping_cart_outlined)),
                 ],
               )),
           //intro to product detail;

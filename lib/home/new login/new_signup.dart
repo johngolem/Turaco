@@ -12,6 +12,8 @@ import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
 
+import '../login.dart';
+
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
@@ -194,15 +196,20 @@ class SignUpPage extends StatelessWidget {
                 // login link
                 Row(
                   children: [
-                    Container(
-                      margin: EdgeInsets.only(left: Dimensions.height20),
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(Dimensions.radius20)),
-                      child: BigText(
-                        text: "Already have an account? | Login",
-                        color: AppColors.mainBlackColor,
-                        size: Dimensions.font20,
+                    GestureDetector(
+                      onTap:(){
+                        Get.to(()=>LoginPage());
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(left: Dimensions.height20),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.radius20)),
+                        child: BigText(
+                          text: "Already have an account? | Login",
+                          color: AppColors.mainBlackColor,
+                          size: Dimensions.font20,
+                        ),
                       ),
                     )
                   ],

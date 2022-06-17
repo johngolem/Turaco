@@ -13,6 +13,8 @@ import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
 
+import 'new login/new_signup.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -185,27 +187,32 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: 20,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("Dont have an account?"),
-                            // ElevatedButton(onPressed: (){},
-                            //  child: Text("Sign Up",style: TextStyle(
-                            //   fontWeight: FontWeight.w600,
-                            //   fontSize: 18)
-                            // ),)
-
-                            //trial
-                            //  TextSpan(
-                            //   recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpPage()),
-                            // text: "Create",
-                            // style: TextStyle(
-                            //   fontWeight: FontWeight.bold,
-                            //   color: Colors.grey,
-                            //   fontSize: Dimensions.font16,
-                            // ),
-                            // ),
-                          ],
+                        GestureDetector(
+                          onTap:(){
+                        Get.to(()=>SignUpPage());
+                      },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Dont have an account?"),
+                              // ElevatedButton(onPressed: (){},
+                              //  child: Text("Sign Up",style: TextStyle(
+                              //   fontWeight: FontWeight.w600,
+                              //   fontSize: 18)
+                              // ),)
+                        
+                              //trial
+                              //  TextSpan(
+                              //   recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpPage()),
+                              // text: "Create",
+                              // style: TextStyle(
+                              //   fontWeight: FontWeight.bold,
+                              //   color: Colors.grey,
+                              //   fontSize: Dimensions.font16,
+                              // ),
+                              // ),
+                            ],
+                          ),
                         )
                       ],
                     ),

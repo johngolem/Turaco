@@ -177,7 +177,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      BigText(text: popularCategory.popularCategoryList[index].name),
+                                      BigText(text: popularCategory.popularCategoryList[index].name!),
                                       SizedBox(
                                         height: Dimensions.height10,
                                       ),
