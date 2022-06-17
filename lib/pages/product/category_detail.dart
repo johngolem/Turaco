@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:turac/pages/main_product.dart';
+import 'package:turac/routes/route_helper.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/appIcon.dart';
 import 'package:turac/widgets/app_column.dart';
@@ -42,7 +43,7 @@ class CategoryDetail extends StatelessWidget {
                 children: [
                   GestureDetector(
                       onTap: () {
-                        Get.to(() => MainProductPage());
+                        Get.toNamed( RouteHelper.getinitial());
                       },
                       child: AppIcon(icon: Icons.arrow_back_ios, iconColor: Colors.black,)),
                   GestureDetector(

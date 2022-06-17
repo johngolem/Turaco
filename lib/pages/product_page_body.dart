@@ -57,10 +57,8 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             return popularProducts.isLoaded
                 ? Container(
                     height: Dimensions.pageView,
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.toNamed(RouteHelper.getpopularDetail());
-                      },
+                    
+                      
                       child: PageView.builder(
                           controller: pageController,
                           itemCount: popularProducts.popularProductList.length,
@@ -68,7 +66,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                             return _buildPageItem(position,
                                 popularProducts.popularProductList[position]);
                           }),
-                    ),
+                    
                   )
 
                 // this is a progress indicator icon
@@ -271,17 +269,22 @@ class _ProductPageBodyState extends State<ProductPageBody> {
       transform: matrix,
       child: Stack(
         children: [
-          Container(
-            height: Dimensions.pageViewContainer,
-            margin: EdgeInsets.only(left: 10, right: 10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius30),
-                color: index.isEven ? Color(0xFF69C5df) : Color(0xff9294cc),
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(AppConstants.BASE_URL +
-                        AppConstants.Upload_URL +
-                        popularProduct.img!))),
+          GestureDetector(
+            onTap: () {
+                        Get.toNamed(RouteHelper.getpopularDetail());
+                      },
+            child: Container(
+              height: Dimensions.pageViewContainer,
+              margin: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimensions.radius30),
+                  color: index.isEven ? Color(0xFF69C5df) : Color(0xff9294cc),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(AppConstants.BASE_URL +
+                          AppConstants.Upload_URL +
+                          popularProduct.img!))),
+            ),
           ),
           Align(
             alignment: Alignment.bottomCenter,

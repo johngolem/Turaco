@@ -6,7 +6,6 @@ import 'package:turac/base/show_custom_snackbar.dart';
 import 'package:turac/base/success_customsnackbar.dart';
 import 'package:turac/controllers/auth_controller.dart';
 import 'package:turac/pages/main_product.dart';
-import 'package:turac/models/signupbody.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/app_text_field.dart';
@@ -191,26 +190,19 @@ class _LoginPageState extends State<LoginPage> {
                           onTap:(){
                         Get.to(()=>SignUpPage());
                       },
-                          child: Row(
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               Text("Dont have an account?"),
-                              // ElevatedButton(onPressed: (){},
-                              //  child: Text("Sign Up",style: TextStyle(
-                              //   fontWeight: FontWeight.w600,
-                              //   fontSize: 18)
-                              // ),)
-                        
-                              //trial
-                              //  TextSpan(
-                              //   recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpPage()),
-                              // text: "Create",
-                              // style: TextStyle(
-                              //   fontWeight: FontWeight.bold,
-                              //   color: Colors.grey,
-                              //   fontSize: Dimensions.font16,
-                              // ),
-                              // ),
+                              SizedBox(height: Dimensions.height15,),
+                              GestureDetector(
+                                onTap:(){
+                                   Get.to(()=>MainProductPage());
+                      },
+                                child: Icon(Icons.home_outlined, color: Colors.green,)),
+                              
+
                             ],
                           ),
                         )
