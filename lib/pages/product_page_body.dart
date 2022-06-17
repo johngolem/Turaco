@@ -7,6 +7,7 @@ import 'package:turac/controllers/popular_category.dart';
 import 'package:turac/controllers/popular_product_controller.dart';
 import 'package:turac/models/products_model.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
+import 'package:turac/routes/route_helper.dart';
 import 'package:turac/utils/app_constants.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -56,8 +57,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             height: Dimensions.pageView,
             child: GestureDetector(
               onTap: () {
-                Get.to(() => PopularProductDetail(),
-                    transition: Transition.fade);
+                Get.toNamed(RouteHelper.popularDetail);
               },
               child: PageView.builder(
                   controller: pageController,
