@@ -123,14 +123,14 @@ class _ProductPageBodyState extends State<ProductPageBody> {
 
         //List of popular shops by category
         Container(
-          // height: 900,
+          height: 900,
           child: GetBuilder<PopularCategoryController>(
             builder: (popularCategory) {
               return popularCategory.isLoaded? 
               ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   //  shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: popularCategory.popularCategoryList.length,
                   itemBuilder: (context, index) {
                     return Container(
                       margin: EdgeInsets.only(
@@ -149,7 +149,12 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                                 color: Colors.white38,
                                 image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: AssetImage("assets/image/comp.jpg"))),
+                                    image: NetworkImage(
+                            AppConstants.BASE_URL+"/uploads/"+
+                            popularCategory.popularCategoryList[index].img!
+                    )
+                                    
+                                    )),
                           ),
 
                           //text container
@@ -172,7 +177,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      BigText(text: "Naipenda Tanzania -SLIPWAY"),
+                                      BigText(text: popularCategory.popularCategoryList[index].name),
                                       SizedBox(
                                         height: Dimensions.height10,
                                       ),

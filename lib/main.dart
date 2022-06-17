@@ -12,6 +12,7 @@ import 'package:turac/models/category_model.dart';
 import 'package:turac/pages/product/category_detail.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
 import 'package:turac/pages/user_profile.dart';
+import 'controllers/popular_category.dart';
 import 'helper/dependencies.dart' as dep;
 import 'home/new login/new_signup.dart';
 import 'home/new login/old_signup.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.find<PopularProductController>().getPopularProductList();
+      Get.find<PopularCategoryController>().getPopularCategoryList();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
