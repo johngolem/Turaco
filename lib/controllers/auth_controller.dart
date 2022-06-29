@@ -39,11 +39,12 @@ class Authcontroller extends GetxController implements GetxService {
     }
     _isLoading = false;
     update();
-    return responseModel;
+    return responseModel;  
+    }
 
     // ignore: dead_code
     void saveUserEmailAndPassword(String email, String password) {
       authRepo.saveUserEmailAndPassword(email, password);
     }
   }
-}
+
