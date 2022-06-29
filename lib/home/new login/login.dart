@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:turac/base/custom_loader.dart';
 import 'package:turac/base/show_custom_snackbar.dart';
 import 'package:turac/base/success_customsnackbar.dart';
 import 'package:turac/controllers/auth_controller.dart';
@@ -70,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
         // ),
         body: GetBuilder<Authcontroller>(
             builder: (authcontroller) {
-              return SingleChildScrollView(
+              return !authcontroller.isLoading?SingleChildScrollView(
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   width: double.infinity,
@@ -207,7 +208,8 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-              );
+              )
+              :CustomLoader();
             },
           ),
         );
