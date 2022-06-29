@@ -1,7 +1,7 @@
 import 'package:get/get_connect.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:turac/data/api/api_client.dart';
-import 'package:turac/models/signupbody.dart';
+import 'package:turac/models/signupbody_model.dart';
 import 'package:turac/utils/app_constants.dart';
 
 class AuthRepo {

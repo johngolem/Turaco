@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_this
 
+
+// we are creating an object
 class SignUpBody {
   // String name;
   String phone;
@@ -15,6 +17,9 @@ class SignUpBody {
       required this.email,
       required this.password 
       });
+
+
+// sign up object
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

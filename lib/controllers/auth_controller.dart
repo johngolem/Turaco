@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:turac/models/response_model.dart';
-import 'package:turac/models/signupbody.dart';
+import 'package:turac/models/signupbody_model.dart';
 import 'package:turac/repository/auth_repo.dart';
 
 class Authcontroller extends GetxController implements GetxService {

@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:turac/base/custom_loader.dart';
 import 'package:turac/base/show_custom_snackbar.dart';
 import 'package:turac/base/success_customsnackbar.dart';
 import 'package:turac/controllers/auth_controller.dart';
-import 'package:turac/models/signupbody.dart';
+import 'package:turac/models/signupbody_model.dart';
 import 'package:turac/utils/app_constants.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -49,8 +50,10 @@ class SignUpPage extends StatelessWidget {
             title: "password too short");
       } else {
         successCustomSnackBar("All went well", title: "Success");
+
+        //signupbody is the object that we will create in the signup model
+        
         SignUpBody signUpBody = SignUpBody(phone: phone, email: email, password: password);
-        // name: name,
 
         authController.registration(signUpBody).then((status) {
           if (status.isSuccess) {
@@ -216,7 +219,7 @@ class SignUpPage extends StatelessWidget {
                 )
               ]),
             )
-         : CircularProgressIndicator();
+         : const CustomLoader();
           },
         )
         );

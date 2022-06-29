@@ -11,8 +11,8 @@ class AppConstants {
   static const String APP_NAME = "Turaco";
   static const String APP_VERSION = "v1";
 
-  // static const String BASE_URL = "https://turaco.nottech.app/";
-  static const String BASE_URL = "http://mvs.bslmeiyu.com/";
+  static const String BASE_URL = "https://turaco.nottech.app/";
+  // static const String BASE_URL = "http://mvs.bslmeiyu.com/";
   static const String POPULAR_PRODUCT_URI = "api/v1/vendors/<vendor-id>/products";
   static const String POPULAR2_PRODUCT_URI = "api/v1/products/popular";
   static const String POPULAR_CATEGORY_URI = "api/v1/products/recommended";
@@ -24,7 +24,7 @@ class AppConstants {
    static const String Upload_URL = "/uploads/";
 
 
-  static const String TOKEN = "DBtoken";
+  static const String TOKEN = "token";
   static const String EMAIL = "";
   static const String PASSWORD = "";
 }

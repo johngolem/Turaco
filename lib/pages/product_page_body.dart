@@ -193,7 +193,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                                             height: Dimensions.height10,
                                           ),
                                           SmallText(
-                                              text: "Category: IT/electronics"),
+                                              text: "Category: Food/Restaurants"),
                                           SizedBox(
                                             height: Dimensions.height10,
                                           ),
