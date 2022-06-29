@@ -28,23 +28,31 @@ class Authcontroller extends GetxController implements GetxService {
 
   // login method
   Future<ResponseModel> login(String email, String password) async {
+    print("getting token");
+    print(authRepo.getUserToken().toString());
     _isLoading = true;
+    update();
     Response response = await authRepo.login(email, password);
     late ResponseModel responseModel;
     if (response.statusCode == 200) {
+      print("backend token");
+
+
+      
       authRepo.saveUserToken(response.body["token"]);
+
+      print(response.body["token"].toString());
       responseModel = ResponseModel(true, response.body["token"]);
     } else {
       responseModel = ResponseModel(false, response.statusText!);
     }
     _isLoading = false;
     update();
-    return responseModel;  
-    }
-
-    // ignore: dead_code
-    void saveUserEmailAndPassword(String email, String password) {
-      authRepo.saveUserEmailAndPassword(email, password);
-    }
+    return responseModel;
   }
 
+  // ignore: dead_code
+  void saveUserEmailAndPassword(String email, String password) {
+    authRepo.saveUserEmailAndPassword(email, password);
+  }
+}

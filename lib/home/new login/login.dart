@@ -6,6 +6,7 @@ import 'package:turac/base/show_custom_snackbar.dart';
 import 'package:turac/base/success_customsnackbar.dart';
 import 'package:turac/controllers/auth_controller.dart';
 import 'package:turac/pages/main_product.dart';
+import 'package:turac/routes/route_helper.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/app_text_field.dart';
@@ -47,8 +48,7 @@ class _LoginPageState extends State<LoginPage> {
 
         authController.login(email, password).then((status) {
           if (status.isSuccess) {
-            print("success");
-            Get.to(() => MainProductPage(), transition: Transition.fade);
+            Get.toNamed(RouteHelper.getpopularCategory());
           } else {
             showCustomSnackBar(status.message);
           }
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     return Scaffold(
-        resizeToAvoidBottomInset: false,
+        // resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         // appBar: AppBar(
         //   elevation: 0,
@@ -68,8 +68,7 @@ class _LoginPageState extends State<LoginPage> {
         //     Navigator.pop(context);
         //   },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
         // ),
-        body: SingleChildScrollView(
-          child: GetBuilder<Authcontroller>(
+        body: GetBuilder<Authcontroller>(
             builder: (authcontroller) {
               return SingleChildScrollView(
                 child: Container(
@@ -169,21 +168,17 @@ class _LoginPageState extends State<LoginPage> {
                                       top: BorderSide(color: Colors.black),
                                       right: BorderSide(color: Colors.black),
                                       left: BorderSide(color: Colors.black))),
-                              child: MaterialButton(
-                                minWidth: double.infinity,
-                                height: 60,
-                                onPressed: () {},
-                                color: AppColors.mainColor,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(40)),
-                                child: GestureDetector(
-                                    onTap: () {
-                                      _login(authcontroller);
-                                    },
-                                    child: Text("Login")),
+                                child: MaterialButton(
+                                  minWidth: double.infinity,
+                                  height: 60,
+                                  onPressed: () {_login(authcontroller);},
+                                  color: AppColors.mainColor,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(40)),
+                                      child: Text("Login")),
+                                
                               ),
                             ),
-                          ),
                           SizedBox(
                             height: 20,
                           ),
@@ -215,7 +210,7 @@ class _LoginPageState extends State<LoginPage> {
               );
             },
           ),
-        ));
+        );
   }
 }
 
