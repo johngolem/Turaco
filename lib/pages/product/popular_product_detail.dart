@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:turac/controllers/auth_controller.dart';
 import 'package:turac/home/new%20login/new_signup.dart';
 import 'package:turac/pages/main_product.dart';
 import 'package:turac/utils/dimensions.dart';
@@ -10,7 +11,6 @@ import 'package:turac/widgets/app_column.dart';
 import 'package:turac/widgets/product_text_detail.dart';
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
-
 
 class PopularProductDetail extends StatelessWidget {
   const PopularProductDetail({Key? key}) : super(key: key);
@@ -48,7 +48,12 @@ class PopularProductDetail extends StatelessWidget {
                       child: AppIcon(icon: Icons.arrow_back_ios)),
                   GestureDetector(
                       onTap: () {
-                        Get.to(() => SignUpPage());
+                        if (Get.find<Authcontroller>().userLoggedIn()) {
+                          print("tapped when user is logged in");
+                        } else {
+                          print("user not logged in");
+                        }
+                        // Get.to(() => SignUpPage());
                       },
                       child: AppIcon(icon: Icons.shopping_cart_outlined)),
                 ],
@@ -77,7 +82,8 @@ class PopularProductDetail extends StatelessWidget {
                     children: [
                       AppColumn(
                         text: "Milimani City",
-                        rating: "4.3", shopId: "2",
+                        rating: "4.3",
+                        shopId: "2",
                       ),
                       SizedBox(
                         height: Dimensions.height20,

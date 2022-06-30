@@ -8,11 +8,13 @@ class RouteHelper {
   static const String initial = "/";
   static const String popularDetail = "/product-detail";
   static const String popularCategory = "/popular-Category";
+  static const String LoginPage = "/login-Page";
 
 
    static String getinitial() => '$initial';
    static String getpopularDetail() => '$popularDetail';
-  static String getpopularCategory() => '$popularCategory';
+   static String getpopularCategory() => '$popularCategory';
+   static String getLoginPage() => '$LoginPage';
 
 
   static List<GetPage> routes = [

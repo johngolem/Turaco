@@ -24,7 +24,7 @@ class AppConstants {
    static const String Upload_URL = "/uploads/";
 
 
-  static const String TOKEN = "DBtoken";
+  static const String TOKEN = "";
   static const String EMAIL = "";
   static const String PASSWORD = "";
 }
