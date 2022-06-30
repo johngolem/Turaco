@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:turac/base/custom_loader.dart';
 import 'package:turac/controllers/auth_controller.dart';
 import 'package:turac/pages/product_page_body.dart';
 import 'package:turac/utils/colors.dart';
@@ -27,51 +28,10 @@ class _MainCategoryPageState extends State<MainCategoryPage> {
     // print("current height is"+MediaQuery.of(context).size.height.toString());
     return Scaffold(
       body: GetBuilder<Categorycontroller>(builder: (categorycontroller) {
-        return Column(
-          children: [
-            //showing the header
-            Container(
-              child: Container(
-                margin: EdgeInsets.only(top: 45, bottom: 15),
-                padding: EdgeInsets.only(left: 20, right: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        BigText(text: "Turaco ", color: AppColors.mainColor),
-                        Row(
-                          children: [
-                            SmallText(
-                              text: "Browse stores",
-                              color: Colors.black54,
-                            ),
-                            Icon(Icons.arrow_drop_down_rounded)
-                          ],
-                        )
-                      ],
-                    ),
-                    Container(
-                      width: 45,
-                      height: 45,
-                      child: Icon(Icons.search, color: Colors.white),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: AppColors.mainColor,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            // ignore: prefer_const_constructors
-            //showing the body
-            Expanded(
-                child: SingleChildScrollView(
-              child: ProductPageBody(),
-            )),
-          ],
-        );
+        return _userLoggedIn?
+        (categorycontroller.isLoading?Container(child:Center(child: Text("add the page here that needs to be loaded i.e categories pagen"))):
+        CustomLoader()):
+        Container(child:Center(child: Text("you must first login")));
       }),
     );
   }
