@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:turac/controllers/auth_controller.dart';
 import 'package:turac/home/new%20login/new_signup.dart';
 import 'package:turac/pages/main_product.dart';
+import 'package:turac/routes/route_helper.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/appIcon.dart';
 import 'package:turac/widgets/app_column.dart';
@@ -43,15 +44,18 @@ class PopularProductDetail extends StatelessWidget {
                 children: [
                   GestureDetector(
                       onTap: () {
-                        Get.to(() => MainProductPage());
+                        // Get.to(() => MainProductPage());
+                        Get.to(() => PopularProductDetail());
                       },
                       child: AppIcon(icon: Icons.arrow_back_ios)),
                   GestureDetector(
                       onTap: () {
                         if (Get.find<Authcontroller>().userLoggedIn()) {
                           print("tapped when user is logged in");
+                          // add route to cart history
                         } else {
                           print("user not logged in");
+                          Get.toNamed(RouteHelper.getLoginPage());
                         }
                         // Get.to(() => SignUpPage());
                       },

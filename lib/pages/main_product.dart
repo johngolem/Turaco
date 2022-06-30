@@ -1,10 +1,13 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:turac/pages/product_page_body.dart';
 import 'package:turac/utils/colors.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
+
+import 'product/popular_product_detail.dart';
 
 class MainProductPage extends StatefulWidget {
   const MainProductPage({Key? key}) : super(key: key);
@@ -43,7 +46,12 @@ class _MainProductPageState extends State<MainProductPage> {
                   (
                     width: 45,
                     height: 45,
-                    child: Icon(Icons.search, color: Colors.grey),
+                    child: GestureDetector(
+                     onTap: () {
+                        // Get.to(() => MainProductPage());
+                        Get.to(() => PopularProductDetail());
+                     },
+                    child: Icon(Icons.search, color: Colors.grey)),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: AppColors.mainColor,
