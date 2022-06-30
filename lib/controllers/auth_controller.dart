@@ -18,8 +18,12 @@ class Authcontroller extends GetxController implements GetxService {
     Response response = await authRepo.registration(signUpBody);
     late ResponseModel responseModel;
     if (response.statusCode == 200) {
+
+
       authRepo.saveUserToken(response.body["access_token"]);
+      print("my token is" + response.body["access_token"]);
       responseModel = ResponseModel(true, response.body["access_token"]);
+      
     } else {
       responseModel = ResponseModel(false, response.statusText!);
     }
@@ -39,8 +43,6 @@ class Authcontroller extends GetxController implements GetxService {
     if (response.statusCode == 200) {
       // print("backend bearer token");
 
-
-      
       authRepo.saveUserToken(response.body["access_token"]);
 
       // print(response.body["access_token"].toString());
@@ -61,8 +63,8 @@ class Authcontroller extends GetxController implements GetxService {
   bool userLoggedIn() {
     return authRepo.userLoggedIn();
   }
-   bool clearSharedData() {
-   
+
+  bool clearSharedData() {
     return authRepo.clearSharedData();
   }
 }

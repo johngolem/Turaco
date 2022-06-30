@@ -1,4 +1,3 @@
-
 import 'package:get/get_connect.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:turac/data/api/api_client.dart';
@@ -9,9 +8,12 @@ class CategoryRepo extends GetxService {
   final ApiClient apiClient;
   CategoryRepo({required this.apiClient});
 
+  Future <Response>getCategory() async{
+    return await apiClient.getData(AppConstants.categories_uri);
+  }
 
 //
-  Future<Response> getCategoryList() async {
+  Future<Response> getCategoryInfo() async {
     return await apiClient.getData(AppConstants.categories_URI);
   }
 }

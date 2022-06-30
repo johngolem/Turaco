@@ -1,12 +1,11 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:turac/controllers/auth_controller.dart';
-import 'package:turac/controllers/category_controller.dart';
 import 'package:turac/controllers/popular_category.dart';
 import 'package:turac/controllers/popular_product_controller.dart';
 import 'package:turac/data/api/api_client.dart';
 import 'package:turac/repository/auth_repo.dart';
-import 'package:turac/repository/categories.dart';
+import 'package:turac/repository/categories_repo.dart';
 import 'package:turac/repository/popular_product_repo.dart';
 import 'package:turac/utils/app_constants.dart';
 

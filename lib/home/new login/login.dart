@@ -14,7 +14,6 @@ import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
 import 'package:turac/widgets/small_text.dart';
 
-
 import 'new_signup.dart';
 
 class LoginPage extends StatefulWidget {
@@ -140,8 +139,19 @@ class _LoginPageState extends State<LoginPage> {
                                       minWidth: double.infinity,
                                       height: 60,
                                       onPressed: () {
-                                        Get.find<Authcontroller>()
-                                            .clearSharedData();
+                                        if (Get.find<Authcontroller>()
+                                            .userLoggedIn()) {
+                                          Get.find<Authcontroller>()
+                                              .clearSharedData();
+                                          Get.offNamed(
+                                              RouteHelper.getLoginPage());
+                                          // add code to clear cart (min 10.53)
+                                        } else {
+                                          // use custom snackbar
+                                          
+                                          print("you logged out");
+                                        }
+                                        ;
                                       },
                                       color: AppColors.mainColor,
                                       shape: RoundedRectangleBorder(
