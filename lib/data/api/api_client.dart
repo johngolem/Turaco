@@ -27,23 +27,14 @@ class ApiClient extends GetConnect implements GetxService {
     };
   }
 
-  Future<Response> getData(
-    String uri,
-  ) async {
+  Future<Response> getData(String uri, Map<String, String>? headers,) async{
+
     //try to get data using a get method
     try {
       // reponse is object where we save the data that will be received = (await get) this gets the data from the attached uri
       Response response = await get(uri,
-          // new code
-          // contentType: contentType,
-          // query: query,
-          // headers: {
-          //   'Content-Type': 'application/json;charset=UTF-8',
-          //   'Authorization': 'Bearer $token',
-          // },
-          // decoder: decoder,
-          
-          );
+      headers: headers?? _mainHeaders
+      );
       return response;
       //if it fails to get a response,
       // the catch is the else to the first try,

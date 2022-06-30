@@ -4,10 +4,10 @@ import 'package:turac/models/response_model.dart';
 import '../models/categories_model.dart';
 import '../repository/categories_repo.dart';
 
-class Usercontroller extends GetxController implements GetxService {
+class Categorycontroller extends GetxController implements GetxService {
   final CategoryRepo categoryRepo;
 
-  Usercontroller({required this.categoryRepo});
+  Categorycontroller({required this.categoryRepo});
 
   bool _isLoading = false;
   // ignore: unused_field

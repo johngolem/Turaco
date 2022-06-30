@@ -50,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
         authController.login(email, password).then((status) {
           if (status.isSuccess) {
             Get.toNamed(RouteHelper.getpopularCategory());
+             
           } else {
             showCustomSnackBar(status.message);
           }
@@ -148,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                                           // add code to clear cart (min 10.53)
                                         } else {
                                           // use custom snackbar
-                                          
+
                                           print("you logged out");
                                         }
                                         ;
@@ -214,6 +215,7 @@ class _LoginPageState extends State<LoginPage> {
                                     minWidth: double.infinity,
                                     height: 60,
                                     onPressed: () {
+                                       
                                       _login(authcontroller);
                                     },
                                     color: AppColors.mainColor,
