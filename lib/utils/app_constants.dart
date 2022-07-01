@@ -24,6 +24,7 @@ class AppConstants {
   static const String forgot_password_URI = "to be added ";
    static const String Upload_URL = "/uploads/";
    static const String categories_uri = "/api/v1/item-categories";
+   static const String vendor_post_URI = "/api/v1/vendors";
 
 
   static const String TOKEN = "";

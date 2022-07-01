@@ -41,8 +41,21 @@ class ApiClient extends GetConnect implements GetxService {
       return Response(statusCode: 1, statusText: e.toString());
     }
   }
+// method for posting registration data cause it does  not require a bearer token 
+  Future<Response> postRegData(String uri, dynamic body) async {
+    print(body.toString());
+    try {
+      Response response = await post(uri, body, headers: _mainHeaders);
+      print(response.toString());
+      return response;
+    } catch (e) {
+      print(e.toString());
+      return Response(statusCode: 1, statusText: e.toString());
+    }
+  }
 
-  Future<Response> postData(String uri, {Map<String, String>? headers}) async {
+// method for posting data that requires the bearer token
+    Future<Response> postData(String uri,  {Map<String, String>? headers}) async {
     
     try {
       Response response = await post(uri, headers?? _mainHeaders);
