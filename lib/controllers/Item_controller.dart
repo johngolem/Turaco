@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:turac/models/response_model.dart';
 
-import '../models/categories_model.dart';
 import '../models/item_model.dart';
 import '../repository/item_repo.dart';
 
@@ -11,7 +10,6 @@ class Itemcontroller extends GetxController implements GetxService {
   Itemcontroller({required this.itemRepo});
 
   bool _isLoading = false;
-  // ignore: unused_field
   late ItemModel _itemModel;
 
   bool get isLoading => _isLoading;

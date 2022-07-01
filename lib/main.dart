@@ -15,7 +15,6 @@ import 'package:turac/pages/user_profile.dart';
 import 'controllers/popular_category.dart';
 import 'helper/dependencies.dart' as dep;
 import 'home/new login/new_signup.dart';
-import 'home/new login/old_signup.dart';
 import 'pages/product/item_main.dart';
 
 // this is the init method for the api's

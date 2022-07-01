@@ -3,7 +3,7 @@ import 'package:turac/models/response_model.dart';
 import 'package:turac/models/signupbody_model.dart';
 import 'package:turac/repository/auth_repo.dart';
 
-import '../utils/app_constants.dart';
+
 
 class Authcontroller extends GetxController implements GetxService {
   final AuthRepo authRepo;

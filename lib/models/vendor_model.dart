@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 
-class VendorModel {
+
+class VendorModelBody {
   int? id;
   String? type;
   String? serviceName;
@@ -8,10 +8,11 @@ class VendorModel {
   String? servicePhone;
   bool? currentAvailability;
   String? description;
-  int? showOnListing;
+  bool? showOnListing;
 
 
-  VendorModel({
+  VendorModelBody(
+    {
     required this.id,
     required this.type,
     required this.serviceName,
@@ -20,21 +21,22 @@ class VendorModel {
     required this.currentAvailability,
     required this.description,
     required this.showOnListing,
-   
-
+  
   });
 
-  factory VendorModel.fromJson(Map<String, dynamic> json) {
-    return VendorModel(
-      id: json['user_id'],
-      type: json['vendor_type'],
-      serviceName:json['service_name'],
-      serviceEmail:json['service_email'],
-      servicePhone:json['service_phone'],  
-      currentAvailability: json['current_availability'],
-      description: json['description'],
-      showOnListing: json['show_on_listing'],
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+
+    data['user_id']=this.id;
+    data['vendor_type']=this.type;
+    data ['description']=this.description;
+    data['service_name']=this. serviceName;
+      data['service_email']=serviceEmail;
+      data['service_phone']=servicePhone;  
+      data['current_availability']=currentAvailability ;
+     data['description']= description ;
+       data['show_on_listing']=showOnListing;
     
-    );
+    return data;
   }
 }

@@ -1,32 +1,24 @@
 import 'package:get/get.dart';
 import 'package:turac/models/response_model.dart';
-
 import '../models/vendor_model.dart';
 import '../repository/vendor_repo.dart';
 
-
-class Itemcontroller extends GetxController implements GetxService {
+class Vendorcontroller extends GetxController implements GetxService {
   final VendorRepo vendorRepo;
 
-  Itemcontroller({required this.vendorRepo});
+  Vendorcontroller({required this.vendorRepo});
 
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  
-
-  Future<ResponseModel> vendorRegistration(VendorRegistrationBody vendorRegistrationBody) async {
-  _isLoading = true;
-   Response response = await vendorRepo.vendorRegistration(vendorRegistrationBody);
+  Future<ResponseModel> vendorRegistration(VendorModelBody vendorModelBody) async {
+    _isLoading = true;
+    Response response = await vendorRepo.vendorRegistration(vendorModelBody);
     late ResponseModel responseModel;
     if (response.statusCode == 200) {
       print("succesfully posted vendor details");
 
-
-      // vendorRepo.saveVendordetails(response.body);
-      
       responseModel = ResponseModel(true, response.body["service_name"]);
-      
     } else {
       responseModel = ResponseModel(false, response.statusText!);
     }
@@ -34,3 +26,4 @@ class Itemcontroller extends GetxController implements GetxService {
     update();
     return responseModel;
   }
+}
