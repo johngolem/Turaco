@@ -19,6 +19,7 @@ class AppConstants {
   static const String RECOMMENDED_PRODUCT_URI = "to be added ";
   static const String login_URI = "api/auth/login";
   static const String categories_URI = "api/v1/item-categories";
+  static const String items_URI = "api/v1/item-types";
   static const String register_URI = "api/auth/register";
   static const String forgot_password_URI = "to be added ";
    static const String Upload_URL = "/uploads/";

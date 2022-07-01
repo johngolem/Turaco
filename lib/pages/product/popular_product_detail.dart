@@ -3,8 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:turac/controllers/auth_controller.dart';
-import 'package:turac/home/new%20login/new_signup.dart';
-import 'package:turac/pages/main_product.dart';
 import 'package:turac/routes/route_helper.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/appIcon.dart';

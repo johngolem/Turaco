@@ -9,7 +9,6 @@ import 'package:turac/pages/category_main.dart';
 import 'package:turac/pages/main_product.dart';
 import 'package:get/get.dart';
 import 'package:turac/useless_files/signup_page.dart';
-import 'package:turac/models/category_model.dart';
 import 'package:turac/pages/product/category_detail.dart';
 import 'package:turac/pages/product/popular_product_detail.dart';
 import 'package:turac/pages/user_profile.dart';
@@ -17,6 +16,7 @@ import 'controllers/popular_category.dart';
 import 'helper/dependencies.dart' as dep;
 import 'home/new login/new_signup.dart';
 import 'home/new login/old_signup.dart';
+import 'pages/product/item_main.dart';
 
 // this is the init method for the api's
 Future<void> main() async {
@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Turaco',
 
-      home:MainCategoryPage(),
+      // home:MainCategoryPage(),
+      home:ItemPage(),
       //  home:LoginPage(),
       initialRoute: RouteHelper.initial,
 

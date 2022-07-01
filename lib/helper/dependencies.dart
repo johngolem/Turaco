@@ -9,7 +9,9 @@ import 'package:turac/repository/categories_repo.dart';
 import 'package:turac/repository/popular_product_repo.dart';
 import 'package:turac/utils/app_constants.dart';
 
+import '../controllers/Item_controller.dart';
 import '../controllers/categories_controller.dart';
+import '../repository/item_repo.dart';
 import '../repository/popular_category_repo.dart';
 
 // we load the dependancies to this file
@@ -22,7 +24,7 @@ Future<void> init() async {
   Get.lazyPut(() => ApiClient(appBaseUrl: AppConstants.BASE_URL, sharedPreferences:Get.find()));
   Get.lazyPut(() => AuthRepo(apiClient: Get.find(), sharedPreferences: Get.find()));
   Get.lazyPut(() => CategoryRepo(apiClient: Get.find()));
-
+  Get.lazyPut(() => ItemRepo(apiClient: Get.find()));
 
 
 
@@ -30,6 +32,7 @@ Future<void> init() async {
   //load all the repositories here
   Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()));
   Get.lazyPut(() => PopularCategoryRepo(apiClient: Get.find()));
+  Get.lazyPut(() => ItemRepo(apiClient: Get.find()));
   
 
 
@@ -41,5 +44,6 @@ Future<void> init() async {
   // Get.lazyPut(() => CategoryController(categoryRepo: Get.find()));
   Get.lazyPut(() => Authcontroller(authRepo: Get.find()));
   Get.lazyPut(() => Categorycontroller(categoryRepo: Get.find()));
+  Get.lazyPut(() => Itemcontroller(itemRepo: Get.find()));
 }
  
