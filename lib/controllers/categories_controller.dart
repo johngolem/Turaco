@@ -22,7 +22,7 @@ class Categorycontroller extends GetxController implements GetxService {
     print(response.body.toString());
 
     if (response.statusCode == 200) {
-      _categoryModel = CategoryModel.fromJson(response.body);
+      _categoryModel = CategoryModel.fromJson(response.body[0]);
 
       _isLoading = true;
       responseModel = ResponseModel(true, "successfully");
