@@ -53,9 +53,7 @@ class VendorSignUp extends StatelessWidget {
             title: "Invalid email");
       } else if (servicename.isEmpty) {
         showCustomSnackBar("Type in your name", title: "Invalid input");
-      } else if (currentavailability!=bool) {
-        showCustomSnackBar("type true or false",
-            title: "must be true or flase");
+      
       } else {
         successCustomSnackBar("All went well", title: "Success");
 
@@ -103,7 +101,7 @@ class VendorSignUp extends StatelessWidget {
                         height: Dimensions.height10,
                       ),
                       BigText(
-                        text: AppConstants.APP_NAME,
+                        text: AppConstants.APP_NAME + " "+ "Vendor Details",
                         color: AppColors.mainColor,
                         size: Dimensions.font26,
                       ),
@@ -137,95 +135,58 @@ class VendorSignUp extends StatelessWidget {
                                   offset: Offset(1, 10),
                                   color: Colors.grey.withOpacity(0.2))
                             ]),
-                        child: TextField(
-                          controller: useridController,
-                          decoration: InputDecoration(
-                            hintText: "email",
-                            prefixIcon: Icon(
-                              Icons.email,
-                              color: Colors.blue,
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.radius20),
-                                borderSide: BorderSide(
-                                  color: Colors.white,
-                                  width: 1.0,
-                                )),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.radius20),
-                                borderSide: BorderSide(
-                                  color: Colors.white,
-                                  width: 1.0,
-                                )),
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.circular(Dimensions.radius30),
-                            ),
-                          ),
-                        ),
                       ),
                       SizedBox(
                         height: Dimensions.height15,
                       ),
                       AppTextField(
                           textController: vendortypeController,
-                          hintText: "phone",
+                          hintText: "Type of vendor",
                           icon: Icons.phone),
                       SizedBox(
                         height: Dimensions.height15,
                       ),
                       AppTextField(
                         textController: servicenameController,
-                        hintText: "Enter password",
-                        icon: Icons.password_sharp,
-                        isObscure: true,
+                        hintText: "Name of vendor",
+                        icon: Icons.person
+             
                       ),
                       SizedBox(
                         height: Dimensions.height15,
                       ),
                       AppTextField(
                         textController: serviceemailController,
-                        hintText: "Enter password",
-                        icon: Icons.password_sharp,
-                        isObscure: true,
+                        hintText: "Vendor email",
+                        icon: Icons.email,
+               
                       ),
                       SizedBox(
                         height: Dimensions.height15,
                       ),
                       AppTextField(
                         textController: servicephoneController,
-                        hintText: "Enter password",
-                        icon: Icons.password_sharp,
-                        isObscure: true,
+                        hintText: "Vendor phone",
+                        icon: Icons.phone,
+                  
                       ),
                       SizedBox(
                         height: Dimensions.height15,
                       ),
+                      // to be switched to be a button, on for true, off for false
                       AppTextField(
                         textController: currentavailabilityController,
-                        hintText: "Enter password",
-                        icon: Icons.password_sharp,
-                        isObscure: true,
+                        hintText: "Are you available?",
+                        icon: Icons.toggle_on,
                       ),
                       SizedBox(
                         height: Dimensions.height15,
                       ),
                       AppTextField(
                         textController: descriptionController,
-                        hintText: "Enter password",
-                        icon: Icons.password_sharp,
-                        isObscure: true,
-                      ),
-                      SizedBox(
-                        height: Dimensions.height15,
-                      ),
-                      AppTextField(
-                        textController: showonlistingController,
-                        hintText: "Enter password",
-                        icon: Icons.password_sharp,
-                        isObscure: true,
+                        hintText: "Type in description",
+                        icon: Icons.description_outlined,
+                      
                       ),
                       SizedBox(
                         height: Dimensions.height20,
@@ -238,14 +199,14 @@ class VendorSignUp extends StatelessWidget {
                         },
                         child: Container(
                           width: Dimensions.screenWidth / 2,
-                          height: Dimensions.screenHeight / 13,
+                          height: Dimensions.screenHeight / 15,
                           decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.circular(Dimensions.radius30),
                               color: AppColors.mainColor),
                           child: Center(
                             child: BigText(
-                              text: "vendor Sign Up",
+                              text: "Activate Vendor",
                               color: Colors.white,
                             ),
                           ),
@@ -255,27 +216,27 @@ class VendorSignUp extends StatelessWidget {
                         height: Dimensions.height15,
                       ),
                       // login link
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Get.to(() => LoginPage());
-                            },
-                            child: Container(
-                              margin:
-                                  EdgeInsets.only(left: Dimensions.height20),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                      Dimensions.radius20)),
-                              child: BigText(
-                                text: "Already have an account? | Login",
-                                color: AppColors.mainBlackColor,
-                                size: Dimensions.font20,
-                              ),
-                            ),
-                          )
-                        ],
-                      )
+                      // Row(
+                      //   children: [
+                      //     GestureDetector(
+                      //       onTap: () {
+                      //         Get.to(() => LoginPage());
+                      //       },
+                      //       child: Container(
+                      //         margin:
+                      //             EdgeInsets.only(left: Dimensions.height20),
+                      //         decoration: BoxDecoration(
+                      //             borderRadius: BorderRadius.circular(
+                      //                 Dimensions.radius20)),
+                      //         child: BigText(
+                      //           text: "Already have an account? | Login",
+                      //           color: AppColors.mainBlackColor,
+                      //           size: Dimensions.font20,
+                      //         ),
+                      //       ),
+                      //     )
+                      //   ],
+                      // )
                     ]),
                   )
                 : const CustomLoader();

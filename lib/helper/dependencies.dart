@@ -11,8 +11,10 @@ import 'package:turac/utils/app_constants.dart';
 
 import '../controllers/Item_controller.dart';
 import '../controllers/categories_controller.dart';
+import '../controllers/vendor_controller.dart';
 import '../repository/item_repo.dart';
 import '../repository/popular_category_repo.dart';
+import '../repository/vendor_repo.dart';
 
 // we load the dependancies to this file
 Future<void> init() async {
@@ -25,6 +27,7 @@ Future<void> init() async {
   Get.lazyPut(() => AuthRepo(apiClient: Get.find(), sharedPreferences: Get.find()));
   Get.lazyPut(() => CategoryRepo(apiClient: Get.find()));
   Get.lazyPut(() => ItemRepo(apiClient: Get.find()));
+  Get.lazyPut(() => VendorRepo(apiClient: Get.find()));
 
 
 
@@ -45,5 +48,6 @@ Future<void> init() async {
   Get.lazyPut(() => Authcontroller(authRepo: Get.find()));
   Get.lazyPut(() => Categorycontroller(categoryRepo: Get.find()));
   Get.lazyPut(() => Itemcontroller(itemRepo: Get.find()));
+  Get.lazyPut(() => Vendorcontroller(vendorRepo: Get.find()));
 }
  

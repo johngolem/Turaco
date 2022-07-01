@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:turac/controllers/popular_product_controller.dart';
 import 'package:turac/home/new%20login/login.dart';
+import 'package:turac/pages/vendor_registration.dart';
 import 'package:turac/routes/route_helper.dart';
 import 'package:turac/useless_files/old_model_files/new_login.dart';
 import 'package:turac/pages/category_main.dart';
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
       title: 'Turaco',
 
       // home:MainCategoryPage(),
-      home:ItemPage(),
+      // home:ItemPage(),
+      home:VendorSignUp(),
       //  home:LoginPage(),
       initialRoute: RouteHelper.initial,
 
