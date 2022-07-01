@@ -17,18 +17,20 @@ class Categorycontroller extends GetxController implements GetxService {
   CategoryModel get categoryModel => _categoryModel;
 
   Future<ResponseModel> getCategoryInfo() async {
-    _isLoading = true;
     Response response = await categoryRepo.getCategoryInfo();
     late ResponseModel responseModel;
-    _categoryModel = CategoryModel.fromJson(response.body);
+    print(response.body.toString());
 
-    
     if (response.statusCode == 200) {
+      _categoryModel = CategoryModel.fromJson(response.body);
+
+      _isLoading = true;
       responseModel = ResponseModel(true, "successfully");
     } else {
+      print("did not get data");
       responseModel = ResponseModel(false, response.statusText!);
     }
-    _isLoading = false;
+
     update();
     return responseModel;
   }

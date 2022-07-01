@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Turaco',
 
-      // home:MainCategoryPage(),
-       home:LoginPage(),
+      home:MainCategoryPage(),
+      //  home:LoginPage(),
       initialRoute: RouteHelper.initial,
 
       getPages: RouteHelper.routes,
@@ -51,6 +51,7 @@ class MyApp extends StatelessWidget {
       // // home:SignUpPage(),
       // // home:CategoryDetail(),
       // // home:AccountProfile(),
+      // home: MainCategoryPage(),
       
     );
   }
