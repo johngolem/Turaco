@@ -17,6 +17,7 @@ import 'controllers/popular_category.dart';
 import 'helper/dependencies.dart' as dep;
 import 'home/new login/new_signup.dart';
 import 'pages/product/item_main.dart';
+import 'pages/product_registration.dart';
 
 // this is the init method for the api's
 Future<void> main() async {
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
 
       // home:MainCategoryPage(),
       // home:ItemPage(),
-      home:VendorSignUp(),
+      // home:VendorSignUp(),
+      home:ProductSignUp(),
       //  home:LoginPage(),
       initialRoute: RouteHelper.initial,
 

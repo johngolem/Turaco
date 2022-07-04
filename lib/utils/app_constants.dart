@@ -22,9 +22,13 @@ class AppConstants {
   static const String items_URI = "api/v1/item-types";
   static const String register_URI = "api/auth/register";
   static const String forgot_password_URI = "to be added ";
-   static const String Upload_URL = "/uploads/";
-   static const String categories_uri = "/api/v1/item-categories";
-   static const String vendor_post_URI = "/api/v1/vendors";
+  static const String Upload_URL = "/uploads/";
+  static const String categories_uri = "/api/v1/item-categories";
+  static const String vendor_post_URI = "/api/v1/vendors";
+  static const String product_post_URI = "/api/v1/items";
+
+
+
 
 
   static const String TOKEN = "";
