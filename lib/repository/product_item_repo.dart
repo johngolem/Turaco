@@ -9,16 +9,15 @@ import '../models/product_item_model.dart';
 class ProductRepo extends GetxService {
   //api repo should have an instance of api client
   final ApiClient apiClient;
-  ProductRepo({required this.apiClient});
+  ProductRepo({required this.apiClient,});
 
-  Future<Response> productRegistration(ProductModelBody productModelBody) async {
-    return await apiClient.postData( AppConstants.product_post_URI,);
+  Future<Response> productRegistration(
+      ProductModelBody productModelBody) async {
+    return await apiClient.postOtherData(
+        AppConstants.product_post_URI, productModelBody.toJson());
   }
+}
 
 //getitem infor needs replacement 
 
 
-  Future<Response> getProductInfo() async {
-    return await apiClient.postData(AppConstants.product_post_URI);
-  }
-}

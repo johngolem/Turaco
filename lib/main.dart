@@ -41,10 +41,11 @@ class MyApp extends StatelessWidget {
       title: 'Turaco',
 
       // home:MainCategoryPage(),
-      // home:ItemPage(),
+      home:ItemPage(),
       // home:VendorSignUp(),
-      home:ProductSignUp(),
-      //  home:LoginPage(),
+      // home:ProductSignUp(),
+      // //  home:LoginPage(),
+      // home: AccountProfile(),
       initialRoute: RouteHelper.initial,
 
       getPages: RouteHelper.routes,

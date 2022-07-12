@@ -11,7 +11,6 @@ import 'package:turac/utils/colors.dart';
 import 'package:turac/utils/dimensions.dart';
 import 'package:turac/widgets/app_text_field.dart';
 import 'package:turac/widgets/big_text.dart';
-
 import '../controllers/product_item_controller.dart';
 import '../controllers/vendor_controller.dart';
 
@@ -20,6 +19,7 @@ class ProductSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // bool _userLoggedIn = Get.find<Authcontroller>().userLoggedIn();
     var vendoIdController = TextEditingController();
     var itemCategoryController = TextEditingController();
     var itemTypeController = TextEditingController();
@@ -50,23 +50,27 @@ class ProductSignUp extends StatelessWidget {
 
         //vendormodelbody is the object that we will create in the signup model
 
-        ProductModelBody productModelBody = ProductModelBody(
-            vendoId: int.parse(vendoid),
-            itemCategory: int.parse(itemcategory),
-            itemType: int.parse(itemtype),
-            availableQuantity: int.parse(availablequantity),
-            tags: tags,
+        ProductModelBody productModel = ProductModelBody(
+            // vendoId: int.parse(vendoid),
+            vendoId:1,
+            // itemCategory: int.parse(itemcategory),
+            itemCategory: 1,
+            // itemType: int.parse(itemtype),
+            itemType: 1,
+            // availableQuantity: int.parse(availablequantity),
+            availableQuantity: 54,
+            tags: "best of the best",
             showOnListing: true);
 
-        productController.productRegistration(productModelBody).then((status) {
+        productController.productRegistration(productModel).then((status) {
           if (status.isSuccess) {
-            print("succesful registration");
+            print("succesful product registration");
           } else {
+            print("failed to register");
+            // print(productModel.toString());
             showCustomSnackBar(status.message);
           }
         });
-
-        print(productModelBody.toString());
       }
     }
 
@@ -97,7 +101,9 @@ class ProductSignUp extends StatelessWidget {
                         height: Dimensions.height10,
                       ),
                       BigText(
-                        text: AppConstants.APP_NAME + " " + " New Product Details",
+                        text: AppConstants.APP_NAME +
+                            " " +
+                            " New Product Details",
                         color: AppColors.mainColor,
                         size: Dimensions.font26,
                       ),
@@ -138,16 +144,15 @@ class ProductSignUp extends StatelessWidget {
                       AppTextField(
                           textController: vendoIdController,
                           hintText: "vendor id",
-                          icon: Icons.numbers
-                          ),
+                          icon: Icons.numbers),
                       SizedBox(
                         height: Dimensions.height15,
                       ),
                       AppTextField(
-                          textController: itemTypeController,
-                          hintText: "Item Type",
-                          icon: Icons.arrow_drop_down,
-                          ),
+                        textController: itemTypeController,
+                        hintText: "Item Type",
+                        icon: Icons.arrow_drop_down,
+                      ),
                       SizedBox(
                         height: Dimensions.height15,
                       ),
@@ -162,7 +167,7 @@ class ProductSignUp extends StatelessWidget {
                       AppTextField(
                         textController: tagsController,
                         hintText: "tag",
-                       icon: Icons.arrow_drop_down,
+                        icon: Icons.arrow_drop_down,
                       ),
                       SizedBox(
                         height: Dimensions.height15,
@@ -180,6 +185,7 @@ class ProductSignUp extends StatelessWidget {
                       // sign up button
                       GestureDetector(
                         onTap: () {
+                          // print(object);
                           _productRegistration(_productController);
                         },
                         child: Container(
@@ -189,7 +195,6 @@ class ProductSignUp extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.circular(Dimensions.radius30),
                               color: AppColors.mainColor),
-                              
                           child: Center(
                             child: BigText(
                               text: "Post Item",

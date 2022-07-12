@@ -24,8 +24,8 @@ class ProductModelBody {
     final Map<String, dynamic> data = new Map<String, dynamic>();
 
     data['vendor_id']=this.vendoId;
-    data['item_category']=this.itemCategory;
-    data ['item_type']=this.itemType;
+    data['item_category_id']=this.itemCategory;
+    data ['item_type_id']=this.itemType;
     data['available_quantity']=this. availableQuantity;
     data['tags']=tags;
     data['show_on_listing']=showOnListing;

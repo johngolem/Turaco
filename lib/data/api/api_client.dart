@@ -4,12 +4,17 @@ import 'dart:async';
 import 'package:get/get_connect.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:turac/models/product_item_model.dart';
 import 'package:turac/utils/app_constants.dart';
+
+import '../../models/response_model.dart';
 
 class ApiClient extends GetConnect implements GetxService {
   late String token;
   final String appBaseUrl;
   late SharedPreferences sharedPreferences;
+  late ResponseModel responseModel;
+  late ProductModelBody productModelBody;
 
   late Map<String, String> _mainHeaders;
 
@@ -41,7 +46,8 @@ class ApiClient extends GetConnect implements GetxService {
       return Response(statusCode: 1, statusText: e.toString());
     }
   }
-// method for posting registration data cause it does  not require a bearer token 
+
+// method for posting registration data cause it does  not require a bearer token
   Future<Response> postRegData(String uri, dynamic body) async {
     print(body.toString());
     try {
@@ -55,10 +61,25 @@ class ApiClient extends GetConnect implements GetxService {
   }
 
 // method for posting data that requires the bearer token
-    Future<Response> postData(String uri,  {Map<String, String>? headers}) async {
-    
+  Future<Response> postData(String uri, {Map<String, String>? headers}) async {
+    // {Map<String, dynamic>? json}
+
     try {
-      Response response = await post(uri, headers?? _mainHeaders);
+      Response response = await post(uri, headers ?? _mainHeaders);
+      print(response.toString());
+      return response;
+    } catch (e) {
+      print(e.toString());
+      return Response(statusCode: 1, statusText: e.toString());
+    }
+  }
+
+// method to post data that requires bearer token, a body and uri
+  Future<Response> postOtherData(String uri,  productModelBody,
+      {Map<String, String>? headers}) async {
+    try {
+      Response response = await postOtherData(uri, productModelBody,
+          headers: headers ?? _mainHeaders);
       print(response.toString());
       return response;
     } catch (e) {
@@ -67,3 +88,6 @@ class ApiClient extends GetConnect implements GetxService {
     }
   }
 }
+
+
+// Map<String, dynamic> toJson()
